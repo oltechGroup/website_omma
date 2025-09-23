@@ -1,0 +1,103 @@
+/* src/pages/HomePage.css */
+
+/* Estilos Generales y del Contenedor */
+.homepage-container {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+/* --- Estilos del Menú --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f8f9fa;
+}
+
+.nav-logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* --- Estilos de la Sección Hero --- */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background-color: #e9ecef;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #718aa3;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.cta-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Puedes usar una imagen de fondo o un color para simular la imagen */
+.hero-image .placeholder-image {
+  width: 400px;
+  height: 300px;
+  background-color: #b0e0e6;
+}
+
+/* --- Estilos de las Secciones de Contenido --- */
+.about-us-section, .services-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.about-cards, .service-items {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card, .service-card {
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+
+
+@media (prefers-color-scheme: dark) {
+  body, .homepage-container {
+    background-color: #ffffff; 
+    color: #333333; 
+  }
+  .navbar, .hero-section {
+    background-color: #f8f9fa; 
+  }
+}
