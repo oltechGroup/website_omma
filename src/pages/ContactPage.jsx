@@ -33,11 +33,11 @@ export default function ContactPage() {
     <div className="contact-wrapper">
 
       {/* NAVBAR */}
-      <nav className="navbar">
+      <nav className="navbar-contact">
         <div className="logo"> 
           <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
         </div>
-        <ul className="nav-links">
+        <ul className="nav-links-contact">
           <li><a href="/">Inicio</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
           <li><a href="/services">Servicios</a></li>

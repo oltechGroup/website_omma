@@ -10,7 +10,7 @@ body {
 }
 
 /* NAVBAR */
-.navbar {
+.navbar-contact {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,9 +18,30 @@ body {
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+<<<<<<< HEAD
 .navbar .logo img { max-height: 50px; }
 .nav-links { display: flex; gap: 1.5rem; list-style: none; }
 .nav-links a { text-decoration: none; color: #333; font-weight: 500; }
+=======
+
+.navbar .logo img {
+  max-height: 50px;
+}
+
+.nav-links-contact {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links-contact a {
+  text-decoration: none;
+  color: #524f4f;
+  font-weight: 500;
+
+}
+
+>>>>>>> 34f7331 (Cambios home 1)
 .nav-links .btn-nav {
   background: var(--verde-oscuro);
   color: white;
