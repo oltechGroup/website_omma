@@ -39,9 +39,8 @@ export default function ContactPage() {
         </div>
         <ul className="nav-links">
           <li><a href="/">Inicio</a></li>
-          <li><a href="/catalogo">Catálogo</a></li>
-          <li><a href="/productos">Productos</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="/services">Servicios</a></li>
           <li><a href="/contact" className="btn-nav">Contáctanos</a></li>
         </ul>
       </nav>
@@ -133,8 +132,9 @@ export default function ContactPage() {
             <h3>Acerca de</h3>
             <div className="footer-links">
               <a href="/">Inicio</a>
-              <a href="/catalogo">Catálogo</a>
               <a href="/nosotros">Nosotros</a>
+              <a href="/services">Servicios</a>
+              
             </div>
           </div>
           <div>
