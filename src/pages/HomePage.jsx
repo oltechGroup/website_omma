@@ -51,23 +51,20 @@ function HomePage() {
 
   return (
     <div className="homepage-container">
-<<<<<<< HEAD
-      
       <nav className="navbar">
         <div className="nav-logo">Omma Group</div>
         <ul className="nav-links">
           <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/nosotros">Nosotros</Link></li>
+          <li><Link to="/about">Nosotros</Link></li>
           <li><Link to="/services">Servicios</Link></li>
           <li><Link to="/contact">Contactanos</Link></li>
         </ul>
-=======
+      </nav>
       <nav className={`navbar-home ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar-container">
           <div className="nav-logo">
             <img src="./src/assets/images/omma_white.png" alt="Logo" />
           </div>
-
           <ul className="nav-links">
             <li><Link to="/">{t.navbar.home}</Link></li>
             <li><Link to="/about">{t.navbar.about}</Link></li>
@@ -99,7 +96,6 @@ function HomePage() {
             )}
           </div>
         </div>
->>>>>>> 34f7331 (Cambios home 1)
       </nav>
 
       {/* Hero */}
