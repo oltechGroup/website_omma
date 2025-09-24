@@ -18,23 +18,9 @@ body {
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
-.navbar .logo img {
-  max-height: 50px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
+.navbar .logo img { max-height: 50px; }
+.nav-links { display: flex; gap: 1.5rem; list-style: none; }
+.nav-links a { text-decoration: none; color: #333; font-weight: 500; }
 .nav-links .btn-nav {
   background: var(--verde-oscuro);
   color: white;
@@ -42,10 +28,7 @@ body {
   border-radius: 6px;
   transition: 0.3s;
 }
-
-.nav-links .btn-nav:hover {
-  background: var(--verde-oscuro);
-}
+.nav-links .btn-nav:hover { background: var(--verde-oscuro); }
 
 /* HERO */
 .hero {
@@ -54,19 +37,9 @@ body {
   color: white;
   padding: 3rem 2rem;
 }
-
-.hero h1 {
-  font-size: 2.5rem;
-}
-
-.hero span {
-  color: var(--verde);
-}
-
-.hero p {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-}
+.hero h1 { font-size: 2.5rem; }
+.hero span { color: var(--verde); }
+.hero p { margin-top: 1rem; font-size: 1.2rem; }
 
 /* CONTACT SECTION */
 .contact-section {
@@ -75,14 +48,12 @@ body {
   gap: 2rem;
   padding: 3rem;
 }
-
 .info-card, .form-card {
   background: white;
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
-
 .info-card h2 {
   color: var(--verde-oscuro);
   margin-top: 1rem;
@@ -90,10 +61,7 @@ body {
   align-items: center;
   gap: 0.5rem;
 }
-
-.info-card p {
-  margin: 0.5rem 0 1rem;
-}
+.info-card p { margin: 0.5rem 0 1rem; }
 
 .social-icons {
   display: flex;
@@ -101,7 +69,6 @@ body {
   gap: 0.8rem;
   margin-top: 1rem;
 }
-
 .social-icons a {
   display: flex;
   align-items: center;
@@ -109,40 +76,27 @@ body {
   font-weight: 600;
   text-decoration: none;
 }
-
-.social-icons .whatsapp {
-  color: #25D366;
-}
-
-.social-icons .tiktok {
-  color: #010101;
-}
+.social-icons .whatsapp { color: #25D366; }
+.social-icons .tiktok { color: #010101; }
 
 /* FORM */
 .form-card form {
   display: flex;
   flex-direction: column;
-  color: black; /* fuerza el texto dentro del formulario */
+  color: black;
 }
-
 .form-card form input,
 .form-card form textarea {
   margin-bottom: 1rem;
   padding: 0.8rem;
   border-radius: 8px;
-  border: 1px solid black;   /* borde negro */
-  background: white;         /* fondo blanco */
-  color: black !important;   /* texto negro */
+  border: 1px solid black;
+  background: white;
+  color: black !important;
   font-size: 1rem;
 }
-
-/* Placeholder gris */
 .form-card form input::placeholder,
-.form-card form textarea::placeholder {
-  color: #666;
-}
-
-/* Efecto focus */
+.form-card form textarea::placeholder { color: #666; }
 .form-card form input:focus,
 .form-card form textarea:focus {
   outline: none;
@@ -150,7 +104,6 @@ body {
   box-shadow: 0 0 5px rgba(12, 179, 137, 0.5);
   color: black !important;
 }
-
 .form-card form button {
   padding: 1rem;
   background: var(--verde-oscuro);
@@ -160,10 +113,7 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-
-.form-card form button:hover {
-  background: var(--verde-oscuro);
-}
+.form-card form button:hover { background: var(--verde-oscuro); }
 
 /* MAPA */
 .contact-map {
@@ -181,33 +131,15 @@ body {
   color: white;
   padding: 3rem 2rem 1rem;
 }
-
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
-
-.footer-grid h3 {
-  margin-bottom: 1rem;
-  color: var(--verde);
-}
-
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.footer-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
+.footer-grid h3 { margin-bottom: 1rem; color: var(--verde); }
+.footer-links { display: flex; flex-direction: column; gap: 0.5rem; }
+.footer-links a { color: white; text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
 .footer-bottom {
   margin-top: 2rem;
   padding-top: 1rem;
@@ -216,30 +148,25 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
 .footer-socials a {
   color: white;
   margin-right: 1rem;
   font-size: 1.5rem;
   transition: 0.3s;
 }
+.footer-socials a:hover { color: var(--verde); }
+.footer-logo img { max-height: 50px; }
 
-.footer-socials a:hover {
-  color: var(--verde);
-}
-
-.footer-logo img {
-  max-height: 50px;
-}
-
-/* RESPONSIVE */
+/* --- RESPONSIVE SOLO PARA PANTALLAS CHICAS --- */
 @media (max-width: 900px) {
   .contact-section {
     grid-template-columns: 1fr;
+    padding: 2rem 1rem;
   }
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p { font-size: 1rem; }
+
+  .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom {
     flex-direction: column;
     gap: 1rem;

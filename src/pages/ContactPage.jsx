@@ -42,7 +42,7 @@ export default function ContactPage() {
           <li><a href="/catalogo">Catálogo</a></li>
           <li><a href="/productos">Productos</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
-          <li><a href="/contacto" className="btn-nav">Contáctanos</a></li>
+          <li><a href="/contact" className="btn-nav">Contáctanos</a></li>
         </ul>
       </nav>
 
@@ -152,7 +152,7 @@ export default function ContactPage() {
             <a href="https://www.instagram.com/grupooltech/#" target="_blank" rel="noreferrer"><FaInstagram /></a>
           </div>
           <div className="footer-logo">
-            <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
+            <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
           </div>
         </div>
       </footer>

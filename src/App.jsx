@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Importa el componente de tu página
 import HomePage from './pages/HomePage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           {/* El 'path="/"' coincide con la URL raíz de tu sitio. */}
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage/>}/>
+          <Route path="/nosotros" element={<AboutPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>

@@ -12,7 +12,7 @@ function HomePage() {
         <div className="nav-logo">Omma Group</div>
         <ul className="nav-links">
           <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/about">Nosotros</Link></li>
+          <li><Link to="/nosotros">Nosotros</Link></li>
           <li><Link to="/services">Servicios</Link></li>
           <li><Link to="/contact">Contactanos</Link></li>
         </ul>
