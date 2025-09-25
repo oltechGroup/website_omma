@@ -21,13 +21,13 @@ export default function AboutPage() {
   return (
     <div className="about-wrapper">
       {/* NAVBAR */}
-      <nav className="navbar">
-        <div className="logo">
+      <nav className="navbar-about">
+        <div className="logo-about">
           <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
         </div>
-        <ul className="nav-links">
+        <ul className="nav-links-about">
           <li><a href="/">Inicio</a></li>
-            <li><a href="/nosotros" className="btn-nav">Nosotros</a></li>
+          <li><a href="/about" className="btn-nav-about">Nosotros</a></li>
           <li><a href="/services">Servicios</a></li>
           <li><a href="/contact">Contáctanos</a></li>
         </ul>
@@ -164,15 +164,15 @@ export default function AboutPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <div className="footer-grid">
+      <footer className="footer-about">
+        <div className="footer-grid-about">
           <div>
             <h3>Acerca de nosotros</h3>
             <p>Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.</p>
           </div>
           <div>
             <h3>Acerca de</h3>
-            <div className="footer-links">
+            <div className="footer-links-about">
               <a href="/">Inicio</a>
               <a href="/services">Servicios</a>
               <a href="/contact">Contactanos</a>
@@ -184,8 +184,8 @@ export default function AboutPage() {
             <p>Email: contacto@ommagroup.com</p>
           </div>
         </div>
-        <div className="footer-bottom">
-          <div className="footer-logo">
+        <div className="footer-bottom-about">
+          <div className="footer-logo-about">
             <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
           </div>
           <p>© 2025 OMMA Group. Todos los derechos reservados.</p>

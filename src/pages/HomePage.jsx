@@ -58,7 +58,7 @@ function HomePage() {
           </div>
           <ul className="nav-links-home">
             <li><Link to="/">{t.navbar.home}</Link></li>
-            <li><Link to="/nosotros">{t.navbar.about}</Link></li>
+            <li><Link to="/about">{t.navbar.about}</Link></li>
             <li><Link to="/services">{t.navbar.services}</Link></li>
             <li><Link to="/contact">{t.navbar.contact}</Link></li>
           </ul>

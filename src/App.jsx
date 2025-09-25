@@ -7,7 +7,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
-import ServicesPage from './pages/ServicesPage.jsx';
+import ServicesPage from './pages/PagesServices/ServicesPage.jsx';
+import SportsMedicinePage from './pages/PagesServices/SportsMedicinePage.jsx';
+import KneePage from './pages/PagesServices/KneePage.jsx';
 
 function App() {
   return (
@@ -18,8 +20,10 @@ function App() {
           {/* El 'path="/"' coincide con la URL raíz de tu sitio. */}
           <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactPage/>}/>
-          <Route path="/nosotros" element={<AboutPage/>}/>
+          <Route path="/about" element={<AboutPage/>}/>
           <Route path="/services" element={<ServicesPage/>}/>
+          <Route path='/sports-medicine' element ={<SportsMedicinePage/>}/>
+          <Route path='/knee' element ={<KneePage/>}/>
         </Routes>
       </div>
     </BrowserRouter>

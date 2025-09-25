@@ -1,8 +1,15 @@
-// src/pages/ContactPage.jsx
+
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import "./ContactPage.css";
-import { FaTiktok, FaWhatsapp, FaMapMarkerAlt, FaPhoneAlt, FaFacebook, FaInstagram } from "react-icons/fa";
+import {
+  FaTiktok,
+  FaWhatsapp,
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaFacebook,
+  FaInstagram,
+} from "react-icons/fa";
 
 export default function ContactPage() {
   const form = useRef();
@@ -13,10 +20,10 @@ export default function ContactPage() {
 
     emailjs
       .sendForm(
-        "service_7b901no",     // ✅ Tu Service ID
-        "template_l0otpof",    // ✅ Tu Template ID
+        "service_7b901no", // ✅ Tu Service ID
+        "template_l0otpof", // ✅ Tu Template ID
         form.current,
-        "z5uJM9St_tSg6k3ul"    // ✅ Tu Public Key
+        "z5uJM9St_tSg6k3ul" // ✅ Tu Public Key
       )
       .then(
         () => {
@@ -31,22 +38,31 @@ export default function ContactPage() {
 
   return (
     <div className="contact-wrapper">
-
       {/* NAVBAR */}
       <nav className="navbar-contact">
-        <div className="logo"> 
+        <div className="logo-contact">
           <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
         </div>
         <ul className="nav-links-contact">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/nosotros">Nosotros</a></li>
-          <li><a href="/services">Servicios</a></li>
-          <li><a href="/contact" className="btn-nav">Contáctanos</a></li>
+          <li>
+            <a href="/">Inicio</a>
+          </li>
+          <li>
+            <a href="/about">Nosotros</a>
+          </li>
+          <li>
+            <a href="/services">Servicios</a>
+          </li>
+          <li>
+            <a href="/contact" className="btn-nav-contact">
+              Contáctanos
+            </a>
+          </li>
         </ul>
       </nav>
 
       {/* HERO */}
-      <header className="hero">
+      <header className="hero-contact">
         <h1>
           Conectando <span>contigo</span> sin fronteras
         </h1>
@@ -56,49 +72,90 @@ export default function ContactPage() {
       {/* CONTACT SECTION */}
       <section className="contact-section">
         {/* Tarjeta Izquierda */}
-        <div className="info-card">
-          <h2><FaMapMarkerAlt className="icon" /> Dirección</h2>
+        <div className="info-card-contact">
+          <h2>
+            <FaMapMarkerAlt className="icon" /> Dirección
+          </h2>
           <p>
-            Av. Homero 527, Depto. 701 Piso 7<br />
-            Polanco V Secc, Miguel Hidalgo<br />
+            Av. Homero 527, Depto. 701 Piso 7
+            <br />
+            Polanco V Secc, Miguel Hidalgo
+            <br />
             11560 Ciudad de México, CDMX
           </p>
 
-          <h2><FaPhoneAlt className="icon" /> Teléfono</h2>
+          <h2>
+            <FaPhoneAlt className="icon" /> Teléfono
+          </h2>
           <p>55 1744 2428</p>
 
           <h2>Redes sociales</h2>
-          <div className="social-icons">
-            <a href="https://www.facebook.com/OltechMexico" target="_black" rel="noreferrer" className="Facebook">
-              <FaFacebook/> Facebook
+          <div className="social-icons-contact">
+            <a
+              href="https://www.facebook.com/OltechMexico"
+              target="_blank"
+              rel="noreferrer"
+              className="facebook"
+            >
+              <FaFacebook /> Facebook
             </a>
-            <a href="https://wa.me/5215517442428" target="_blank" rel="noreferrer" className="whatsapp">
+            <a
+              href="https://wa.me/5215517442428"
+              target="_blank"
+              rel="noreferrer"
+              className="whatsapp"
+            >
               <FaWhatsapp /> WhatsApp
             </a>
-            <a href="https://www.tiktok.com/@ommagroup" target="_blank" rel="noreferrer" className="tiktok">
+            <a
+              href="https://www.tiktok.com/@ommagroup"
+              target="_blank"
+              rel="noreferrer"
+              className="tiktok"
+            >
               <FaTiktok /> TikTok
             </a>
-            <a href="https://www.instagram.com/grupooltech/#" target="_black" rel="noreferrer" className="instagram">
-              <FaInstagram/> Instagram
+            <a
+              href="https://www.instagram.com/grupooltech/#"
+              target="_blank"
+              rel="noreferrer"
+              className="instagram"
+            >
+              <FaInstagram /> Instagram
             </a>
           </div>
         </div>
 
         {/* Formulario */}
-        <div className="form-card" id="formulario">
+        <div className="form-card-contact" id="formulario">
           <h2>Escríbenos</h2>
           <form ref={form} onSubmit={sendEmail} className="contact-form">
             <label>Nombre</label>
-            <input type="text" name="name" placeholder="Escribe tu nombre" required />
+            <input
+              type="text"
+              name="name"
+              placeholder="Escribe tu nombre"
+              required
+            />
 
             <label>Correo o teléfono</label>
-            <input type="text" name="email" placeholder="Escribe tu correo o teléfono" required />
+            <input
+              type="text"
+              name="email"
+              placeholder="Escribe tu correo o teléfono"
+              required
+            />
 
             <label>Asunto</label>
             <input type="text" name="subject" placeholder="Escribe el asunto" />
 
             <label>Mensaje</label>
-            <textarea name="message" placeholder="Escribe tu mensaje..." rows="4" required />
+            <textarea
+              name="message"
+              placeholder="Escribe tu mensaje..."
+              rows="4"
+              required
+            />
 
             <button type="submit">Enviar Mensaje</button>
           </form>
@@ -120,21 +177,21 @@ export default function ContactPage() {
       </div>
 
       {/* FOOTER */}
-      <footer className="footer">
-        <div className="footer-grid">
+      <footer className="footer-contact">
+        <div className="footer-grid-contact">
           <div>
             <h3>Acerca de nosotros</h3>
             <p>
-              Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.
+              Somos un grupo dedicado a ofrecer un servicio excepcional con
+              soluciones de calidad y confianza.
             </p>
           </div>
           <div>
             <h3>Acerca de</h3>
-            <div className="footer-links">
+            <div className="footer-links-contact">
               <a href="/">Inicio</a>
-              <a href="/nosotros">Nosotros</a>
+              <a href="/about">Nosotros</a>
               <a href="/services">Servicios</a>
-              
             </div>
           </div>
           <div>
@@ -144,14 +201,38 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <div className="footer-socials">
-            <a href="https://wa.me/5215517442428" target="_blank" rel="noreferrer"><FaWhatsapp /></a>
-            <a href="https://www.tiktok.com/@ommagroup" target="_blank" rel="noreferrer"><FaTiktok /></a>
-            <a href="https://www.facebook.com/OltechMexico" target="_blank" rel="noreferrer"><FaFacebook /></a>
-            <a href="https://www.instagram.com/grupooltech/#" target="_blank" rel="noreferrer"><FaInstagram /></a>
+        <div className="footer-bottom-contact">
+          <div className="footer-socials-contact">
+            <a
+              href="https://wa.me/5215517442428"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaWhatsapp />
+            </a>
+            <a
+              href="https://www.tiktok.com/@ommagroup"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaTiktok />
+            </a>
+            <a
+              href="https://www.facebook.com/OltechMexico"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaFacebook />
+            </a>
+            <a
+              href="https://www.instagram.com/grupooltech/#"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaInstagram />
+            </a>
           </div>
-          <div className="footer-logo">
+          <div className="footer-logo-contact">
             <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
           </div>
         </div>
@@ -159,3 +240,4 @@ export default function ContactPage() {
     </div>
   );
 }
+
