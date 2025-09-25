@@ -53,7 +53,7 @@ export default function ServicesPage() {
             <h3>Rodilla</h3>
             <p>Reemplazos totales y revisiones de rodilla.</p>
           </a>
-          <a href="/hip" className="service-card">
+          <a href="/services" className="service-card">
             <FaBone className="icon" />
             <h3>Cadera</h3>
             <p>Revisiones y técnicas modernas en cirugía de cadera.</p>

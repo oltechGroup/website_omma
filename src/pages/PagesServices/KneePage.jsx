@@ -135,7 +135,7 @@ export default function KneePage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-knee">
-        <a href="/src/assets/catalog/Catálogo_rodilla.pdf" download className="btn-download-knee">
+        <a href="/src/assets/catalog/" download className="btn-download-knee">
           <FaDownload /> Descargar Catálogo Completo
         </a>
       </div>
