@@ -37,12 +37,12 @@ export default {
   },
   
   corporate: {
-    title: "Corporate values",
+    title: "Valores corporativos",
     values: [
-      { title: "Inncurses", text: "Descripción breve", icon: "🌞" },
-      { title: "Dehon exeoptivs", text: "Descripción breve", icon: "❤️" },
-      { title: "Accountity", text: "Descripción breve", icon: "☝️" },
-      { title: "Intest valuee", text: "Descripción breve", icon: "💡" }
+      { title: "Incursiones:", text: "Nos especializamos en servicios profesionales integrales con total inteligencia tecnológica y talento humano.", icon: "🌞" },
+      { title: "Dedicación:", text: "stamos comprometidos con la calidad en cada servicio, desde la administración hasta la construcción y el equipamiento.", icon: "❤️" },
+      { title: "Responsabilidad:", text: "Nuestros servicios están respaldados por la experiencia de trabajar con clientes como el Hospital Infantil de México y el ISSSTE.", icon: "☝️" },
+      { title: "Valores internos:", text: "Talento y experiencia a tu servicio. Nuestro equipo profesional garantiza la provisión y prestación de servicios de la más alta calidad.", icon: "💡" }
     ]
   }
 };
