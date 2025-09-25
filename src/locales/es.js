@@ -1,3 +1,4 @@
+
 export default {
   navbar: {
     home: "Inicio",
@@ -8,8 +9,7 @@ export default {
   hero: {
     
     title: "Innovación sin \nfronteras.\n",
-    description:
-      "Te ofrecemos soluciones tecnológicas de vanguardia \npara impulsar tu negocio. \nDesde el diseño hasta la implementación, estamos \ncontigo.",
+    description:"Somos la opción que combina ingeniería de clase mundial, \ncostos eficientes y servicio local confiable, ofreciendo a los \nmédicos y hospitales la seguridad de un aliado estratégico que entiende sus retos clínicos y financieros.",
     button: "Empezar ahora",
   },
 
@@ -31,18 +31,46 @@ export default {
 
   services: {
     title: "Experiencia y servicios",
-    item1: { title: "Expury Line", text: "Detalles sobre este servicio que ofreces." },
-    item2: { title: "Contribución", text: "Descripción de otro servicio." },
-    item3: { title: "Toaja difellj now", text: "Descripción de un tercer servicio." },
+    item1: { title: "Prótesis de rodilla", text: "Diseñada para devolverte la movilidad y la confianza. Nuestra prótesis de rodilla de alta calidad te permite recuperar tu vida activa." },
+    item2: { title: "Personal con experiencia", text: "Contáctenos hoy mismo para discutir cómo podemos satisfacer sus necesidades específicas." },
+    item3: { title: "Prótesis de reversa de hombro", text: "Una solución de alta tecnología para la recuperación del hombro. Nuestra prótesis de reversa de hombro te ofrece la estabilidad y el soporte que necesitas para volver a la normalidad." },
+    button: "Conocenos",
   },
   
   corporate: {
     title: "Valores corporativos",
     values: [
       { title: "Incursiones:", text: "Nos especializamos en servicios profesionales integrales con total inteligencia tecnológica y talento humano.", icon: "🌞" },
-      { title: "Dedicación:", text: "stamos comprometidos con la calidad en cada servicio, desde la administración hasta la construcción y el equipamiento.", icon: "❤️" },
+      { title: "Dedicación:", text: "Estamos comprometidos con la calidad en cada servicio, desde la administración hasta la construcción y el equipamiento.", icon: "❤️" },
       { title: "Responsabilidad:", text: "Nuestros servicios están respaldados por la experiencia de trabajar con clientes como el Hospital Infantil de México y el ISSSTE.", icon: "☝️" },
       { title: "Valores internos:", text: "Talento y experiencia a tu servicio. Nuestro equipo profesional garantiza la provisión y prestación de servicios de la más alta calidad.", icon: "💡" }
     ]
-  }
+  },
+   offer: {
+    title: "¡Lo más nuevo para ti!",
+    description: "Descubre nuestros últimos productos diseñados para ofrecerte innovación, calidad y estilo.",
+    button: "Ver producto",
+  },
+  sectionchoose: {
+    title: "Donde la ciencia se convierte en movilidad",
+    description: "Somos una empresa creada el 19 de marzo de 2024, dedicada a la provisión y prestación de servicios profesionales para terceros. Brindamos soluciones integrales para eventos masivos, combinando inteligencia tecnológica y talento humano.",
+    button: "Ver productos",
+  },
+  footerhome: {
+    about: "Acerca de nosotros",
+    description: "Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.",
+    about2: "Acerca de:",
+    start: "Inicio",
+    about3: "Nosotros",
+    services: "Servicios",
+    info: "Información de Contacto",
+    phone: "Tel: 55 1744 2428",
+    email: "Email: contacto@ommagroup.com",
+
+  },
+
+
+
+
+  
 };

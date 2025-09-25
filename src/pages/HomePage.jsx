@@ -144,7 +144,9 @@ const handleChatSubmit = (e) => {
                 </span>
               ))}
             </p>
-            <button className="cta-button">{t.hero.button}</button>
+            <button className="cta-button">
+              <Link to="/services" className="cta-link">
+              {t.hero.button}</Link></button>
           </div>
 
           <div className="hero-media">
@@ -178,40 +180,34 @@ const handleChatSubmit = (e) => {
 
       <section className="services-experience-section">
         <div className="container">
-          <h2 className="section-title">Experiencia y servicios</h2>
+          <h2 className="section-title">{t.services.title}</h2>
           <div className="services-cards-container">
             <div className="service-card">
               <div className="card-image-wrapper">
                 <img src="/src/assets/images/Imagen1.png" alt="Descripción de la imagen 1" />
               </div>
-              <h3>Prótesis de rodilla</h3>
-              <p>
-                Diseñada para devolverte la movilidad y la confianza. Nuestra prótesis de rodilla de alta calidad te permite recuperar tu vida activa.
-              </p>
+              <h3>{t.services.item1.title}</h3>
+              <p>{t.services.item1.text}</p>
             </div>
             <div className="service-card">
               <div className="card-image-wrapper">
                 <img src="/src/assets/images/fondo_about.png" alt="Descripción de la imagen 2" />
               </div>
-              <h3>Personal con experiencia</h3>
-              <p>
-                Contáctenos hoy mismo para discutir cómo podemos satisfacer sus necesidades específicas.
-              </p>
+              <h3>{t.services.item2.title}</h3>
+              <p>{t.services.item2.text}</p>
             </div>
             <div className="service-card">
               <div className="card-image-wrapper">
                 <img src="/src/assets/images/ejemplo.png" alt="Descripción de la imagen 3" />
               </div>
-              <h3>Prótesis de reversa de hombro</h3>
-              <p>
-                Una solución de alta tecnología para la recuperación del hombro. Nuestra prótesis de reversa de hombro te ofrece la estabilidad y el soporte que necesitas para volver a la normalidad.
-              </p>
+              <h3>{t.services.item3.title}</h3>
+              <p>{t.services.item3.text}</p>
             </div>
           </div>
         </div>
        <div className="consult">
         <button className="cta-button-experience">
-          <Link to="/services" className="cta-link">Conocenos</Link>
+          <Link to="/services" className="cta-link">{t.services.button}</Link>
         </button>
       </div>
 
@@ -222,12 +218,10 @@ const handleChatSubmit = (e) => {
     <section className="new-offer-section">
   <div className="offer-container">
     <div className="offer-text">
-      <h2 className="animated-title">¡Lo más nuevo para ti!</h2>
-      <p className="animated-subtitle">
-        Descubre nuestros últimos productos diseñados para ofrecerte innovación, calidad y estilo.
-      </p>
+      <h2 className="animated-title">{t.offer.title}</h2>
+      <p className="animated-subtitle">{t.offer.description}</p>
       <button className="cta-offer">
-        <Link to="/services" className="cta-link">Ver producto</Link>
+        <Link to="/services" className="cta-link">{t.hero.button}</Link>
       </button>
     </div>
     <div className="offer-image">
@@ -299,8 +293,6 @@ const handleChatSubmit = (e) => {
 </div>
 
         )}
-
-
       </div>
 
       <section className="why-choose-section">
@@ -309,13 +301,9 @@ const handleChatSubmit = (e) => {
             <img src="/src/assets/images/seccion5.png" alt="Cirugía de ejemplo" />
           </div>
           <div className="why-choose-text">
-            <h2>"Donde la ciencia se convierte en movilidad".</h2>
-            <p>
-              Somos una empresa creada el 19 de marzo de 2024, dedicada a la provisión y 
-              prestación de servicios profesionales para terceros. Brindamos soluciones 
-              integrales para eventos masivos, combinando inteligencia tecnológica y talento humano. 
-            </p>
-            <button className="why-btn">Ver productos</button>
+            <h2>{t.sectionchoose.title}</h2>
+            <p>{t.sectionchoose.description}</p>
+            <button className="why-btn">{t.sectionchoose.button}</button>
           </div>
         </div>
       </section>
@@ -325,24 +313,21 @@ const handleChatSubmit = (e) => {
     <footer className="footer-home">
   <div className="footer-grid-home">
     <div>
-      <h3>Acerca de nosotros</h3>
-      <p>
-        Somos un grupo dedicado a ofrecer un servicio excepcional con
-        soluciones de calidad y confianza.
-      </p>
+      <h3>{t.footerhome.about}</h3>
+      <p>{t.footerhome.description}</p>
     </div>
     <div>
-      <h3>Acerca de</h3>
+      <h3>{t.footerhome.about2}</h3>
       <div className="footer-links-home">
-        <a href="/">Inicio</a>
-        <a href="/about">Nosotros</a>
-        <a href="/services">Servicios</a>
+        <a href="/">{t.footerhome.start}</a>
+        <a href="/about">{t.footerhome.about3}</a>
+        <a href="/services">{t.footerhome.services}</a>
       </div>
     </div>
     <div>
-      <h3>Información de Contacto</h3>
-      <p>Tel: 55 1744 2428</p>
-      <p>Email: contacto@ommagroup.com</p>
+      <h3>{t.footerhome.info}</h3>
+      <p>{t.footerhome.phone}</p>
+      <p>{t.footerhome.email}</p>
     </div>
   </div>
 

@@ -8,7 +8,7 @@ export default {
   hero: {
     title: "Innovation without \nborders.\n",
     description:
-      "We offer cutting-edge technology solutions to boost your business. From design to implementation, we are with you.",
+      "We are the choice that combines world-class engineering, efficient costs, and reliable local service, offering physicians and hospitals the security of a strategic partner that understands their clinical and financial challenges.",
     button: "Get Started",
   },
   aboutUs: {
@@ -28,17 +28,40 @@ export default {
   },
   services: {
     title: "Experience and Services",
-    item1: { title: "Expury Line", text: "Details about this service you offer." },
-    item2: { title: "Contribution", text: "Description of another service." },
-    item3: { title: "Toaja difellj now", text: "Description of a third service." },
+    item1: { title: "Knee prosthesis", text: "Designed to restore your mobility and confidence. Our high-quality knee replacement lets you get back to your active life." },
+    item2: { title: "Experienced staff", text: "Contact us today to discuss how we can meet your specific needs." },
+    item3: { title: "Reverse shoulder prosthesis", text: "A high-tech solution for shoulder recovery. Our shoulder reversal prosthesis offers you the stability and support you need to get back to normal." },
+    button: "Get to know us",
   },
   corporate: {
     title: "Corporate values",
     values: [
-      { title: "Inncurses", text: "Descripción breve", icon: "🌞" },
-      { title: "Dehon exeoptivs", text: "Descripción breve", icon: "❤️" },
-      { title: "Accountity", text: "Descripción breve", icon: "☝️" },
-      { title: "Intest valuee", text: "Descripción breve", icon: "💡" }
+      { title: "Inncurses", text: "We specialize in comprehensive professional services with complete technological intelligence and human talent.", icon: "🌞" },
+      { title: "Dedication:", text: "We are committed to quality in every service, from administration to construction and equipment.", icon: "❤️" },
+      { title: "Responsibility:", text: "Our services are backed by our experience working with clients such as the Children's Hospital of Mexico and the ISSSTE.", icon: "☝️" },
+      { title: "Internal values:", text: "Talent and experience at your service. Our professional team guarantees the provision and delivery of the highest quality services.", icon: "💡" }
     ]
-  }
+  },
+   offer: {
+    title: "The latest for you!",
+    description: "Discover our latest products designed to offer you innovation, quality, and style.",
+    button: "View product",
+  },
+  sectionchoose: {
+    title: "Where science becomes mobility",
+    description: "We are a company founded on March 19, 2024, dedicated to providing professional services to third parties. We offer comprehensive solutions for large-scale events, combining technological intelligence and human talent.",
+    button: "View produtc",
+  },
+  footerhome: {
+    about: "About us",
+    description: "We are a group dedicated to providing exceptional service with quality and reliable solutions.",
+    about2: "About",
+    start: "Start",
+    about3: "Us",
+    services: "Services",
+    info: "Contact Information",
+    phone: "Tel: 55 1744 2428",
+    email: "Email: contacto@ommagroup.com",
+
+  },
 };
