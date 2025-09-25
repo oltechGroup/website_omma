@@ -2,6 +2,7 @@
 html, body {
   overflow-x: hidden;
 }
+
 /* Estilos Generales */
 .homepage-container {
   font-family: Arial, sans-serif;
@@ -22,8 +23,14 @@ html, body {
   z-index: 1000;
   transition: background 0.2s ease, backdrop-filter 0.3s ease;
 }
+/* --- Cuando haces scroll --- */
+.navbar-home.scrolled {
+  background: #605d5d91; /* Fondo negro sólido */
+  backdrop-filter: blur(4px); 
+  max-height: 90px;
+}
 
-.navbar-container {
+.navbar-container-home {
   max-width: 100px; /* limita el ancho */
   margin: 0 auto;   /* centra horizontalmente */
   display: flex;
@@ -34,30 +41,36 @@ html, body {
 
 /* Logo con imagen */
 .nav-logo img {
-  height: 90px;     /* ajusta según tamaño de tu logo */
+  height: 110px;     /* ajusta según tamaño de tu logo */
   width: auto;
   padding: 7px;
-
 }
 
 /* Links */
-.nav-links {
+.nav-links-home {
   list-style: none;
   display: flex;
   gap: 40px;
 }
 
-.nav-links li{
+.nav-links-home li {
+  text-decoration: none;
   font-size: 18px;
   color: #ffffff;
 }
-.nav-links a {
+
+.nav-links-home a {
   text-decoration: none;
-  color: white; /* blanco sobre hero */
+  color: #ffffff; /* Cambia el color del texto a blanco */
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
+.nav-links a:hover {
+  color: #28a745; /* hover en verde */
+}
+
+/* Dropdown Idioma */
 .lang-dropdown {
   position: relative;
   display: inline-block;
@@ -112,24 +125,11 @@ html, body {
   height: 24px;
 }
 
-
-.nav-links a:hover {
-  color: #28a745; /* hover en verde */
-}
-
-/* --- Cuando haces scroll --- */
-.navbar.scrolled {
-  background: rgba(0, 0, 0, 0.7); /* fondo oscuro translúcido */
-  backdrop-filter: blur(6px);     /* efecto de desenfoque elegante */
-}
-
 /* --- Hero Section con imagen de fondo --- */
 .hero-section {
   display: flex;
-  flex-direction: column; 
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 0 2rem;
   background: url('./src/assets/images/Home1.png') no-repeat center center/cover;
   width: 100vw;   
@@ -139,9 +139,7 @@ html, body {
   overflow: hidden; /* evita scroll horizontal */
 }
 
-
-
-/* Opcional: gradiente oscuro encima de la imagen para mejor legibilidad */
+/* Gradiente oscuro encima de la imagen */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -153,24 +151,38 @@ html, body {
   z-index: 0;
 }
 
-.hero-content {
-  position: relative; /* para estar encima del gradiente */
-  z-index: 1;
+/* Contenedor en 2 columnas (texto + media) */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem; /* espacio entre texto e imagen/video */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1; /* encima del gradiente */
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  color: #ffffff;
+/* Texto alineado a la izquierda */
+.hero-text {
+  flex: 1;
+  text-align: left;
+  color: #fff;
+}
+
+.hero-text h1 {
+  font-size: 5rem;
   margin-bottom: 1rem;
 }
 
-.hero-content p {
+.hero-text p {
   font-size: 1.2rem;
-  line-height: 1.5;
-  max-width: 600px;
-  margin: 0 auto;
+  line-height: 1.6;
+  white-space: pre-line; /* respeta saltos de línea */
 }
 
+/* Botón CTA */
 .cta-button {
   background-color: #28a745;
   color: white;
@@ -180,30 +192,228 @@ html, body {
   cursor: pointer;
   margin-top: 1rem;
   border-radius: 6px;
+  align-items: initial;
+}
+
+/* Imagen o video */
+.hero-media {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-media img,
+.hero-media video {
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
 }
 
 /* --- Secciones de contenido --- */
-.about-us-section,
-.services-section {
+/* Secciones About y Services */
+.about-us-section{
   padding: 4rem 2rem;
   text-align: center;
-  background: #ffffff;
-  color: #333;
+  color: #111;
+  border-radius: 12px;
 }
 
-.about-cards,
-.service-items {
+.about-cards {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  gap: 3rem;              /* Espacio entre las cards */
+  flex-wrap: wrap;         /* Permite que las cards bajen de fila si no caben */
+  margin-top: 1rem;
+}
+
+/* Estilos de cada card */
+.about-cards .card{
+  max-width: 24%;
+}
+
+/* Animación al pasar el mouse */
+.card:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Imagen en la parte superior */
+.card img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+}
+
+/* Títulos y texto */
+.card h3{
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.card p{
+  font-size: 0.95rem;
+  color: #555;
+}
+
+
+/*-------------------Section icon-----------------------------*/
+.corporate-section {
+  background-color: #0e2a36;
+  color: white;
+  padding: 2rem 0rem;
+  max-height: 500px;
+}
+
+.corporate-container {
+  max-width: 72rem; /* 6xl */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.corporate-title {
+  font-size: 1.875rem; /* 3xl */
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .corporate-title {
+    font-size: 2.25rem; /* 4xl */
+  }
+}
+
+.corporate-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem; /* 10 */
+}
+
+@media (min-width: 640px) {
+  .corporate-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .corporate-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.corporate-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem; /* space-y-4 */
+}
+
+.corporate-icon {
+  font-size: 3rem; /* text-5xl */
+}
+
+.corporate-card-title {
+  font-weight: 600;
+  font-size: 1.125rem; /* text-lg */
+}
+
+.corporate-card-text {
+  font-size: 0.875rem; /* text-sm */
+  color: #d1d5db; /* text-gray-300 */
+}
+
+/**************************************************************/
+/*-----------------Seccion de experiencia y servicio----------*/
+.services-experience-section {
+  background-color: #1a2a3a; /* Color de fondo */
+  color: #fff;
+  padding: 80px 20px;
+}
+
+.services-experience-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-experience-section .section-title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 60px;
+  color: #fff;
+}
+
+.services-cards-container {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-.card,
-.service-card {
-  border: 1px solid #ffffff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
+.services-cards-container .service-card {
+  background-color: #2b3e50; /* Color de fondo de las tarjetas */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 350px;
+  flex: 1 1 300px;
+  text-align: center;
+  padding-bottom: 20px;
 }
+
+.card-image-wrapper {
+  width: 100%;
+  height: 200px; /* altura fija del área de imagen */
+  display: flex;               /* usamos flexbox */
+  justify-content: center;     /* centra horizontalmente */
+  align-items: center;         /* centra verticalmente */
+  overflow: hidden;
+}
+
+.card-image-wrapper img {
+ max-width: 100%;   /* ocupa todo el ancho disponible */
+  max-height: 100%;  /* ocupa toda la altura disponible */
+  object-fit: contain; /* mantiene la proporción sin recortar */
+  display: block;
+  
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0 10px;
+  padding: 0 15px;
+  color: white;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #c4c4c4;
+  line-height: 1.6;
+  padding: 0 15px;
+}
+
+.consult .cta-button-experience {
+  background-color: #b9d6c0;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 6px;
+  align-items: initial;
+}
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .services-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/**************************************************************/
