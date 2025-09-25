@@ -10,6 +10,7 @@ import AboutPage from './pages/AboutPage.jsx';
 import ServicesPage from './pages/PagesServices/ServicesPage.jsx';
 import SportsMedicinePage from './pages/PagesServices/SportsMedicinePage.jsx';
 import KneePage from './pages/PagesServices/KneePage.jsx';
+import ShoulderPage from './pages/PagesServices/ShoulderPage.jsx';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/services" element={<ServicesPage/>}/>
           <Route path='/sports-medicine' element ={<SportsMedicinePage/>}/>
           <Route path='/knee' element ={<KneePage/>}/>
+          <Route path='/shoulder' element={<ShoulderPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>
