@@ -11,9 +11,12 @@ import { BsChatDotsFill } from "react-icons/bs";
 import ommaLogo from '../assets/images/omma_white.png';
 import homeImg from '../assets/images/Home1.png';
 import ommaejemplo from '../assets/images/ejemplo2.png';
-import ommamision from '/src/assets/icons/mision.jpg';
-import ommavision from '/src/assets/icons/vision.jpg';
-import ommamvalues from '/src/assets/icons/valores.jpg';
+import ommamision from '../assets/icons/mision.jpg';
+import ommavision from '../assets/icons/vision.jpg';
+import ommamvalues from '../assets/icons/valores.jpg';
+import ommaexp1 from '../assets/images/Imagen1.png';
+import ommaexp2 from '../assets/images/fondo_about.png';
+import ommaexp3 from '../assets/images/ejemplo.png';
 
 
 function HomePage() {
@@ -192,21 +195,21 @@ const handleChatSubmit = (e) => {
           <div className="services-cards-container">
             <div className="service-card">
               <div className="card-image-wrapper">
-                <img src="/src/assets/images/Imagen1.png" alt="Descripción de la imagen 1" />
+                <img src={ommaexp1} alt="Descripción de la imagen 1" />
               </div>
               <h3>{t.services.item1.title}</h3>
               <p>{t.services.item1.text}</p>
             </div>
             <div className="service-card">
               <div className="card-image-wrapper">
-                <img src="/src/assets/images/fondo_about.png" alt="Descripción de la imagen 2" />
+                <img src={ommaexp2} alt="Descripción de la imagen 2" />
               </div>
               <h3>{t.services.item2.title}</h3>
               <p>{t.services.item2.text}</p>
             </div>
             <div className="service-card">
               <div className="card-image-wrapper">
-                <img src="/src/assets/images/ejemplo.png" alt="Descripción de la imagen 3" />
+                <img src={ommaexp3} alt="Descripción de la imagen 3" />
               </div>
               <h3>{t.services.item3.title}</h3>
               <p>{t.services.item3.text}</p>
