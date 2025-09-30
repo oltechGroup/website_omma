@@ -9,7 +9,8 @@ import ptFlag from "/src/assets/icons/pt.png";
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { BsChatDotsFill } from "react-icons/bs";
 import ommaLogo from '../assets/images/omma_white.png';
-
+import homeImg from '../assets/images/Home1.png';
+import ommaejemplo from '../assets/images/ejemplo2.png';
 
 function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -151,7 +152,7 @@ const handleChatSubmit = (e) => {
           </div>
 
           <div className="hero-media">
-            <img src="/src/assets/images/ejemplo2.png" alt="Ejemplo" />
+            <img src={ommaejemplo} alt="Ejemplo" />
           </div>
         </div>
       </header>
