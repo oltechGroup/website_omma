@@ -11,6 +11,10 @@ import { BsChatDotsFill } from "react-icons/bs";
 import ommaLogo from '../assets/images/omma_white.png';
 import homeImg from '../assets/images/Home1.png';
 import ommaejemplo from '../assets/images/ejemplo2.png';
+import ommamision from '/src/assets/icons/mision.jpg';
+import ommavision from '/src/assets/icons/vision.jpg';
+import ommamvalues from '/src/assets/icons/valores.jpg';
+
 
 function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -165,17 +169,17 @@ const handleChatSubmit = (e) => {
         <h2>{t.aboutUs.title}</h2>
         <div className="about-cards">
           <div className="card">
-            <img src="/src/assets/icons/mision.jpg" alt="Misión" className="card-image" />
+            <img src={ommamision} alt="Misión" className="card-image"/>
             <h3>{t.aboutUs.mission.title}</h3>
             <p>{t.aboutUs.mission.text}</p>
           </div>
           <div className="card">
-            <img src="/src/assets/icons/vision.jpg" alt="Visión" className="card-image" />
+            <img src={ommavision} alt="Visión" className="card-image" />
             <h3>{t.aboutUs.vision.title}</h3>
             <p>{t.aboutUs.vision.text}</p>
           </div>
           <div className="card">
-            <img src="/src/assets/icons/valores.jpg" alt="Valores" className="card-image" />
+            <img src={ommamvalues} alt="Valores" className="card-image" />
             <h3>{t.aboutUs.values.title}</h3>
             <p>{t.aboutUs.values.description}</p>
           </div>
