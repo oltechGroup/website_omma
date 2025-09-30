@@ -17,6 +17,10 @@ import ommamvalues from '../assets/icons/valores.jpg';
 import ommaexp1 from '../assets/images/Imagen1.png';
 import ommaexp2 from '../assets/images/fondo_about.png';
 import ommaexp3 from '../assets/images/ejemplo.png';
+import ommavideo from '../assets/videos/Codoomma.mp4';
+import ommawhats from '../assets/icons/whatsap.png';
+import ommachat from '../assets/icons/chatbot.png';
+import ommachoose from '../assets/images/seccion5.png';
 
 
 function HomePage() {
@@ -237,7 +241,7 @@ const handleChatSubmit = (e) => {
     </div>
     <div className="offer-image">
       <video autoPlay loop muted playsInline>
-        <source src="/src/assets/videos/Codoomma.mp4" type="video/mp4" />
+        <source src={ommavideo} type="video/mp4" />
       </video>
     </div>
   </div>
@@ -266,13 +270,13 @@ const handleChatSubmit = (e) => {
           rel="noopener noreferrer"
           className="floating-btn whatsapp-btn"
         >
-          <img src="/src/assets/icons/whatsap.png" alt="WhatsApp" />
+          <img src={ommawhats} alt="WhatsApp" />
         </a>
         <button
           className="floating-btn chatbot-btn"
           onClick={() => setIsChatOpen(!isChatOpen)}
         >
-          <img src="/src/assets/icons/chatbot.png" alt="Chatbot" />
+          <img src={ommachat} alt="Chatbot" />
         </button>
         {isChatOpen && (
           <div className="chatbot-box">
@@ -309,7 +313,7 @@ const handleChatSubmit = (e) => {
       <section className="why-choose-section">
         <div className="why-choose-container">
           <div className="why-choose-image">
-            <img src="/src/assets/images/seccion5.png" alt="Cirugía de ejemplo" />
+            <img src={ommachoose} alt="Cirugía de ejemplo" />
           </div>
           <div className="why-choose-text">
             <h2>{t.sectionchoose.title}</h2>
