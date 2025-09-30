@@ -2,12 +2,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./HomePage.css"; 
-import translations from "../locales";
-import esFlag from "../assets/icons/es.png";
-import enFlag from "../assets/icons/en.png";
-import ptFlag from "../assets/icons/pt.png";
+import translations from "/src/locales";
+import esFlag from "/src/assets/icons/es.png";
+import enFlag from "/src/assets/icons/en.png";
+import ptFlag from "/src/assets/icons/pt.png";
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { BsChatDotsFill } from "react-icons/bs";
+import ommaLogo from '../assets/images/omma_white.png';
 
 
 function HomePage() {
@@ -96,7 +97,7 @@ const handleChatSubmit = (e) => {
       <nav className={`navbar-home ${scrolled ? "scrolled" : ""}`}>
         <div className="navbar-container-home">
           <div className="nav-logo">
-            <img src="./src/assets/images/omma_white.png" alt="Logo" />
+            <img src={ommaLogo} alt="Logo" />
           </div>
           <ul className="nav-links-home">
             <li><Link to="/">{t.navbar.home}</Link></li>
@@ -150,7 +151,7 @@ const handleChatSubmit = (e) => {
           </div>
 
           <div className="hero-media">
-            <img src="./src/assets/images/ejemplo2.png" alt="Ejemplo" />
+            <img src="/src/assets/images/ejemplo2.png" alt="Ejemplo" />
           </div>
         </div>
       </header>
@@ -161,17 +162,17 @@ const handleChatSubmit = (e) => {
         <h2>{t.aboutUs.title}</h2>
         <div className="about-cards">
           <div className="card">
-            <img src="./src/assets/icons/mision.jpg" alt="Misión" className="card-image" />
+            <img src="/src/assets/icons/mision.jpg" alt="Misión" className="card-image" />
             <h3>{t.aboutUs.mission.title}</h3>
             <p>{t.aboutUs.mission.text}</p>
           </div>
           <div className="card">
-            <img src="./src/assets/icons/vision.jpg" alt="Visión" className="card-image" />
+            <img src="/src/assets/icons/vision.jpg" alt="Visión" className="card-image" />
             <h3>{t.aboutUs.vision.title}</h3>
             <p>{t.aboutUs.vision.text}</p>
           </div>
           <div className="card">
-            <img src="./src/assets/icons/valores.jpg" alt="Valores" className="card-image" />
+            <img src="/src/assets/icons/valores.jpg" alt="Valores" className="card-image" />
             <h3>{t.aboutUs.values.title}</h3>
             <p>{t.aboutUs.values.description}</p>
           </div>
@@ -303,7 +304,7 @@ const handleChatSubmit = (e) => {
           <div className="why-choose-text">
             <h2>{t.sectionchoose.title}</h2>
             <p>{t.sectionchoose.description}</p>
-            <button className="why-btn">{t.sectionchoose.button}</button>
+            <button className="why-btn"><Link to="/services" className="cta-link">{t.sectionchoose.button}</Link></button>
           </div>
         </div>
       </section>
