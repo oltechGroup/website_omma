@@ -134,7 +134,9 @@ const handleChatSubmit = (e) => {
       </nav>
 
       {/* Hero */}
-      <header className="hero-section">
+      <header className="hero-section"
+  style={{ backgroundImage: `url(${homeImg})` }}
+      >
         <div className="hero-container">
           <div className="hero-text">
             <h1>{t.hero.title}</h1>
