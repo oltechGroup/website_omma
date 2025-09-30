@@ -21,7 +21,7 @@ import ommavideo from '../assets/videos/Codoomma.mp4';
 import ommawhats from '../assets/icons/whatsap.png';
 import ommachat from '../assets/icons/chatbot.png';
 import ommachoose from '../assets/images/seccion5.png';
-
+import ommawhite from '../assets/images/omma_white.png';
 
 function HomePage() {
   const [scrolled, setScrolled] = useState(false);
@@ -378,7 +378,7 @@ const handleChatSubmit = (e) => {
       </a>
     </div>
     <div className="footer-logo-home">
-      <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
+      <img src={ommawhite} alt="Logo OMMA" />
     </div>
   </div>
 </footer>
