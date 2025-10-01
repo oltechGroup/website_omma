@@ -1,4 +1,4 @@
-
+// src/pages/ContactPage.jsx
 import React, { useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import "./ContactPage.css";
@@ -41,7 +41,8 @@ export default function ContactPage() {
       {/* NAVBAR */}
       <nav className="navbar-contact">
         <div className="logo-contact">
-          <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
+          {/* 🔧 Imagen corregida a public/images */}
+          <img src="/images/omma.svg" alt="Logo OMMA" />
         </div>
         <ul className="nav-links-contact">
           <li>
@@ -233,7 +234,8 @@ export default function ContactPage() {
             </a>
           </div>
           <div className="footer-logo-contact">
-            <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
+            {/* 🔧 Imagen corregida a public/images */}
+            <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
         </div>
       </footer>

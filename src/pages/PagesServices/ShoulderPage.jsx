@@ -5,18 +5,16 @@ import { FaArrowLeft, FaDownload, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Imports de imágenes
+// Imágenes (se quedan en assets)
 import cabeza_humeral from "../../assets/images/servicesshoulder/cabeza_humeral.png";
 import vastago_humeral from "../../assets/images/servicesshoulder/vastago_humeral.png";
 import glenoideo from "../../assets/images/servicesshoulder/glenoideo.png";
-
 import vastago_humeral_reversa from "../../assets/images/servicesshoulder/vastago_humeral_reversa.png";
 import bandeja_humeral from "../../assets/images/servicesshoulder/bandeja_humeral.png";
 import inserto_humeral from "../../assets/images/servicesshoulder/inserto_humeral.png";
 import glenosfera from "../../assets/images/servicesshoulder/glenosfera.png";
 import tornillo_reversa from "../../assets/images/servicesshoulder/tornillo_reversa.png";
 import conector_metaglena from "../../assets/images/servicesshoulder/conector_metaglena.png";
-
 import set_colocacion from "../../assets/images/servicesshoulder/set_colocacion.png";
 
 export default function ShoulderPage() {
@@ -80,7 +78,7 @@ export default function ShoulderPage() {
       {/* NAVBAR */}
       <nav className="navbar-shoulder">
         <div className="logo">
-          <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
+          <img src="/images/omma.svg" alt="Logo OMMA" />
         </div>
         <ul className="nav-links-shoulder">
           <li><a href="/">Inicio</a></li>
@@ -99,7 +97,7 @@ export default function ShoulderPage() {
         </p>
       </header>
 
-      {/* SECCIONES DE PRODUCTOS */}
+      {/* SECCIONES */}
       <section className="shoulder-products-circles">
         <h2>Portafolio de Hombro</h2>
         <p className="intro-shoulder">
@@ -136,33 +134,17 @@ export default function ShoulderPage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-shoulder">
-        <a href="/src/assets/catalog/Catálogo_hombro.pdf" download className="btn-download-shoulder">
+        <a href="/catalog/omma-shoulder.pdf" download className="btn-download-shoulder">
           <FaDownload /> Descargar Catálogo Completo
         </a>
       </div>
 
-      {/* MODAL DE PRODUCTO */}
+      {/* MODAL */}
       <AnimatePresence>
         {selectedProduct && (
-          <motion.div
-            className="modal-overlay-shoulder"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProduct(null)}
-          >
-            <motion.div
-              className="modal-content-shoulder"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className="modal-close-shoulder"
-                onClick={() => setSelectedProduct(null)}
-              >
+          <motion.div className="modal-overlay-shoulder" onClick={() => setSelectedProduct(null)}>
+            <motion.div className="modal-content-shoulder" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close-shoulder" onClick={() => setSelectedProduct(null)}>
                 <FaTimes />
               </button>
               <img src={selectedProduct.img} alt={selectedProduct.title} />
@@ -177,10 +159,7 @@ export default function ShoulderPage() {
       {/* CTA */}
       <section className="shoulder-cta">
         <h2>¿Interesado en nuestros productos de hombro?</h2>
-        <p>
-          Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a
-          mejorar la calidad de vida de tus pacientes.
-        </p>
+        <p>Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a mejorar la calidad de vida de tus pacientes.</p>
         <a href="/contact" className="btn-contact-shoulder">Contáctanos</a>
       </section>
 
@@ -194,10 +173,7 @@ export default function ShoulderPage() {
         <div className="footer-grid-shoulder">
           <div>
             <h3>Acerca de nosotros</h3>
-            <p>
-              Somos un grupo dedicado a ofrecer un servicio excepcional con
-              soluciones de calidad y confianza.
-            </p>
+            <p>Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.</p>
           </div>
           <div>
             <h3>Acerca de</h3>
@@ -215,7 +191,7 @@ export default function ShoulderPage() {
         </div>
         <div className="footer-bottom-shoulder">
           <div className="footer-logo-shoulder">
-            <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
+            <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
           <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
         </div>

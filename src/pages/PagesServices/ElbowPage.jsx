@@ -52,7 +52,8 @@ export default function ElbowPage() {
       {/* NAVBAR */}
       <nav className="navbar-elbow">
         <div className="logo">
-          <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
+          {/* Logo desde public/images */}
+          <img src="/images/omma.svg" alt="Logo OMMA" />
         </div>
         <ul className="nav-links-elbow">
           <li><a href="/">Inicio</a></li>
@@ -103,7 +104,7 @@ export default function ElbowPage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-elbow">
-        <a href="/src/assets/catalog/Catálogo_codo.pdf" download className="btn-download-elbow">
+        <a href="/catalog/Catálogo_codo.pdf" download className="btn-download-elbow">
           <FaDownload /> Descargar Catálogo Completo
         </a>
       </div>
@@ -182,7 +183,8 @@ export default function ElbowPage() {
         </div>
         <div className="footer-bottom-elbow">
           <div className="footer-logo-elbow">
-            <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
+            {/* Logo blanco desde public/images */}
+            <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
           <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
         </div>

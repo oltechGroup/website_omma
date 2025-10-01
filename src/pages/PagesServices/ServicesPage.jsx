@@ -14,7 +14,7 @@ export default function ServicesPage() {
       {/* NAVBAR */}
       <nav className="navbar-services">
         <div className="logo">
-          <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
+          <img src="/images/omma.svg" alt="Logo OMMA" />
         </div>
         <ul className="nav-links-services">
           <li><a href="/">Inicio</a></li>
@@ -36,7 +36,7 @@ export default function ServicesPage() {
 
       {/* SERVICIOS CLÍNICOS */}
       <section className="clinical-services">
-        <h2> Servicios Clínicos y Quirúrgicos</h2>
+        <h2>Servicios Clínicos y Quirúrgicos</h2>
         <div className="services-grid">
           <a href="/shoulder" className="service-card">
             <FaBone className="icon" />
@@ -53,7 +53,7 @@ export default function ServicesPage() {
             <h3>Rodilla</h3>
             <p>Reemplazos totales y revisiones de rodilla.</p>
           </a>
-          <a href="/services" className="service-card">
+          <a href="/hip" className="service-card">
             <FaBone className="icon" />
             <h3>Cadera</h3>
             <p>Revisiones y técnicas modernas en cirugía de cadera.</p>
@@ -92,7 +92,7 @@ export default function ServicesPage() {
 
         <div className="footer-bottom-services">
           <div className="footer-logo-services">
-            <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
+            <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
           <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
         </div>

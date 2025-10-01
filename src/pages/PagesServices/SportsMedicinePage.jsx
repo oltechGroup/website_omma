@@ -5,6 +5,7 @@ import { FaArrowLeft, FaDumbbell, FaDownload, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Imágenes (ajustadas rutas relativas a assets)
 import torre_artroscopia from "../../assets/images/servicessport/torre_artroscopia.png";
 import tuberia_bomba from "../../assets/images/servicessport/tuberia_bomba.png";
 import tornillo_interferencia from "../../assets/images/servicessport/tornillo_interferencia.png";
@@ -47,6 +48,7 @@ export default function SportsMedicinePage() {
     },
   ];
 
+  // Animaciones
   const containerVariants = (delay = 0) => ({
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -77,7 +79,7 @@ export default function SportsMedicinePage() {
       {/* NAVBAR */}
       <nav className="navbar-sport">
         <div className="logo">
-          <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
+          <img src="/images/omma.svg" alt="Logo OMMA" />
         </div>
         <ul className="nav-links-sport">
           <li><a href="/">Inicio</a></li>
@@ -90,18 +92,13 @@ export default function SportsMedicinePage() {
       {/* HERO */}
       <header className="hero sports-hero">
         <h1><FaDumbbell /> Medicina Deportiva</h1>
-        <p>
-          Soluciones innovadoras en artroscopia para atletas y pacientes con
-          lesiones de alto rendimiento.
-        </p>
+        <p>Soluciones innovadoras en artroscopia para atletas y pacientes con lesiones de alto rendimiento.</p>
       </header>
 
       {/* PRODUCTOS */}
       <section className="sports-products-circles">
         <h2>Portafolio de Medicina Deportiva</h2>
-        <p className="intro-sport">
-          Explora nuestras soluciones en sistemas de visualización, quirúrgicos y accesorios especializados.
-        </p>
+        <p className="intro-sport">Explora nuestras soluciones en sistemas de visualización, quirúrgicos y accesorios especializados.</p>
 
         {sections.map((section, idx) => (
           <div key={idx} className="sports-section">
@@ -133,7 +130,7 @@ export default function SportsMedicinePage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-sport">
-        <a href="/src/assets/catalog/Catálogo_Artroscopia.pdf" download className="btn-download-sport">
+        <a href="/catalog/Catálogo_Artroscopia.pdf" download className="btn-download-sport">
           <FaDownload /> Descargar Catálogo Completo
         </a>
       </div>
@@ -141,25 +138,9 @@ export default function SportsMedicinePage() {
       {/* MODAL */}
       <AnimatePresence>
         {selectedProduct && (
-          <motion.div
-            className="modal-overlay-sport"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProduct(null)}
-          >
-            <motion.div
-              className="modal-content-sport"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className="modal-close-sport"
-                onClick={() => setSelectedProduct(null)}
-              >
+          <motion.div className="modal-overlay-sport" onClick={() => setSelectedProduct(null)}>
+            <motion.div className="modal-content-sport" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close-sport" onClick={() => setSelectedProduct(null)}>
                 <FaTimes />
               </button>
               <img src={selectedProduct.img} alt={selectedProduct.title} />
@@ -174,10 +155,7 @@ export default function SportsMedicinePage() {
       {/* CTA */}
       <section className="sports-cta">
         <h2>¿Interesado en nuestros productos?</h2>
-        <p>
-          Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a
-          mejorar tus resultados clínicos.
-        </p>
+        <p>Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a mejorar tus resultados clínicos.</p>
         <a href="/contact" className="btn-contact-sport">Contáctanos</a>
       </section>
 
@@ -191,10 +169,7 @@ export default function SportsMedicinePage() {
         <div className="footer-grid-sport">
           <div>
             <h3>Acerca de nosotros</h3>
-            <p>
-              Somos un grupo dedicado a ofrecer un servicio excepcional con
-              soluciones de calidad y confianza.
-            </p>
+            <p>Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.</p>
           </div>
           <div>
             <h3>Acerca de</h3>
@@ -212,7 +187,7 @@ export default function SportsMedicinePage() {
         </div>
         <div className="footer-bottom-sport">
           <div className="footer-logo-sport">
-            <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
+            <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
           <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
         </div>

@@ -467,11 +467,11 @@ html, body {
   left: -15%;
   width: 700px;
   height:700px;
-  background: url("/src/assets/images/Engranaje1.png") no-repeat center center;
+  background: url("/images/Engranaje1.png") no-repeat center center;
   background-size: contain;
-   /* transparencia para que no opaque el texto */
-  z-index: 0; /* detrás del contenido */
+  z-index: 0;
 }
+
 
 .offer-container {
   position: relative;

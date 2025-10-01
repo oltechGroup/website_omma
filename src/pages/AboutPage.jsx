@@ -11,19 +11,14 @@ import {
   FaUsers,
 } from "react-icons/fa";
 
-import hospital1 from "../assets/images/hospital_infantil.jpg";
-import hospital2 from "../assets/images/issste_zaragoza.jpg";
-import hospital3 from "../assets/images/hospital_queretaro.jpg";
-import hospital4 from "../assets/images/grupo_farmafr.jpg";
-import quirofano from "../assets/images/quirofano.jpg";
-
 export default function AboutPage() {
   return (
     <div className="about-wrapper">
       {/* NAVBAR */}
       <nav className="navbar-about">
         <div className="logo-about">
-          <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
+          {/* ✅ Imagen desde public */}
+          <img src="/images/omma.svg" alt="Logo OMMA" />
         </div>
         <ul className="nav-links-about">
           <li><a href="/">Inicio</a></li>
@@ -99,7 +94,7 @@ export default function AboutPage() {
       <section
         className="experience"
         style={{
-          backgroundImage: `linear-gradient(rgba(13,61,60,0.85), rgba(13,61,60,0.85)), url(${quirofano})`
+          backgroundImage: `linear-gradient(rgba(13,61,60,0.85), rgba(13,61,60,0.85)), url(/images/quirofano.jpg)`
         }}
       >
         <h2>Experiencia</h2>
@@ -117,7 +112,7 @@ export default function AboutPage() {
         <h2>Nuestros Clientes</h2>
         <div className="client-card">
           <div className="client-image">
-            <img src={hospital1} alt="Hospital Infantil de México Federico Gómez" />
+            <img src="/images/hospital_infantil.jpg" alt="Hospital Infantil de México Federico Gómez" />
           </div>
           <div className="client-info">
             <h3>Hospital Infantil de México “Federico Gómez”</h3>
@@ -129,7 +124,7 @@ export default function AboutPage() {
 
         <div className="client-card">
           <div className="client-image">
-            <img src={hospital2} alt="ISSSTE Hospital Regional Ignacio Zaragoza" />
+            <img src="/images/issste_zaragoza.jpg" alt="ISSSTE Hospital Regional Ignacio Zaragoza" />
           </div>
           <div className="client-info">
             <h3>ISSSTE Hospital Regional “Gral. Ignacio Zaragoza”</h3>
@@ -141,7 +136,7 @@ export default function AboutPage() {
 
         <div className="client-card">
           <div className="client-image">
-            <img src={hospital3} alt="Hospital General de Querétaro" />
+            <img src="/images/hospital_queretaro.jpg" alt="Hospital General de Querétaro" />
           </div>
           <div className="client-info">
             <h3>Hospital General de Querétaro</h3>
@@ -152,7 +147,7 @@ export default function AboutPage() {
 
         <div className="client-card">
           <div className="client-image">
-            <img src={hospital4} alt="Grupo Farma FR" />
+            <img src="/images/grupo_farmafr.jpg" alt="Grupo Farma FR" />
           </div>
           <div className="client-info">
             <h3>Grupo Farma FR S.A. de C.V.</h3>
@@ -186,7 +181,7 @@ export default function AboutPage() {
         </div>
         <div className="footer-bottom-about">
           <div className="footer-logo-about">
-            <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
+            <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
           <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
         </div>

@@ -5,16 +5,15 @@ import { FaArrowLeft, FaDownload, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Imágenes de productos (se quedan en assets)
 import femoral_primary from "../../assets/images/servicesknee/femoral_primary.png";
 import tibial_insert from "../../assets/images/servicesknee/tibial_insert.png";
 import tibial_baseplate from "../../assets/images/servicesknee/tibial_baseplate.png";
 import patella from "../../assets/images/servicesknee/patella.png";
-
 import femoral_revision from "../../assets/images/servicesknee/femoral_revision.png";
 import tibial_revision from "../../assets/images/servicesknee/tibial_revision.png";
 import stems from "../../assets/images/servicesknee/stems.png";
 import augments from "../../assets/images/servicesknee/augments.png";
-
 import wedges from "../../assets/images/servicesknee/wedges.png";
 import materials from "../../assets/images/servicesknee/materials.png";
 
@@ -79,7 +78,7 @@ export default function KneePage() {
       {/* NAVBAR */}
       <nav className="navbar-knee">
         <div className="logo">
-          <img src="/src/assets/images/omma.svg" alt="Logo OMMA" />
+          <img src="/images/omma.svg" alt="Logo OMMA" />
         </div>
         <ul className="nav-links-knee">
           <li><a href="/">Inicio</a></li>
@@ -92,13 +91,10 @@ export default function KneePage() {
       {/* HERO */}
       <header className="hero knee-hero">
         <h1>Implantes de Rodilla</h1>
-        <p>
-          Sistemas primarios y de revisión diseñados con tecnología avanzada para
-          garantizar resultados clínicos superiores.
-        </p>
+        <p>Sistemas primarios y de revisión diseñados con tecnología avanzada para garantizar resultados clínicos superiores.</p>
       </header>
 
-      {/* SECCIONES DE PRODUCTOS */}
+      {/* SECCIONES */}
       <section className="knee-products-circles">
         <h2>Portafolio de Rodilla</h2>
         <p className="intro-knee">
@@ -135,33 +131,17 @@ export default function KneePage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-knee">
-        <a href="/src/assets/catalog/" download className="btn-download-knee">
+        <a href="/catalog/omma-knee.pdf" download className="btn-download-knee">
           <FaDownload /> Descargar Catálogo Completo
         </a>
       </div>
 
-      {/* MODAL DE PRODUCTO */}
+      {/* MODAL */}
       <AnimatePresence>
         {selectedProduct && (
-          <motion.div
-            className="modal-overlay-knee"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedProduct(null)}
-          >
-            <motion.div
-              className="modal-content-knee"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className="modal-close-knee"
-                onClick={() => setSelectedProduct(null)}
-              >
+          <motion.div className="modal-overlay-knee" onClick={() => setSelectedProduct(null)}>
+            <motion.div className="modal-content-knee" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close-knee" onClick={() => setSelectedProduct(null)}>
                 <FaTimes />
               </button>
               <img src={selectedProduct.img} alt={selectedProduct.title} />
@@ -176,10 +156,7 @@ export default function KneePage() {
       {/* CTA */}
       <section className="knee-cta">
         <h2>¿Interesado en nuestros productos de rodilla?</h2>
-        <p>
-          Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a
-          mejorar tus resultados clínicos.
-        </p>
+        <p>Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a mejorar tus resultados clínicos.</p>
         <a href="/contact" className="btn-contact-knee">Contáctanos</a>
       </section>
 
@@ -193,10 +170,7 @@ export default function KneePage() {
         <div className="footer-grid-knee">
           <div>
             <h3>Acerca de nosotros</h3>
-            <p>
-              Somos un grupo dedicado a ofrecer un servicio excepcional con
-              soluciones de calidad y confianza.
-            </p>
+            <p>Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.</p>
           </div>
           <div>
             <h3>Acerca de</h3>
@@ -214,7 +188,7 @@ export default function KneePage() {
         </div>
         <div className="footer-bottom-knee">
           <div className="footer-logo-knee">
-            <img src="/src/assets/images/omma_white.png" alt="Logo OMMA" />
+            <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
           <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
         </div>
