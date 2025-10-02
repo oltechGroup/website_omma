@@ -18,7 +18,7 @@ const ommaejemplo = "/images/ejemplo2.png";
 const ommaexp1 = "/images/Imagen1.png";
 const ommaexp2 = "/images/fondo_about.png";
 const ommaexp3 = "/images/ejemplo.png";
-const ommavideo = "/videos/Codoomma.mp4";
+const ommavideo = "/videos/Codoomma.mp4"; 
 const ommachoose = "/images/seccion5.png";
 const ommawhite = "/images/omma_white.png";
 
