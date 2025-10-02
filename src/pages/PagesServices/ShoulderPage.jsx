@@ -4,8 +4,15 @@ import "./ShoulderPage.css";
 import { FaArrowLeft, FaDownload, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "../../components/Navbar";
+import { useLanguage } from "../../context/LanguageContext";
 
-// Imágenes (se quedan en assets)
+// Importamos traducciones
+import es from "../../locales/pageservices/shoulder/es";
+import en from "../../locales/pageservices/shoulder/en";
+import pt from "../../locales/pageservices/shoulder/pt";
+
+// Imágenes
 import cabeza_humeral from "../../assets/images/servicesshoulder/cabeza_humeral.png";
 import vastago_humeral from "../../assets/images/servicesshoulder/vastago_humeral.png";
 import glenoideo from "../../assets/images/servicesshoulder/glenoideo.png";
@@ -19,31 +26,33 @@ import set_colocacion from "../../assets/images/servicesshoulder/set_colocacion.
 
 export default function ShoulderPage() {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const { language } = useLanguage();
+  const t = { es, en, pt }[language];
 
   const sections = [
     {
-      title: "Sistema Anatómico",
+      title: t.sections.anatomical.title,
       products: [
-        { img: cabeza_humeral, title: "Cabeza Humeral", desc: "Componente anatómico para reconstrucción total del hombro." },
-        { img: vastago_humeral, title: "Vástago Humeral", desc: "Vástago diseñado para estabilidad y fijación segura." },
-        { img: glenoideo, title: "Glenoideo", desc: "Componente anatómico para artroplastia primaria de hombro." },
+        { img: cabeza_humeral, title: t.sections.anatomical.products[0].title, desc: t.sections.anatomical.products[0].desc },
+        { img: vastago_humeral, title: t.sections.anatomical.products[1].title, desc: t.sections.anatomical.products[1].desc },
+        { img: glenoideo, title: t.sections.anatomical.products[2].title, desc: t.sections.anatomical.products[2].desc },
       ],
     },
     {
-      title: "Sistema Reverso",
+      title: t.sections.reverse.title,
       products: [
-        { img: vastago_humeral_reversa, title: "Vástago Humeral Reverso", desc: "Estabilidad en artroplastias reversas de hombro." },
-        { img: bandeja_humeral, title: "Bandeja Humeral", desc: "Soporte seguro para inserto humeral en sistemas reversos." },
-        { img: inserto_humeral, title: "Inserto Humeral", desc: "Diseñado para máxima movilidad y reducción de fricción." },
-        { img: glenosfera, title: "Glenosfera", desc: "Componente esférico para artroplastias reversas." },
-        { img: tornillo_reversa, title: "Tornillo", desc: "Fijación confiable en el sistema reverso." },
-        { img: conector_metaglena, title: "Conector Metaglena", desc: "Asegura la fijación del sistema reverso al hueso." },
+        { img: vastago_humeral_reversa, title: t.sections.reverse.products[0].title, desc: t.sections.reverse.products[0].desc },
+        { img: bandeja_humeral, title: t.sections.reverse.products[1].title, desc: t.sections.reverse.products[1].desc },
+        { img: inserto_humeral, title: t.sections.reverse.products[2].title, desc: t.sections.reverse.products[2].desc },
+        { img: glenosfera, title: t.sections.reverse.products[3].title, desc: t.sections.reverse.products[3].desc },
+        { img: tornillo_reversa, title: t.sections.reverse.products[4].title, desc: t.sections.reverse.products[4].desc },
+        { img: conector_metaglena, title: t.sections.reverse.products[5].title, desc: t.sections.reverse.products[5].desc },
       ],
     },
     {
-      title: "Set de Colocación",
+      title: t.sections.set.title,
       products: [
-        { img: set_colocacion, title: "Set de Colocación", desc: "Instrumental completo para procedimientos quirúrgicos de hombro." },
+        { img: set_colocacion, title: t.sections.set.products[0].title, desc: t.sections.set.products[0].desc },
       ],
     },
   ];
@@ -76,33 +85,18 @@ export default function ShoulderPage() {
   return (
     <div className="shoulder-wrapper">
       {/* NAVBAR */}
-      <nav className="navbar-shoulder">
-        <div className="logo">
-          <img src="/images/omma.svg" alt="Logo OMMA" />
-        </div>
-        <ul className="nav-links-shoulder">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/about">Nosotros</a></li>
-          <li><a href="/services" className="btn-nav-shoulder">Servicios</a></li>
-          <li><a href="/contact">Contáctanos</a></li>
-        </ul>
-      </nav>
+      <Navbar />
 
       {/* HERO */}
       <header className="hero shoulder-hero">
-        <h1>Implantes de Hombro</h1>
-        <p>
-          Sistemas anatómicos y reversos diseñados con innovación para ofrecer estabilidad,
-          movilidad y resultados clínicos superiores.
-        </p>
+        <h1>{t.hero.title}</h1>
+        <p>{t.hero.subtitle}</p>
       </header>
 
       {/* SECCIONES */}
       <section className="shoulder-products-circles">
-        <h2>Portafolio de Hombro</h2>
-        <p className="intro-shoulder">
-          Explora nuestras soluciones para artroplastia anatómica, reversa y set de colocación.
-        </p>
+        <h2>{t.portfolio.title}</h2>
+        <p className="intro-shoulder">{t.portfolio.subtitle}</p>
 
         {sections.map((section, idx) => (
           <div key={idx} className="shoulder-section">
@@ -134,8 +128,8 @@ export default function ShoulderPage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-shoulder">
-        <a href="/catalog/omma-shoulder.pdf" download className="btn-download-shoulder">
-          <FaDownload /> Descargar Catálogo Completo
+        <a href="/catalog/Catálogo_hombro.pdf" download className="btn-download-shoulder">
+          <FaDownload /> {t.catalog}
         </a>
       </div>
 
@@ -150,7 +144,7 @@ export default function ShoulderPage() {
               <img src={selectedProduct.img} alt={selectedProduct.title} />
               <h3>{selectedProduct.title}</h3>
               <p>{selectedProduct.desc}</p>
-              <a href="/contact" className="circle-btn-shoulder">Cotizar</a>
+              <a href="/contact" className="circle-btn-shoulder">{t.quote}</a>
             </motion.div>
           </motion.div>
         )}
@@ -158,42 +152,42 @@ export default function ShoulderPage() {
 
       {/* CTA */}
       <section className="shoulder-cta">
-        <h2>¿Interesado en nuestros productos de hombro?</h2>
-        <p>Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a mejorar la calidad de vida de tus pacientes.</p>
-        <a href="/contact" className="btn-contact-shoulder">Contáctanos</a>
+        <h2>{t.cta.title}</h2>
+        <p>{t.cta.subtitle}</p>
+        <a href="/contact" className="btn-contact-shoulder">{t.cta.button}</a>
       </section>
 
       {/* BACK */}
       <div className="back-link-shoulder">
-        <Link to="/services"><FaArrowLeft /> Volver a Servicios</Link>
+        <Link to="/services"><FaArrowLeft /> {t.back}</Link>
       </div>
 
       {/* FOOTER */}
       <footer className="footer-shoulder">
         <div className="footer-grid-shoulder">
           <div>
-            <h3>Acerca de nosotros</h3>
-            <p>Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.</p>
+            <h3>{t.footer.about.title}</h3>
+            <p>{t.footer.about.desc}</p>
           </div>
           <div>
-            <h3>Acerca de</h3>
+            <h3>{t.footer.links.title}</h3>
             <div className="footer-links-shoulder">
-              <a href="/">Inicio</a>
-              <a href="/about">Nosotros</a>
-              <a href="/services">Servicios</a>
+              <a href="/">{t.footer.links.home}</a>
+              <a href="/about">{t.footer.links.about}</a>
+              <a href="/services">{t.footer.links.services}</a>
             </div>
           </div>
           <div>
-            <h3>Información de Contacto</h3>
-            <p>Tel: 55 1744 2428</p>
-            <p>Email: contacto@ommagroup.com</p>
+            <h3>{t.footer.contact.title}</h3>
+            <p>{t.footer.contact.phone}</p>
+            <p>{t.footer.contact.email}</p>
           </div>
         </div>
         <div className="footer-bottom-shoulder">
           <div className="footer-logo-shoulder">
             <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
-          <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
+          <p>{t.footer.bottom}</p>
         </div>
       </footer>
     </div>

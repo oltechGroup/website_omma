@@ -5,7 +5,15 @@ import { FaArrowLeft, FaDumbbell, FaDownload, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Imágenes (ajustadas rutas relativas a assets)
+import Navbar from "../../components/Navbar";
+import { useLanguage } from "../../context/LanguageContext";
+
+// Traducciones
+import es from "../../locales/pageservices/sports/es";
+import en from "../../locales/pageservices/sports/en";
+import pt from "../../locales/pageservices/sports/pt";
+
+// Imágenes
 import torre_artroscopia from "../../assets/images/servicessport/torre_artroscopia.png";
 import tuberia_bomba from "../../assets/images/servicessport/tuberia_bomba.png";
 import tornillo_interferencia from "../../assets/images/servicessport/tornillo_interferencia.png";
@@ -18,37 +26,39 @@ import charola_pinzas from "../../assets/images/servicessport/charola_pinzas.png
 import arthoscopy_main from "../../assets/images/servicessport/arthoscopy_main.png";
 
 export default function SportsMedicinePage() {
+  const { language } = useLanguage();
+  const t = { es, en, pt }[language];
+
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const sections = [
     {
-      title: "Sistema de Visualización",
+      title: t.sections.visualization.title,
       products: [
-        { img: torre_artroscopia, title: "Torre de artroscopia 4K", desc: "Visualización quirúrgica de alta definición para precisión en cada procedimiento." },
-        { img: tuberia_bomba, title: "Tubería de bomba artroscópica", desc: "Instrumental esencial y confiable para procedimientos de mínima invasión." },
-        { img: arthoscopy_main, title: "ARTHOSCOPY MAIN PUMP TUBING", desc: "Tubería principal para bomba de artroscopia, confiable y duradera." },
+        { img: torre_artroscopia, title: t.sections.visualization.products[0].title, desc: t.sections.visualization.products[0].desc },
+        { img: tuberia_bomba, title: t.sections.visualization.products[1].title, desc: t.sections.visualization.products[1].desc },
+        { img: arthoscopy_main, title: t.sections.visualization.products[2].title, desc: t.sections.visualization.products[2].desc },
       ],
     },
     {
-      title: "Sistema Quirúrgico",
+      title: t.sections.surgical.title,
       products: [
-        { img: tornillo_interferencia, title: "Tornillos de interferencia", desc: "Fijación segura y duradera en reconstrucciones de ligamentos y procedimientos deportivos." },
-        { img: placa_puddu, title: "Placas Puddu Femorales (Acero inoxidable)", desc: "Placas de alta calidad diseñadas para osteotomías femorales precisas." },
-        { img: microfracturadores, title: "Microfracturadores", desc: "Instrumentos diseñados para procedimientos mínimamente invasivos en rodilla." },
-        { img: charola_pinzas, title: "Charola de Pinzas", desc: "Charola quirúrgica con instrumental especializado de precisión." },
+        { img: tornillo_interferencia, title: t.sections.surgical.products[0].title, desc: t.sections.surgical.products[0].desc },
+        { img: placa_puddu, title: t.sections.surgical.products[1].title, desc: t.sections.surgical.products[1].desc },
+        { img: microfracturadores, title: t.sections.surgical.products[2].title, desc: t.sections.surgical.products[2].desc },
+        { img: charola_pinzas, title: t.sections.surgical.products[3].title, desc: t.sections.surgical.products[3].desc },
       ],
     },
     {
-      title: "Sistema de Accesorios",
+      title: t.sections.accessories.title,
       products: [
-        { img: trimano_beach, title: "TRIMANO BEACH CHAIR KIT", desc: "Sistema confiable para posicionamiento quirúrgico en procedimientos de hombro." },
-        { img: silla_playa, title: "Silla de playa", desc: "Accesorio quirúrgico ergonómico para intervenciones ortopédicas." },
-        { img: charola_rodill, title: "Charola de Rodilla completa (LCA + GrafPro)", desc: "Kit integral para reconstrucciones de ligamento cruzado anterior." },
+        { img: trimano_beach, title: t.sections.accessories.products[0].title, desc: t.sections.accessories.products[0].desc },
+        { img: silla_playa, title: t.sections.accessories.products[1].title, desc: t.sections.accessories.products[1].desc },
+        { img: charola_rodill, title: t.sections.accessories.products[2].title, desc: t.sections.accessories.products[2].desc },
       ],
     },
   ];
 
-  // Animaciones
   const containerVariants = (delay = 0) => ({
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -77,28 +87,18 @@ export default function SportsMedicinePage() {
   return (
     <div className="sports-wrapper">
       {/* NAVBAR */}
-      <nav className="navbar-sport">
-        <div className="logo">
-          <img src="/images/omma.svg" alt="Logo OMMA" />
-        </div>
-        <ul className="nav-links-sport">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/about">Nosotros</a></li>
-          <li><a href="/services" className="btn-nav-sport">Servicios</a></li>
-          <li><a href="/contact">Contáctanos</a></li>
-        </ul>
-      </nav>
+      <Navbar />
 
       {/* HERO */}
       <header className="hero sports-hero">
-        <h1><FaDumbbell /> Medicina Deportiva</h1>
-        <p>Soluciones innovadoras en artroscopia para atletas y pacientes con lesiones de alto rendimiento.</p>
+        <h1><FaDumbbell /> {t.hero.title}</h1>
+        <p>{t.hero.subtitle}</p>
       </header>
 
       {/* PRODUCTOS */}
       <section className="sports-products-circles">
-        <h2>Portafolio de Medicina Deportiva</h2>
-        <p className="intro-sport">Explora nuestras soluciones en sistemas de visualización, quirúrgicos y accesorios especializados.</p>
+        <h2>{t.products.title}</h2>
+        <p className="intro-sport">{t.products.subtitle}</p>
 
         {sections.map((section, idx) => (
           <div key={idx} className="sports-section">
@@ -131,7 +131,7 @@ export default function SportsMedicinePage() {
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-sport">
         <a href="/catalog/Catálogo_Artroscopia.pdf" download className="btn-download-sport">
-          <FaDownload /> Descargar Catálogo Completo
+          <FaDownload /> {t.catalog.download}
         </a>
       </div>
 
@@ -146,7 +146,7 @@ export default function SportsMedicinePage() {
               <img src={selectedProduct.img} alt={selectedProduct.title} />
               <h3>{selectedProduct.title}</h3>
               <p>{selectedProduct.desc}</p>
-              <a href="/contact" className="circle-btn-sport">Cotizar</a>
+              <a href="/contact" className="circle-btn-sport">{t.modal.quote}</a>
             </motion.div>
           </motion.div>
         )}
@@ -154,42 +154,42 @@ export default function SportsMedicinePage() {
 
       {/* CTA */}
       <section className="sports-cta">
-        <h2>¿Interesado en nuestros productos?</h2>
-        <p>Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a mejorar tus resultados clínicos.</p>
-        <a href="/contact" className="btn-contact-sport">Contáctanos</a>
+        <h2>{t.cta.title}</h2>
+        <p>{t.cta.subtitle}</p>
+        <a href="/contact" className="btn-contact-sport">{t.cta.button}</a>
       </section>
 
       {/* BACK */}
       <div className="back-link-sport">
-        <Link to="/services"><FaArrowLeft /> Volver a Servicios</Link>
+        <Link to="/services"><FaArrowLeft /> {t.back}</Link>
       </div>
 
       {/* FOOTER */}
       <footer className="footer-sport">
         <div className="footer-grid-sport">
           <div>
-            <h3>Acerca de nosotros</h3>
-            <p>Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.</p>
+            <h3>{t.footer.about.title}</h3>
+            <p>{t.footer.about.desc}</p>
           </div>
           <div>
-            <h3>Acerca de</h3>
+            <h3>{t.footer.links.title}</h3>
             <div className="footer-links-sport">
-              <a href="/">Inicio</a>
-              <a href="/about">Nosotros</a>
-              <a href="/services">Servicios</a>
+              <a href="/">{t.footer.links.home}</a>
+              <a href="/about">{t.footer.links.about}</a>
+              <a href="/services">{t.footer.links.services}</a>
             </div>
           </div>
           <div>
-            <h3>Información de Contacto</h3>
-            <p>Tel: 55 1744 2428</p>
-            <p>Email: contacto@ommagroup.com</p>
+            <h3>{t.footer.contact.title}</h3>
+            <p>{t.footer.contact.phone}</p>
+            <p>{t.footer.contact.email}</p>
           </div>
         </div>
         <div className="footer-bottom-sport">
           <div className="footer-logo-sport">
             <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
-          <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
+          <p>{t.footer.bottom}</p>
         </div>
       </footer>
     </div>

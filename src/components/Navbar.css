@@ -1,0 +1,215 @@
+/* src/components/Navbar.css */
+:root{
+  --nav-height: 68px;
+  --max-width: 1200px;
+  --accent: #00a3ff;
+  --glass: rgba(255,255,255,0.06);
+  --glass-strong: rgba(255,255,255,0.9);
+}
+
+.navbar-global {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 60;
+  transition: background 300ms ease, box-shadow 300ms ease, transform 220ms ease;
+  background: transparent;
+  backdrop-filter: blur(4px);
+}
+
+.navbar-global.scrolled {
+  background: rgba(12, 22, 32, 0.86);
+  box-shadow: 0 6px 28px rgba(2,8,23,0.45);
+  transform: translateY(0);
+}
+
+.navbar-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  gap: 18px;
+}
+
+/* Logo */
+.nav-logo img {
+  height: 42px;
+  display: block;
+}
+
+/* Links (desktop) */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 6px;
+  border-radius: 6px;
+  transition: color 160ms ease, background 160ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  background: rgba(255,255,255,0.03);
+}
+
+/* active */
+.nav-links li.active a,
+.nav-links li.active {
+  color: var(--accent);
+  position: relative;
+}
+
+.nav-links li.active a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), rgba(0,163,255,0.6));
+  bottom: -10px;
+  border-radius: 3px;
+}
+
+/* Right controls */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Language button */
+.lang-wrapper { position: relative; }
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+.lang-btn .flag-img { width: 20px; height: 14px; object-fit: cover; border-radius:2px; }
+
+/* dropdown */
+.lang-menu {
+  position: absolute;
+  right: 0;
+  margin-top: 10px;
+  background: #ffffff;
+  color: #111;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(2,8,23,0.2);
+  overflow: hidden;
+  min-width: 160px;
+  z-index: 80;
+  animation: slideDown 180ms ease;
+}
+
+.lang-menu-item {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 500;
+  color: #111;
+}
+.lang-menu-item:hover { background: rgba(0,0,0,0.04); }
+
+@keyframes slideDown {
+  from { transform: translateY(-6px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Hamburger (mobile) */
+.hamburger {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+/* Mobile overlay */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: var(--nav-height) 0 0 0;
+  background: rgba(6,8,12,0.95);
+  z-index: 70;
+  padding: 28px 20px;
+  transition: opacity 200ms ease, transform 200ms ease;
+  overflow-y: auto;
+}
+.mobile-overlay.show { display: block; }
+
+/* mobile links */
+.mobile-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.mobile-links a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* mobile language block */
+.mobile-lang {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top: 8px;
+}
+.mobile-lang-item {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:8px 12px;
+  background: rgba(255,255,255,0.04);
+  border-radius:8px;
+  color:#fff;
+  border: none;
+  cursor:pointer;
+}
+.mobile-lang-item.selected { outline: 2px solid var(--accent); }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: inline-flex; }
+  .lang-btn .lang-label { display: none; } /* only flag on small screens */
+  .navbar-inner { padding-left: 12px; padding-right: 12px; }
+}
+
+/* Desktop tweaks */
+@media (min-width: 901px) {
+  .mobile-overlay { display: none !important; }
+}

@@ -13,35 +13,6 @@
   flex-direction: column;
 }
 
-/* NAVBAR */
-.navbar-elbow {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.navbar-elbow .logo img {
-  max-height: 50px;
-}
-.nav-links-elbow {
-  display: flex;
-  gap: 1.2rem;
-  list-style: none;
-}
-.nav-links-elbow a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-.nav-links-elbow .btn-nav-elbow {
-  background: var(--verde-oscuro);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-}
-
 /* HERO */
 .elbow-hero {
   text-align: center;

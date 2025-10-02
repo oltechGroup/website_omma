@@ -4,8 +4,15 @@ import "./KneePage.css";
 import { FaArrowLeft, FaDownload, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "../../components/Navbar";
+import { useLanguage } from "../../context/LanguageContext";
 
-// Imágenes de productos (se quedan en assets)
+// Traducciones
+import es from "../../locales/pageservices/knee/es";
+import en from "../../locales/pageservices/knee/en";
+import pt from "../../locales/pageservices/knee/pt";
+
+// Imágenes
 import femoral_primary from "../../assets/images/servicesknee/femoral_primary.png";
 import tibial_insert from "../../assets/images/servicesknee/tibial_insert.png";
 import tibial_baseplate from "../../assets/images/servicesknee/tibial_baseplate.png";
@@ -19,34 +26,28 @@ import materials from "../../assets/images/servicesknee/materials.png";
 
 export default function KneePage() {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const { language } = useLanguage();
+  const t = { es, en, pt }[language];
 
-  const sections = [
-    {
-      title: "Sistema Primario",
-      products: [
-        { img: femoral_primary, title: "Componente Femoral Primario", desc: "Diseñado para ofrecer estabilidad y movilidad óptima en artroplastia primaria de rodilla." },
-        { img: tibial_insert, title: "Insertos Tibiales", desc: "Componentes diseñados para mejorar la congruencia articular y la durabilidad." },
-        { img: tibial_baseplate, title: "Baseplate Tibial", desc: "Base sólida que asegura fijación confiable y duradera." },
-        { img: patella, title: "Patela", desc: "Diseño anatómico que asegura un seguimiento suave y natural." },
-      ],
-    },
-    {
-      title: "Sistema de Revisión",
-      products: [
-        { img: femoral_revision, title: "Componente Femoral de Revisión", desc: "Diseñado para ofrecer soporte en casos de revisiones complejas." },
-        { img: tibial_revision, title: "Componente Tibial de Revisión", desc: "Asegura estabilidad y resistencia en situaciones de alta demanda." },
-        { img: stems, title: "Stems", desc: "Opciones modulares para mejorar la fijación y la adaptación anatómica." },
-        { img: augments, title: "Augments", desc: "Componentes que permiten adaptarse a defectos óseos complejos." },
-      ],
-    },
-    {
-      title: "Componentes y Materiales",
-      products: [
-        { img: wedges, title: "Wedges", desc: "Diseñados para restaurar alineación y compensar defectos óseos." },
-        { img: materials, title: "Materiales Avanzados", desc: "Superficies y aleaciones que maximizan la durabilidad del implante." },
-      ],
-    },
-  ];
+  // Asignar imágenes a productos de traducciones
+  const sections = t.sections.map((section) => ({
+    ...section,
+    products: section.products.map((p) => ({
+      ...p,
+      img: {
+        femoral_primary,
+        tibial_insert,
+        tibial_baseplate,
+        patella,
+        femoral_revision,
+        tibial_revision,
+        stems,
+        augments,
+        wedges,
+        materials,
+      }[p.img],
+    })),
+  }));
 
   const containerVariants = (delay = 0) => ({
     hidden: { opacity: 0, y: 30 },
@@ -75,31 +76,19 @@ export default function KneePage() {
 
   return (
     <div className="knee-wrapper">
-      {/* NAVBAR */}
-      <nav className="navbar-knee">
-        <div className="logo">
-          <img src="/images/omma.svg" alt="Logo OMMA" />
-        </div>
-        <ul className="nav-links-knee">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/about">Nosotros</a></li>
-          <li><a href="/services" className="btn-nav-knee">Servicios</a></li>
-          <li><a href="/contact">Contáctanos</a></li>
-        </ul>
-      </nav>
+      {/* NAVBAR GLOBAL */}
+      <Navbar />
 
       {/* HERO */}
       <header className="hero knee-hero">
-        <h1>Implantes de Rodilla</h1>
-        <p>Sistemas primarios y de revisión diseñados con tecnología avanzada para garantizar resultados clínicos superiores.</p>
+        <h1>{t.hero.title}</h1>
+        <p>{t.hero.subtitle}</p>
       </header>
 
       {/* SECCIONES */}
       <section className="knee-products-circles">
-        <h2>Portafolio de Rodilla</h2>
-        <p className="intro-knee">
-          Explora nuestras soluciones para artroplastia primaria, revisiones y componentes especializados.
-        </p>
+        <h2>{t.portfolio.title}</h2>
+        <p className="intro-knee">{t.portfolio.subtitle}</p>
 
         {sections.map((section, idx) => (
           <div key={idx} className="knee-section">
@@ -132,7 +121,7 @@ export default function KneePage() {
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-knee">
         <a href="/catalog/omma-knee.pdf" download className="btn-download-knee">
-          <FaDownload /> Descargar Catálogo Completo
+          <FaDownload /> {t.catalog.download}
         </a>
       </div>
 
@@ -147,7 +136,7 @@ export default function KneePage() {
               <img src={selectedProduct.img} alt={selectedProduct.title} />
               <h3>{selectedProduct.title}</h3>
               <p>{selectedProduct.desc}</p>
-              <a href="/contact" className="circle-btn-knee">Cotizar</a>
+              <a href="/contact" className="circle-btn-knee">{t.modal.quote}</a>
             </motion.div>
           </motion.div>
         )}
@@ -155,42 +144,42 @@ export default function KneePage() {
 
       {/* CTA */}
       <section className="knee-cta">
-        <h2>¿Interesado en nuestros productos de rodilla?</h2>
-        <p>Ponte en contacto con nuestro equipo y descubre cómo podemos ayudarte a mejorar tus resultados clínicos.</p>
-        <a href="/contact" className="btn-contact-knee">Contáctanos</a>
+        <h2>{t.cta.title}</h2>
+        <p>{t.cta.subtitle}</p>
+        <a href="/contact" className="btn-contact-knee">{t.cta.button}</a>
       </section>
 
       {/* BACK */}
       <div className="back-link-knee">
-        <Link to="/services"><FaArrowLeft /> Volver a Servicios</Link>
+        <Link to="/services"><FaArrowLeft /> {t.back}</Link>
       </div>
 
       {/* FOOTER */}
       <footer className="footer-knee">
         <div className="footer-grid-knee">
           <div>
-            <h3>Acerca de nosotros</h3>
-            <p>Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.</p>
+            <h3>{t.footer.about.title}</h3>
+            <p>{t.footer.about.desc}</p>
           </div>
           <div>
-            <h3>Acerca de</h3>
+            <h3>{t.footer.links.title}</h3>
             <div className="footer-links-knee">
-              <a href="/">Inicio</a>
-              <a href="/about">Nosotros</a>
-              <a href="/services">Servicios</a>
+              <a href="/">{t.footer.links.home}</a>
+              <a href="/about">{t.footer.links.about}</a>
+              <a href="/services">{t.footer.links.services}</a>
             </div>
           </div>
           <div>
-            <h3>Información de Contacto</h3>
-            <p>Tel: 55 1744 2428</p>
-            <p>Email: contacto@ommagroup.com</p>
+            <h3>{t.footer.contact.title}</h3>
+            <p>{t.footer.contact.phone}</p>
+            <p>{t.footer.contact.email}</p>
           </div>
         </div>
         <div className="footer-bottom-knee">
           <div className="footer-logo-knee">
             <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
-          <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
+          <p>{t.footer.bottom}</p>
         </div>
       </footer>
     </div>

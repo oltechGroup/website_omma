@@ -10,38 +10,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* NAVBAR Contact */
-.navbar-contact {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.logo-contact img {
-  max-height: 50px;
-}
-.nav-links-contact {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-.nav-links-contact a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-.nav-links-contact .btn-nav-contact {
-  background: var(--verde-oscuro);
-  color: white !important;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: 0.3s;
-}
-.nav-links-contact .btn-nav-contact:hover {
-  background: var(--verde);
-}
+
 
 /* HERO */
 .hero-contact {

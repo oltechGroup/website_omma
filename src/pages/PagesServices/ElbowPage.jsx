@@ -4,22 +4,33 @@ import "./ElbowPage.css";
 import { FaArrowLeft, FaDownload, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "../../components/Navbar";
+import { useLanguage } from "../../context/LanguageContext";
 
+// imágenes
 import upper_ulna from "../../assets/images/serviceselbow/upper_ulna.png";
 import distal_humerus from "../../assets/images/serviceselbow/distal_humerus.png";
 import half_axis_sleeve from "../../assets/images/serviceselbow/half_axis_sleeve_ulnar.png";
 import fixation_screw from "../../assets/images/serviceselbow/fixation_screw.png";
 import axes from "../../assets/images/serviceselbow/axes.png";
 
+// traducciones
+import es from "../../locales/pageservices/elbow/es";
+import en from "../../locales/pageservices/elbow/en";
+import pt from "../../locales/pageservices/elbow/pt";
+
 export default function ElbowPage() {
+  const { language } = useLanguage();
+  const t = { es, en, pt }[language];
+
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const products = [
-    { img: upper_ulna, title: "Upper Ulna", desc: "Diseñado para restaurar la anatomía y funcionalidad del cúbito proximal." },
-    { img: distal_humerus, title: "Distal Humerus", desc: "Componente anatómico que asegura estabilidad y movilidad en la articulación del codo." },
-    { img: half_axis_sleeve, title: "Half Axis Sleeve (Ulnar Cushion Block)", desc: "Elemento especializado para amortiguar y optimizar el movimiento del codo." },
-    { img: fixation_screw, title: "Fixation Screw", desc: "Tornillos de fijación confiables que proporcionan seguridad y durabilidad." },
-    { img: axes, title: "Axes", desc: "Ejes diseñados para una correcta alineación y soporte en el sistema protésico." },
+    { img: upper_ulna, title: t.products.upper_ulna.title, desc: t.products.upper_ulna.desc },
+    { img: distal_humerus, title: t.products.distal_humerus.title, desc: t.products.distal_humerus.desc },
+    { img: half_axis_sleeve, title: t.products.half_axis_sleeve.title, desc: t.products.half_axis_sleeve.desc },
+    { img: fixation_screw, title: t.products.fixation_screw.title, desc: t.products.fixation_screw.desc },
+    { img: axes, title: t.products.axes.title, desc: t.products.axes.desc },
   ];
 
   const containerVariants = (delay = 0) => ({
@@ -49,35 +60,19 @@ export default function ElbowPage() {
 
   return (
     <div className="elbow-wrapper">
-      {/* NAVBAR */}
-      <nav className="navbar-elbow">
-        <div className="logo">
-          {/* Logo desde public/images */}
-          <img src="/images/omma.svg" alt="Logo OMMA" />
-        </div>
-        <ul className="nav-links-elbow">
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/about">Nosotros</a></li>
-          <li><a href="/services" className="btn-nav-elbow">Servicios</a></li>
-          <li><a href="/contact">Contáctanos</a></li>
-        </ul>
-      </nav>
+      {/* NAVBAR GLOBAL */}
+      <Navbar />
 
       {/* HERO */}
       <header className="hero elbow-hero">
-        <h1>Implantes de Codo</h1>
-        <p>
-          Soluciones avanzadas en prótesis de codo diseñadas para restaurar
-          movilidad, estabilidad y mejorar la calidad de vida de los pacientes.
-        </p>
+        <h1>{t.hero.title}</h1>
+        <p>{t.hero.subtitle}</p>
       </header>
 
       {/* PRODUCTOS */}
       <section className="elbow-products-circles">
-        <h2>Portafolio de Codo</h2>
-        <p className="intro-elbow">
-          Descubre nuestros componentes especializados para artroplastia total y parcial de codo.
-        </p>
+        <h2>{t.products.title}</h2>
+        <p className="intro-elbow">{t.products.intro}</p>
 
         <motion.div
           className={`circle-row-elbow ${products.length === 4 ? "row-4" : "row-3"}`}
@@ -105,7 +100,7 @@ export default function ElbowPage() {
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-elbow">
         <a href="/catalog/Catálogo_codo.pdf" download className="btn-download-elbow">
-          <FaDownload /> Descargar Catálogo Completo
+          <FaDownload /> {t.catalog.download}
         </a>
       </div>
 
@@ -127,16 +122,13 @@ export default function ElbowPage() {
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                className="modal-close-elbow"
-                onClick={() => setSelectedProduct(null)}
-              >
+              <button className="modal-close-elbow" onClick={() => setSelectedProduct(null)}>
                 <FaTimes />
               </button>
               <img src={selectedProduct.img} alt={selectedProduct.title} />
               <h3>{selectedProduct.title}</h3>
               <p>{selectedProduct.desc}</p>
-              <a href="/contact" className="circle-btn-elbow">Cotizar</a>
+              <a href="/contact" className="circle-btn-elbow">{t.modal.quote}</a>
             </motion.div>
           </motion.div>
         )}
@@ -144,49 +136,42 @@ export default function ElbowPage() {
 
       {/* CTA */}
       <section className="elbow-cta">
-        <h2>¿Interesado en nuestros implantes de codo?</h2>
-        <p>
-          Ponte en contacto con nuestro equipo y descubre cómo nuestras soluciones
-          pueden ayudarte a lograr resultados clínicos excepcionales.
-        </p>
-        <a href="/contact" className="btn-contact-elbow">Contáctanos</a>
+        <h2>{t.cta.title}</h2>
+        <p>{t.cta.subtitle}</p>
+        <a href="/contact" className="btn-contact-elbow">{t.cta.button}</a>
       </section>
 
       {/* BACK */}
       <div className="back-link-elbow">
-        <Link to="/services"><FaArrowLeft /> Volver a Servicios</Link>
+        <Link to="/services"><FaArrowLeft /> {t.back}</Link>
       </div>
 
       {/* FOOTER */}
       <footer className="footer-elbow">
         <div className="footer-grid-elbow">
           <div>
-            <h3>Acerca de nosotros</h3>
-            <p>
-              Somos un grupo dedicado a ofrecer un servicio excepcional con
-              soluciones de calidad y confianza.
-            </p>
+            <h3>{t.footer.about.title}</h3>
+            <p>{t.footer.about.desc}</p>
           </div>
           <div>
-            <h3>Acerca de</h3>
+            <h3>{t.footer.links.title}</h3>
             <div className="footer-links-elbow">
-              <a href="/">Inicio</a>
-              <a href="/about">Nosotros</a>
-              <a href="/services">Servicios</a>
+              <a href="/">{t.footer.links.home}</a>
+              <a href="/about">{t.footer.links.about}</a>
+              <a href="/services">{t.footer.links.services}</a>
             </div>
           </div>
           <div>
-            <h3>Información de Contacto</h3>
-            <p>Tel: 55 1744 2428</p>
-            <p>Email: contacto@ommagroup.com</p>
+            <h3>{t.footer.contact.title}</h3>
+            <p>{t.footer.contact.phone}</p>
+            <p>{t.footer.contact.email}</p>
           </div>
         </div>
         <div className="footer-bottom-elbow">
           <div className="footer-logo-elbow">
-            {/* Logo blanco desde public/images */}
             <img src="/images/omma_white.png" alt="Logo OMMA" />
           </div>
-          <p>© 2025 OMMA Group. Todos los derechos reservados.</p>
+          <p>{t.footer.bottom}</p>
         </div>
       </footer>
     </div>
