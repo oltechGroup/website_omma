@@ -7,19 +7,16 @@ html, body {
     background-color: #0d3d3c;
 }
 
-/* ELIMINAMOS COMPLETAMENTE el margin-top del homepage-container */
 .homepage-container {
     font-family: Arial, sans-serif;
     color: #333;
-    /* NO MARGIN-TOP - el navbar fixed se encarga del espacio */
 }
 
-/* Hero Section - EMPIEZA DESDE ARRIBA SIN MARGEN */
+/* Hero Section */
 .hero-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 2rem;
     width: 100%;
     height: 100vh;
     color: white;
@@ -29,10 +26,9 @@ html, body {
     background-position: center;
     background-repeat: no-repeat;
     margin-top: 0;
-    padding-top: 80px; /* Espacio para el navbar fixed */
+    padding-top: 80px;
 }
 
-/* Gradiente oscuro encima de la imagen */
 .hero-section::before {
     content: "";
     position: absolute;
@@ -44,7 +40,6 @@ html, body {
     z-index: 0;
 }
 
-/* Contenedor en 2 columnas (texto + media) */
 .hero-container {
     display: flex;
     align-items: center;
@@ -57,7 +52,6 @@ html, body {
     z-index: 1;
 }
 
-/* Texto alineado a la izquierda */
 .hero-text {
     flex: 1;
     text-align: left;
@@ -77,7 +71,6 @@ html, body {
     white-space: pre-line;
 }
 
-/* Botón CTA */
 .cta-button {
     background-color: #28a745;
     color: white;
@@ -87,7 +80,6 @@ html, body {
     cursor: pointer;
     margin-top: 1rem;
     border-radius: 6px;
-    align-items: initial;
 }
 
 .cta-button .cta-link {
@@ -99,7 +91,6 @@ html, body {
     text-align: center;
 }
 
-/* Imagen o video */
 .hero-media {
     flex: 1;
     display: flex;
@@ -114,7 +105,6 @@ html, body {
     border-radius: 10px;
 }
 
-/* --- Secciones de contenido --- */
 /* Secciones About y Services */
 .about-us-section {
     padding: 4rem 2rem;
@@ -132,19 +122,16 @@ html, body {
     margin-top: 1rem;
 }
 
-/* Estilos de cada card */
 .about-cards .card {
     max-width: 24%;
     background: #fff;
 }
 
-/* Animación al pasar el mouse */
 .card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Imagen en la parte superior */
 .card img {
     width: 60px;
     height: 60px;
@@ -153,7 +140,6 @@ html, body {
     border-radius: 50%;
 }
 
-/* Títulos y texto */
 .card h3 {
     font-size: 1.25rem;
     font-weight: 600;
@@ -166,7 +152,7 @@ html, body {
     color: #555;
 }
 
-/*-------------------Section icon-----------------------------*/
+/* Section icon */
 .corporate-section {
     background-color: #0e2a36;
     color: white;
@@ -214,7 +200,7 @@ html, body {
     color: #d1d5db;
 }
 
-/*-----------------Seccion de experiencia y servicio----------*/
+/* Seccion de experiencia y servicio */
 .services-experience-section {
     background-color: #1a2a3a;
     color: #fff;
@@ -316,7 +302,7 @@ html, body {
     text-align: center;
 }
 
-/*------------------Lo mas nuevo------------------------------*/
+/* Lo mas nuevo */
 .new-offer-section {
     background-color: #ffffff;
     padding: 4rem 2rem;
@@ -347,7 +333,6 @@ html, body {
     gap: 2rem;
 }
 
-/* Texto */
 .offer-text {
     flex: 1;
 }
@@ -372,14 +357,12 @@ html, body {
     animation-delay: 0.5s;
 }
 
-/* Contenedor */
 .offer-image {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
-/* Video con aura y animación */
 .offer-image video {
     width: 80%;
     max-width: 300px;
@@ -390,7 +373,6 @@ html, body {
     cursor: pointer;
 }
 
-/* Botón principal */
 .cta-offer {
     margin-top: 1.5rem;
     padding: 0.9rem 2rem;
@@ -417,7 +399,6 @@ html, body {
     text-align: center;
 }
 
-/* Animación de entrada */
 @keyframes slideIn {
     from {
         opacity: 0;
@@ -429,7 +410,6 @@ html, body {
     }
 }
 
-/* Aura brillante pulsante */
 @keyframes auraPulse {
     0% {
         box-shadow: 0 0 20px rgba(76, 175, 80, 0.4);
@@ -442,13 +422,11 @@ html, body {
     }
 }
 
-/* Hover: crece mucho más */
 .offer-image video:hover {
     transform: scale(1.3);
     box-shadow: 0 0 60px rgba(76, 175, 80, 0.9);
 }
 
-/* Animaciones adicionales */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -460,7 +438,7 @@ html, body {
     }
 }
 
-/*Botones flotantes*/
+/* Botones flotantes */
 .floating-buttons {
     position: fixed;
     bottom: 20px;
@@ -494,17 +472,15 @@ html, body {
     transform: scale(1.1);
 }
 
-/* WhatsApp específico */
 .whatsapp-btn {
     background: #25d366;
 }
 
-/* Chatbot específico */
 .chatbot-btn {
     background: #007bff;
 }
 
-/*seccion ¿porque nosotros?*/
+/* seccion ¿porque nosotros? */
 .why-choose-section {
     padding: 60px 20px;
     background: #fff;
@@ -542,7 +518,6 @@ html, body {
     line-height: 1.5;
 }
 
-/* BOTÓN */
 .why-btn {
     padding: 10px 20px;
     border: 2px solid #000000;
@@ -569,7 +544,7 @@ html, body {
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-/*footer*/
+/* footer */
 .footer-home {
     background: var(--azul-oscuro);
     color: white;
@@ -633,60 +608,89 @@ html, body {
 }
 
 /* ============================ */
-/* MEDIA QUERIES PARA MÓVIL - AJUSTES MEJORADOS */
+/* MEDIA QUERIES PARA MÓVIL - SOLUCIÓN DEFINITIVA */
 /* ============================ */
 
 @media (max-width: 768px) {
-    .homepage-container {
-        /* Sin margin-top aquí tampoco */
-    }
-
-    /* HERO SECTION MEJORADO PARA MÓVIL */
+    /* RESET COMPLETO PARA MÓVIL - ELIMINAR TODOS LOS PADDINGS PROBLEMÁTICOS */
     .hero-section {
-        padding-top: 100px; /* Más espacio en móvil para bajar el contenido */
-        min-height: 100vh;
+        padding: 80px 0 2rem 0 !important; /* Solo padding top y bottom */
         height: auto;
-        padding-bottom: 2rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .hero-container {
         flex-direction: column;
         text-align: center;
-        padding: 0 1rem;
-        gap: 2rem; /* Más espacio entre elementos */
-        align-items: center;
-        justify-content: center;
+        padding: 0 15px !important; /* Padding mínimo y consistente */
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
 
     .hero-text {
         text-align: center;
-        margin-top: 1rem;
+        width: 100%;
+        padding: 0 !important;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
 
     .hero-text h1 {
-        font-size: 2.2rem; /* Tamaño ligeramente reducido */
-        white-space: normal;
+        font-size: 2rem;
         line-height: 1.2;
+        margin-bottom: 1rem;
+        text-align: center;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
         word-wrap: break-word;
-        margin-bottom: 1.5rem;
+        overflow-wrap: break-word;
     }
 
     .hero-text p {
         font-size: 1rem;
-        white-space: normal;
         line-height: 1.5;
         margin-bottom: 1.5rem;
+        text-align: center;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    .hero-media {
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
     }
 
     .hero-media img,
     .hero-media video {
-        max-width: 280px;
-        margin-top: 1rem;
+        max-width: 250px;
+        width: 90%;
+        margin: 0 auto;
     }
 
-    /* About Section */
+    /* Asegurar que todas las secciones tengan padding consistente */
+    .about-us-section,
+    .corporate-section,
+    .services-experience-section,
+    .new-offer-section,
+    .why-choose-section,
+    .footer-home {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
     .about-us-section {
-        padding: 2rem 1rem;
+        padding: 2rem 15px;
     }
 
     .about-cards .card {
@@ -694,10 +698,9 @@ html, body {
         margin-bottom: 1.5rem;
     }
 
-    /* Corporate Section */
     .corporate-section {
         max-height: none;
-        padding: 2rem 1rem;
+        padding: 2rem 15px;
     }
 
     .corporate-title {
@@ -705,9 +708,8 @@ html, body {
         margin-bottom: 2rem;
     }
 
-    /* Services Section */
     .services-experience-section {
-        padding: 40px 1rem;
+        padding: 40px 15px;
     }
 
     .services-experience-section .section-title {
@@ -718,20 +720,10 @@ html, body {
     .services-cards-container .service-card {
         flex: 1 1 100%;
         margin-bottom: 1.5rem;
-        background-color: #ffffff;
     }
 
-    .service-card h3 {
-        color: #333;
-    }
-
-    .service-card p {
-        color: #666;
-    }
-
-    /* New Offer Section */
     .new-offer-section {
-        padding: 2rem 1rem;
+        padding: 2rem 15px;
     }
 
     .new-offer-section::before {
@@ -741,26 +733,27 @@ html, body {
     .offer-container {
         flex-direction: column;
         text-align: center;
+        padding: 0 15px;
     }
 
     .animated-title {
         font-size: 1.8rem;
-        white-space: normal;
+        padding: 0 10px;
     }
 
     .animated-subtitle {
         font-size: 1rem;
-        white-space: normal;
+        padding: 0 10px;
     }
 
     .offer-image video {
         max-width: 250px;
     }
 
-    /* Why Choose Section */
     .why-choose-container {
         flex-direction: column;
         text-align: center;
+        padding: 0 15px;
     }
 
     .why-choose-text {
@@ -771,7 +764,10 @@ html, body {
         font-size: 1.5rem;
     }
 
-    /* Footer */
+    .footer-home {
+        padding: 3rem 15px 1rem;
+    }
+
     .footer-grid-home {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -783,7 +779,6 @@ html, body {
         text-align: center;
     }
 
-    /* Floating Buttons */
     .floating-buttons {
         bottom: 10px;
         right: 10px;
@@ -802,16 +797,17 @@ html, body {
 
 @media (max-width: 480px) {
     .hero-section {
-        padding-top: 90px; /* Espacio ajustado para móviles pequeños */
+        padding-top: 70px !important;
     }
 
     .hero-text h1 {
-        font-size: 1.8rem; /* Tamaño más pequeño para pantallas muy pequeñas */
-        line-height: 1.1;
+        font-size: 1.7rem;
+        padding: 0 5px;
     }
 
     .hero-text p {
         font-size: 0.9rem;
+        padding: 0 5px;
     }
 
     .cta-button,
@@ -830,7 +826,7 @@ html, body {
     }
 }
 
-/* Media Queries existentes del corporate section */
+/* Media Queries para corporate section */
 @media (min-width: 640px) {
     .corporate-grid {
         grid-template-columns: repeat(2, 1fr);
