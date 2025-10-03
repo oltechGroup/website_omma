@@ -128,7 +128,7 @@ export default function ShoulderPage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-shoulder">
-        <a href="/catalog/Catálogo_hombro.pdf" download className="btn-download-shoulder">
+        <a href="/catalog/.pdf" download className="btn-download-shoulder">
           <FaDownload /> {t.catalog}
         </a>
       </div>

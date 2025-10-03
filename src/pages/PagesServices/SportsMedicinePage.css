@@ -13,41 +13,12 @@
   flex-direction: column;
 }
 
-/* NAVBAR */
-.navbar-sport {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.navbar-sport .logo img {
-  max-height: 50px;
-}
-.nav-links-sport {
-  display: flex;
-  gap: 1.2rem;
-  list-style: none;
-}
-.nav-links-sport a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-.nav-links-sport .btn-nav-sport {
-  background: var(--verde-oscuro);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-}
-
 /* HERO */
 .sports-hero {
   text-align: center;
   background: var(--azul-oscuro);
   color: white;
-  padding: 3rem 2rem;
+  padding: 100px 2rem 80px; /* consistente con shoulder */
 }
 .sports-hero h1 {
   font-size: 2.4rem;
@@ -161,7 +132,7 @@
 
 /* BOTÓN CATÁLOGO */
 .catalog-download-sport {
-  margin: 3rem 0 4rem 0; /* más espacio arriba y abajo */
+  margin: 3rem 0 4rem 0;
   text-align: center;
 }
 .btn-download-sport {
@@ -180,10 +151,9 @@
 .btn-download-sport:hover {
   background: white !important;
   color: black !important;
-  border: 2px solid black;   /* borde premium */
+  border: 2px solid black;
   transform: translateY(-3px);
 }
-
 
 /* MODAL */
 .modal-overlay-sport {
@@ -212,7 +182,8 @@
 .modal-content-sport img {
   max-width: 80%;
   height: auto;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem auto;
+  display: block;
 }
 .modal-content-sport h3 {
   color: var(--verde-oscuro);
@@ -250,15 +221,14 @@
 .circle-btn-sport:hover {
   background: white !important;
   color: black !important;
-  border: 2px solid black;  /* borde premium */
+  border: 2px solid black;
   transform: translateY(-2px);
 }
-
 
 /* CTA */
 .sports-cta {
   text-align: center;
-  background: var(--verde-oscuro);
+  background: var(--azul-oscuro);
   color: white;
   padding: 3rem 2rem;
 }

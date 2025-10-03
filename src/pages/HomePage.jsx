@@ -156,17 +156,6 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Floating WhatsApp */}
-      <div className="floating-buttons">
-        <a
-          href="https://wa.me/525517442428"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="floating-btn whatsapp-btn"
-        >
-          <img src={ommawhats} alt="WhatsApp" />
-        </a>
-      </div>
 
       {/* Why Choose Us */}
       <section className="why-choose-section">

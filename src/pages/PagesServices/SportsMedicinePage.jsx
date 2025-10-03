@@ -91,7 +91,7 @@ export default function SportsMedicinePage() {
 
       {/* HERO */}
       <header className="hero sports-hero">
-        <h1><FaDumbbell /> {t.hero.title}</h1>
+        <h1> {t.hero.title}</h1>
         <p>{t.hero.subtitle}</p>
       </header>
 

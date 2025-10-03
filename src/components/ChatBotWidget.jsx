@@ -1,8 +1,7 @@
-
 // src/components/ChatBotWidget.jsx
 import React, { useState, useRef } from "react";
 import {
-  FaComments, FaTimes, FaPaperPlane, FaWhatsapp,
+  FaTimes, FaPaperPlane, FaWhatsapp,
   FaMapMarkedAlt, FaClock, FaEnvelope, FaServicestack
 } from "react-icons/fa";
 import emailjs from "emailjs-com";
@@ -55,10 +54,11 @@ export default function ChatBotWidget() {
 
   return (
     <div className="chatbot-container">
-      {/* Botón flotante chatbot */}
-      <button className="chatbot-toggle" onClick={toggleWidget}>
-        {isOpen ? <FaTimes /> : <FaComments />}
-      </button>
+{/* Botón flotante chatbot */}
+<button className="chatbot-toggle" onClick={toggleWidget}>
+  {isOpen ? <FaTimes /> : <img src="/images/LogoW.png" alt="OMMA Logo" />}
+</button>
+
 
       {/* Botón flotante WhatsApp */}
       <a
