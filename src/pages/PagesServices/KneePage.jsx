@@ -120,7 +120,7 @@ export default function KneePage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-knee">
-        <a href="/catalog/omma-knee.pdf" download className="btn-download-knee">
+        <a href="/catalog/Catalogo_rodilla.pdf" download className="btn-download-knee">
           <FaDownload /> {t.catalog.download}
         </a>
       </div>

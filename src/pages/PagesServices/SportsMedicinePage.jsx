@@ -130,7 +130,7 @@ export default function SportsMedicinePage() {
 
       {/* BOTÓN DESCARGAR CATÁLOGO */}
       <div className="catalog-download-sport">
-        <a href="/catalog/Catálogo_Artroscopia.pdf" download className="btn-download-sport">
+        <a href="/catalog/Catalogo_medicina.pdf" download className="btn-download-sport">
           <FaDownload /> {t.catalog.download}
         </a>
       </div>

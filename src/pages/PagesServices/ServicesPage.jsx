@@ -46,7 +46,7 @@ export default function ServicesPage() {
             <h3>{t.clinical.knee.title}</h3>
             <p>{t.clinical.knee.desc}</p>
           </a>
-          <a href="/services" className="service-card">
+          <a href="/hip" className="service-card">
             <FaBone className="icon" />
             <h3>{t.clinical.hip.title}</h3>
             <p>{t.clinical.hip.desc}</p>

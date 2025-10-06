@@ -1,4 +1,13 @@
 /* src/pages/HomePage.css */
+:root {
+    --azul-oscuro: #0d3d3c;
+    --verde: #28a745;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     overflow-x: hidden;
     width: 100%;
@@ -10,6 +19,8 @@ html, body {
 .homepage-container {
     font-family: Arial, sans-serif;
     color: #333;
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Hero Section */
@@ -18,15 +29,15 @@ html, body {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     position: relative;
     overflow: hidden;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin-top: 0;
-    padding-top: 80px;
+    margin: 0;
+    padding: 80px 0 0 0;
 }
 
 .hero-section::before {
@@ -50,12 +61,13 @@ html, body {
     padding: 0 2rem;
     position: relative;
     z-index: 1;
+    width: 100%;
 }
 
 .hero-text {
     flex: 1;
     text-align: left;
-    color: #fff;
+    color: #ffffff; /* CAMBIO: Texto negro en lugar de morado */
 }
 
 .hero-text h1 {
@@ -63,12 +75,14 @@ html, body {
     margin-bottom: 1rem;
     white-space: normal;
     line-height: 1.1;
+    color: #ffffff; /* CAMBIO: Texto negro */
 }
 
 .hero-text p {
     font-size: 1.2rem;
     line-height: 1.6;
     white-space: pre-line;
+    color: #ffffff; /* CAMBIO: Texto negro */
 }
 
 .cta-button {
@@ -101,6 +115,7 @@ html, body {
 .hero-media img,
 .hero-media video {
     max-width: 500px;
+    width: 100%;
     height: auto;
     border-radius: 10px;
 }
@@ -112,6 +127,7 @@ html, body {
     color: #111;
     border-radius: 12px;
     background-color: #fff;
+    width: 100%;
 }
 
 .about-cards {
@@ -125,6 +141,7 @@ html, body {
 .about-cards .card {
     max-width: 24%;
     background: #fff;
+    flex: 1 1 200px;
 }
 
 .card:hover {
@@ -156,14 +173,16 @@ html, body {
 .corporate-section {
     background-color: #0e2a36;
     color: white;
-    padding: 2rem 0rem;
-    max-height: 500px;
+    padding: 2rem 1rem;
+    max-height: none;
+    width: 100%;
 }
 
 .corporate-container {
     max-width: 72rem;
     margin: 0 auto;
     text-align: center;
+    width: 100%;
 }
 
 .corporate-title {
@@ -205,11 +224,13 @@ html, body {
     background-color: #1a2a3a;
     color: #fff;
     padding: 80px 20px;
+    width: 100%;
 }
 
 .services-experience-section .container {
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .services-experience-section .section-title {
@@ -308,6 +329,7 @@ html, body {
     padding: 4rem 2rem;
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .new-offer-section::before {
@@ -331,6 +353,7 @@ html, body {
     max-width: 1200px;
     margin: 0 auto;
     gap: 2rem;
+    width: 100%;
 }
 
 .offer-text {
@@ -486,6 +509,7 @@ html, body {
     background: #fff;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .why-choose-container {
@@ -513,7 +537,7 @@ html, body {
 
 .why-choose-text p {
     font-size: 1rem;
-    color: #555;
+    color: #555;  
     margin-bottom: 20px;
     line-height: 1.5;
 }
@@ -549,6 +573,7 @@ html, body {
     background: var(--azul-oscuro);
     color: white;
     padding: 3rem 2rem 1rem;
+    width: 100%;
 }
 
 .footer-grid-home {
@@ -608,77 +633,74 @@ html, body {
 }
 
 /* ============================ */
-/* MEDIA QUERIES PARA MÓVIL - SOLUCIÓN DEFINITIVA */
+/* MEDIA QUERIES MEJORADAS PARA TODOS LOS DISPOSITIVOS */
 /* ============================ */
 
+/* Tablets */
+@media (max-width: 1024px) {
+    .hero-text h1 {
+        font-size: 3.5rem;
+    }
+    
+    .about-cards .card {
+        max-width: 45%;
+    }
+    
+    .corporate-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Móviles grandes y tablets pequeñas */
 @media (max-width: 768px) {
-    /* RESET COMPLETO PARA MÓVIL - ELIMINAR TODOS LOS PADDINGS PROBLEMÁTICOS */
+    /* RESET MEJORADO PARA MÓVIL */
     .hero-section {
-        padding: 80px 0 2rem 0 !important; /* Solo padding top y bottom */
+        padding: 70px 0 2rem 0 !important;
         height: auto;
         min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .hero-container {
         flex-direction: column;
         text-align: center;
-        padding: 0 15px !important; /* Padding mínimo y consistente */
+        padding: 0 15px !important;
         gap: 1.5rem;
         width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        box-sizing: border-box;
     }
 
     .hero-text {
         text-align: center;
         width: 100%;
         padding: 0 !important;
-        margin: 0 auto;
-        box-sizing: border-box;
     }
 
     .hero-text h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
         line-height: 1.2;
         margin-bottom: 1rem;
-        text-align: center;
-        width: 100%;
         padding: 0 10px;
-        box-sizing: border-box;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
     }
 
     .hero-text p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         line-height: 1.5;
         margin-bottom: 1.5rem;
-        text-align: center;
-        width: 100%;
         padding: 0 10px;
-        box-sizing: border-box;
         white-space: normal;
-        word-wrap: break-word;
     }
 
     .hero-media {
         width: 100%;
         padding: 0;
-        margin: 0 auto;
     }
 
     .hero-media img,
     .hero-media video {
-        max-width: 250px;
+        max-width: 280px;
         width: 90%;
-        margin: 0 auto;
     }
 
-    /* Asegurar que todas las secciones tengan padding consistente */
+    /* Secciones con padding consistente */
     .about-us-section,
     .corporate-section,
     .services-experience-section,
@@ -696,16 +718,20 @@ html, body {
     .about-cards .card {
         max-width: 100%;
         margin-bottom: 1.5rem;
+        flex: 1 1 100%;
     }
 
     .corporate-section {
-        max-height: none;
         padding: 2rem 15px;
     }
 
     .corporate-title {
         font-size: 1.5rem;
         margin-bottom: 2rem;
+    }
+
+    .corporate-grid {
+        grid-template-columns: 1fr;
     }
 
     .services-experience-section {
@@ -737,17 +763,18 @@ html, body {
     }
 
     .animated-title {
-        font-size: 1.8rem;
+        font-size: 2rem;
         padding: 0 10px;
     }
 
     .animated-subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
         padding: 0 10px;
     }
 
     .offer-image video {
-        max-width: 250px;
+        max-width: 280px;
+        width: 90%;
     }
 
     .why-choose-container {
@@ -761,11 +788,11 @@ html, body {
     }
 
     .why-choose-text h2 {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
     }
 
     .footer-home {
-        padding: 3rem 15px 1rem;
+        padding: 2rem 15px 1rem;
     }
 
     .footer-grid-home {
@@ -780,41 +807,42 @@ html, body {
     }
 
     .floating-buttons {
-        bottom: 10px;
-        right: 10px;
+        bottom: 15px;
+        right: 15px;
     }
 
     .floating-btn {
-        width: 45px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
     }
 
     .floating-btn img {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
     }
 }
 
+/* Móviles pequeños */
 @media (max-width: 480px) {
     .hero-section {
-        padding-top: 70px !important;
+        padding-top: 60px !important;
     }
 
     .hero-text h1 {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
         padding: 0 5px;
     }
 
     .hero-text p {
-        font-size: 0.9rem;
+        font-size: 1rem;
         padding: 0 5px;
     }
 
     .cta-button,
     .cta-offer,
     .why-btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
+        padding: 0.7rem 1.3rem;
+        font-size: 0.95rem;
     }
 
     .corporate-grid {
@@ -823,6 +851,33 @@ html, body {
 
     .corporate-card-title {
         font-size: 1rem;
+    }
+    
+    .animated-title {
+        font-size: 1.6rem;
+    }
+    
+    .animated-subtitle {
+        font-size: 1rem;
+    }
+    
+    .offer-image video {
+        max-width: 250px;
+    }
+    
+    .floating-buttons {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .floating-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .floating-btn img {
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -840,5 +895,20 @@ html, body {
     
     .corporate-grid {
         grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Dispositivos muy pequeños (iPhone SE, etc) */
+@media (max-width: 320px) {
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+    
+    .animated-title {
+        font-size: 1.4rem;
     }
 }

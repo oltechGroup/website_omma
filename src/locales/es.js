@@ -9,7 +9,7 @@ export default {
   hero: {
     
     title: "Innovación sin \nfronteras.\n",
-    description:"Somos la opción que combina ingeniería de clase mundial, \ncostos eficientes y servicio local confiable, ofreciendo a los \nmédicos y hospitales la seguridad de un aliado estratégico que entiende sus retos clínicos y financieros.",
+    description:"Somos la opción que combina ingeniería de clase mundial, costos eficientes y servicio local confiable, ofreciendo a los médicos y hospitales la seguridad de un aliado estratégico que entiende sus retos clínicos y financieros.",
     button: "Empezar ahora",
   },
 
