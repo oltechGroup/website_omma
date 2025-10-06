@@ -14,12 +14,12 @@ import ommawhats from "../assets/icons/whatsap.png";
 // NOTA: estas imágenes ya las tienes en /public
 const ommaLogo = "/images/omma_white.png";
 const homeImg = "/images/Home1.png";
-const ommaejemplo = "/images/ejemplo2.png";
+const ommaejemplo = "/images/Protesis.png";
 const ommaexp1 = "/images/Imagen1.png";
 const ommaexp2 = "/images/fondo_about.png";
 const ommaexp3 = "/images/ejemplo.png";
 const ommavideo = "/videos/Codoomma.mp4"; 
-const ommachoose = "/images/seccion5.png";
+const ommachoose = "/images/choose3.png";
 const ommawhite = "/images/omma_white.png";
 
 function HomePage() {
