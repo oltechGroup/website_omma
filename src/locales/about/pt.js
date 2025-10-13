@@ -40,11 +40,13 @@ export default {
   experience: {
     title: "Experiência",
     items: [
-      "Publicidade em Banners, Backdrops e Impressos",
-      "Insumos de Cafeteria",
-      "Coffee Break, Box Lunch",
-      "Cenografia e Audiovisuais",
-      "Transporte",
+      "No setor da saúde, Conhecimento do mercado hospitalar (público e privado), incluindo processos de licitação e compras governamentais (por exemplo, IMSS, ISSSTE, Secretaria de Saúde, hospitais estaduais).",
+      "Pessoal com conhecimento Técnico especializado em soluções ortopédicas e equipamentos médicos.",
+      "Conformidade regulatória e sanitária com os mais altos padrões de qualidade e segurança.",
+      "Políticas de rastreabilidade, armazenamento e transporte de material estéril e sensível garantindo a integridade do produto.",
+      "Participação ativa em congressos, workshops e feiras médicas para manter-nos na vanguarda.",
+      "Certificações ou alianças com marcas internacionais reconhecidas no setor médico.",
+      "Capacidade de fornecimento e resposta imediata a emergências cirúrgicas 24 horas por dia."
     ],
   },
   clients: {
@@ -54,14 +56,14 @@ export default {
     visit: "Visitar site",
     list: [
       {
-        name: "Hospital Infantil do México “Federico Gómez”",
+        name: "Hospital Infantil do México \"Federico Gómez\"",
         address: "Calle Dr. Márquez 162, Doctores, Cuauhtémoc, 06720 Cidade do México, CDMX",
         phone: "+52 55 5228 9917",
         image: "/images/hospital_infantil.jpg",
         link: "http://himfg.com.mx/",
       },
       {
-        name: "ISSSTE Hospital Regional “Gral. Ignacio Zaragoza”",
+        name: "ISSSTE Hospital Regional \"Gral. Ignacio Zaragoza\"",
         address: "Calz. Ignacio Zaragoza 1711, Iztapalapa, 09220 Cidade do México, CDMX",
         phone: "+52 55 5716 5200",
         image: "/images/issste_zaragoza.jpg",

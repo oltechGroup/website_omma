@@ -1,14 +1,21 @@
 import React from "react";
 import "./AboutPage.css";
-import {
-  FaBullseye,
-  FaRocket,
-  FaLightbulb,
-  FaHandsHelping,
-  FaLeaf,
-  FaUserMd,
-  FaCheckCircle,
+import { 
+  FaBullseye, 
+  FaRocket, 
+  FaLightbulb, 
+  FaHandsHelping, 
+  FaLeaf, 
+  FaUserMd, 
+  FaCheckCircle, 
   FaUsers,
+  FaHospital,
+  FaUserTie,
+  FaShieldAlt,
+  FaMapMarkerAlt,
+  FaCalendarAlt,
+  FaAward,
+  FaClock
 } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import es from "../locales/about/es";
@@ -19,10 +26,18 @@ export default function AboutPage() {
   const { language } = useLanguage();
   const t = { es, en, pt }[language];
 
+  const experienceIcons = [
+    FaHospital,       // Sector salud
+    FaUserTie,        // Personal técnico
+    FaShieldAlt,      // Cumplimiento normativo
+    FaMapMarkerAlt,   // Trazabilidad
+    FaCalendarAlt,    // Congresos
+    FaAward,          // Certificaciones
+    FaClock           // Respuesta inmediata
+  ];
+
   return (
     <div className="about-wrapper">
-    
-
       {/* HERO */}
       <header className="hero about-hero">
         <h1>{t.hero.title} <span>{t.hero.subtitle}</span></h1>
@@ -35,7 +50,6 @@ export default function AboutPage() {
           <h2><FaBullseye className="icon" /> {t.mission.title}</h2>
           <p>{t.mission.text}</p>
         </div>
-
         <div className="card">
           <h2><FaRocket className="icon" /> {t.vision.title}</h2>
           <p>{t.vision.text}</p>
@@ -46,7 +60,6 @@ export default function AboutPage() {
       <section className="values">
         <h2>{t.values.title}</h2>
         <p className="values-hero">{t.values.hero}</p>
-
         <div className="values-grid">
           <div className="value-item"><FaLightbulb className="val-icon" /> {t.values.items.innovation}</div>
           <div className="value-item"><FaUserMd className="val-icon" /> {t.values.items.excellence}</div>
@@ -70,17 +83,26 @@ export default function AboutPage() {
         <p>{t.profile.objetive}</p>
       </section>
 
-      {/* EXPERIENCIA */}
-      <section
-        className="experience"
-        style={{
-          backgroundImage: `linear-gradient(rgba(13,61,60,0.85), rgba(13,61,60,0.85)), url(/images/quirofano.jpg)`
-        }}
-      >
-        <h2>{t.experience.title}</h2>
-        <ul>
-          {t.experience.items.map((item, index) => <li key={index}>{item}</li>)}
-        </ul>
+      {/* EXPERIENCIA ACTUALIZADA */}
+      <section className="experience">
+        <div className="experience-container">
+          <h2>{t.experience.title}</h2>
+          <div className="experience-grid">
+            {t.experience.items.map((item, index) => {
+              const IconComponent = experienceIcons[index];
+              return (
+                <div className="experience-item" key={index}>
+                  <div className="experience-icon">
+                    <IconComponent />
+                  </div>
+                  <div className="experience-content">
+                    <p>{item}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       {/* CLIENTES */}

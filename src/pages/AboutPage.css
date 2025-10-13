@@ -175,36 +175,71 @@ body {
   color: #e8fff6;
 }
 
-/* EXPERIENCIA */
+/* EXPERIENCIA ACTUALIZADA */
 .experience {
   padding: 3rem 2rem;
   text-align: center;
   color: white;
+  background: linear-gradient(rgba(13,61,60,0.85), rgba(13,61,60,0.85)), url(/images/quirofano.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .experience h2 {
   color: var(--verde);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
-.experience ul {
-  list-style: none;
-  padding: 0;
-  max-width: 820px;
-  margin: auto;
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.experience ul li {
-  background: rgba(255,255,255,0.08);
-  padding: 0.9rem;
-  margin: 0.6rem 0;
-  border-radius: 8px;
-  transition: background 0.2s ease, transform 0.18s ease;
-  color: #fff;
+.experience-item {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  transition: all 0.3s ease;
+  text-align: left;
 }
-.experience ul li:hover {
-  background: rgba(255,255,255,0.14);
-  transform: translateY(-4px);
+.experience-item:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-5px);
+  border-color: var(--verde);
+}
+.experience-icon {
+  background: var(--verde);
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+.experience-item:hover .experience-icon {
+  background: white;
+  color: var(--verde);
+  transform: scale(1.1);
+}
+.experience-content {
+  flex: 1;
+}
+.experience-content p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #f0f0f0;
 }
 
 /* CLIENTES */
@@ -316,7 +351,11 @@ body {
   .client-card {
     gap: 1.5rem;
   }
+  .experience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  }
 }
+
 @media (max-width: 900px) {
   .about-hero {
     padding: 6rem 1rem;
@@ -347,6 +386,18 @@ body {
     width: auto;
   }
 
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+  .experience-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .experience-icon {
+    align-self: center;
+  }
+
   .client-card {
     flex-direction: column;
     margin: 1.2rem auto;
@@ -367,5 +418,28 @@ body {
   .footer-bottom-about {
     flex-direction: column;
     gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+  .experience-item {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+  .experience-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .experience-icon {
+    align-self: center;
   }
 }
