@@ -90,7 +90,7 @@ export default {
     linksTitle: "Sobre",
     contactTitle: "Informações de Contato",
     phone: "Telefone: 55 1744 2428",
-    email: "Email: contato@ommagroup.com",
+    email: "Email: info@ommagr.com",
     rights: "© 2025 OMMA Group. Todos os direitos reservados.",
   },
 };

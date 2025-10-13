@@ -61,7 +61,7 @@ export default {
     services: "Services",
     info: "Contact Information",
     phone: "Tel: 55 1744 2428",
-    email: "Email: contacto@ommagroup.com",
+    email: "Email: info@ommagr.com",
 
   },
 };

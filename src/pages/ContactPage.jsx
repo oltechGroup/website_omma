@@ -139,7 +139,7 @@ export default function ContactPage() {
           <div>
             <h3>{t.footer.contactTitle}</h3>
             <p>{t.info.phone}</p>
-            <p>Email: contacto@ommagroup.com</p>
+            <p>Email: info@ommagr.com</p>
           </div>
         </div>
 

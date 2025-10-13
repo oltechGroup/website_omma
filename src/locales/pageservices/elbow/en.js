@@ -53,7 +53,7 @@ export default {
     contact: {
       title: "Contact Information",
       phone: "Tel: +52 55 1744 2428",
-      email: "Email: contacto@ommagroup.com"
+      email: "Email: info@ommagr.com"
     },
     bottom: "© 2025 OMMA Group. All rights reserved."
   }

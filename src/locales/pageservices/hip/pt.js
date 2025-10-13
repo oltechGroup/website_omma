@@ -58,7 +58,7 @@ export default {
     contact: {
       title: "Contato",
       phone: "+55 11 1234 5678",
-      email: "contato@omma.com",
+      email: "info@ommagr.com",
     },
     bottom: "© 2025 OMMA. Todos os direitos reservados.",
   },
