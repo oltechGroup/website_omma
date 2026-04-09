@@ -64,7 +64,7 @@ export default {
     about3: "Nosotros",
     services: "Servicios",
     info: "Información de Contacto",
-    phone: "Tel: 55 1744 2428",
+    phone: "Tel: +52 1 55 4563 9281",
     email: "Email: info@ommagr.com",
 
   },

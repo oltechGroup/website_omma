@@ -57,7 +57,7 @@ export default {
     },
     contact: {
       title: "Contato",
-      phone: "+55 11 1234 5678",
+      phone: "+52 1 55 4563 9281",
       email: "info@ommagr.com",
     },
     bottom: "© 2025 OMMA. Todos os direitos reservados.",

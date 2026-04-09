@@ -89,7 +89,7 @@ export default {
     aboutText: "Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.",
     linksTitle: "Acerca de",
     contactTitle: "Información de Contacto",
-    phone: "Tel: 55 1744 2428",
+    phone: "Tel: +52 1 55 4563 9281",
     email: "Email: info@ommagr.com",
     rights: "© 2025 OMMA Group. Todos los derechos reservados.",
   },
