@@ -60,7 +60,7 @@ export default {
     about3: "Us",
     services: "Services",
     info: "Contact Information",
-    phone: "Tel:+52 1 55 4563 9281",
+    phone: "Tel:+52 1 56 4616 0018",
     email: "Email: info@ommagr.com",
 
   },

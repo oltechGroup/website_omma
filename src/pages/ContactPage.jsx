@@ -74,7 +74,7 @@ export default function ContactPage() {
             <a href="https://www.facebook.com/OltechMexico" target="_blank" rel="noreferrer" className="facebook">
               <FaFacebook /> Facebook
             </a>
-            <a href="https://wa.me/5215545639281" target="_blank" rel="noreferrer" className="whatsapp">
+            <a href="https://wa.me/5215646160018" target="_blank" rel="noreferrer" className="whatsapp">
               <FaWhatsapp /> WhatsApp
             </a>
             <a href="https://www.tiktok.com/@ommagroup" target="_blank" rel="noreferrer" className="tiktok">
