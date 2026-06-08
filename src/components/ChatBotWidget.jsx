@@ -62,7 +62,7 @@ export default function ChatBotWidget() {
 
       {/* Botón flotante WhatsApp */}
       <a
-        href="https://wa.me/5215545639281"
+        href="https://wa.me/5215646160018"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-float"
