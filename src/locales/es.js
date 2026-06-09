@@ -8,8 +8,8 @@ export default {
   },
   hero: {
     
-    title: "Innovación sin \nfronteras.\n",
-    description:"Somos la opción que combina ingeniería de clase mundial, costos eficientes y servicio local confiable, ofreciendo a los médicos y hospitales la seguridad de un aliado estratégico que entiende sus retos clínicos y financieros.",
+    title: "Innovación \nsin fronteras.\n",
+    description:"Somos la opción que combina ingeniería de clase mundial, costos eficientes y servicio local \nconfiable, ofreciendo a los médicos y hospitales la seguridad de un aliado estratégico que entiende sus retos \nclínicos y financieros.",
     button: "Empezar ahora",
   },
 

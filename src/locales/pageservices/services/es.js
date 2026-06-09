@@ -23,7 +23,7 @@ export default {
       desc: "Revisiones y técnicas modernas en cirugía de cadera."
     },
     sports: {
-      title: "Medicina Deportiva",
+      title: "Medicina \nDeportiva",
       desc: "Soluciones innovadoras para atletas y lesiones de alto rendimiento."
     }
   },

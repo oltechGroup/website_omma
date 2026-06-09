@@ -1,39 +1,61 @@
 // src/pages/ContactPage.jsx
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import emailjs from "emailjs-com";
-import "./ContactPage.css";
+import { Link } from "react-router-dom";
 import {
   FaTiktok,
   FaWhatsapp,
-  FaMapMarkerAlt,
-  FaPhoneAlt,
   FaFacebook,
   FaInstagram,
 } from "react-icons/fa";
 
 import { useLanguage } from "../context/LanguageContext";
-import es from "../locales/contact/es.js";
-import en from "../locales/contact/en.js";
-import pt from "../locales/contact/pt.js";
-
-const translations = { es, en, pt };
+import translations from "../locales"; 
 
 export default function ContactPage() {
-  const { language } = useLanguage();
-  const t = translations[language];
+  const { language, changeLanguage } = useLanguage();
+  
+  const t = translations[language]?.contact || {
+    hero: { title: "Conectando", highlight: "contigo", subtitle: "Atención personalizada y asesoría en la elección de productos." },
+    form: { title: "Escríbenos", namePlaceholder: "Nombre", emailPlaceholder: "Correo Electrónico o Teléfono", subjectPlaceholder: "Asunto", messagePlaceholder: "Mensaje", button: "Enviar" },
+    info: { address: "Av. Homero 527, Depto. 701 Piso 7, Polanco V Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX", phone: "+52 1 56 4616 0018" },
+    successMessage: "✅ Identificación de envío exitosa.",
+    errorMessage: "❌ Error al enviar: "
+  };
+
   const form = useRef();
   const [status, setStatus] = useState("");
 
+  // ==========================================
+  // LÓGICA DEL NAVBAR PREMIUM (Glassmorphism)
+  // ==========================================
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // En esta página, el navbar se fija casi de inmediato al bajar
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Comprobar al cargar
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Clases dinámicas para el Navbar
+  const navBgClass = isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100" : "bg-transparent";
+  const textColorClass = "text-gray-800"; // Siempre oscuro porque el fondo de la página es blanco
+  const hoverTextClass = "hover:text-[#356658]";
+  const dividerColorClass = "border-gray-300";
+
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs
-      .sendForm(
-        "service_7b901no", 
-        "template_l0otpof", 
-        form.current,
-        "z5uJM9St_tSg6k3ul"
-      )
+      .sendForm("service_7b901no", "template_l0otpof", form.current, "z5uJM9St_tSg6k3ul")
       .then(
         () => {
           setStatus(t.successMessage);
@@ -46,115 +68,249 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="contact-wrapper">
+    <div className="w-full min-h-screen bg-white flex flex-col font-sans relative box-border pt-24">
+      
+      {/* ========================================= */}
+      {/* NAVBAR PREMIUM GLOBAL INTEGRADO           */}
+      {/* ========================================= */}
+      <div className={`w-full transition-all duration-300 z-[999] fixed top-0 left-0 right-0 py-4 ${navBgClass}`}>
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 border-b border-gray-100 pb-3">
+          
+          {/* Logo */}
+          <Link to="/" className="h-10 flex items-center">
+            <img 
+              src="/images/omma_logo_hero.png" 
+              alt="OMMA Group" 
+              className="h-8 md:h-10 object-contain filter invert opacity-90" // Invertido para que se vea oscuro sobre blanco
+            />
+          </Link>
+          
+          {/* ENLACES CENTRALES */}
+          <nav className={`flex items-center space-x-8 md:space-x-12 font-medium text-sm md:text-base ${textColorClass} transition-colors duration-300`}>
+            <Link to="/" className={`${hoverTextClass} transition-colors`}>Inicio</Link>
+            <Link to="/services" className={`${hoverTextClass} transition-colors`}>Catálogo</Link>
+            <Link to="/about" className={`${hoverTextClass} transition-colors`}>Conócenos</Link>
+            
+            {/* SELECTOR DE IDIOMA */}
+            <div className={`flex items-center space-x-2 border-l ${dividerColorClass} pl-6 ml-2 transition-colors duration-300 hidden md:flex`}>
+              <button onClick={() => changeLanguage('es')} className={`text-xs font-bold transition-colors ${language === 'es' ? 'text-[#356658]' : `${textColorClass} ${hoverTextClass}`}`}>ES</button>
+              <span className={`text-xs opacity-50 ${textColorClass}`}>|</span>
+              <button onClick={() => changeLanguage('en')} className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-[#356658]' : `${textColorClass} ${hoverTextClass}`}`}>EN</button>
+              <span className={`text-xs opacity-50 ${textColorClass}`}>|</span>
+              <button onClick={() => changeLanguage('pt')} className={`text-xs font-bold transition-colors ${language === 'pt' ? 'text-[#356658]' : `${textColorClass} ${hoverTextClass}`}`}>PT</button>
+            </div>
+          </nav>
+        </div>
+      </div>
 
-      {/* HERO */}
-      <header className="hero-contact">
-        <h1>
-          {t.hero.title} <span>{t.hero.highlight}</span>
+      {/* ========================================= */}
+      {/* 2. ENCABEZADO "CONECTANDO CONTIGO"        */}
+      {/* ========================================= */}
+      <header className="text-center px-4 pt-10 mb-8 select-none">
+        <h1 className="!text-5xl md:!text-6xl lg:!text-7xl !font-extrabold !text-[#32453F] mb-2 tracking-tighter block">
+          {t.hero.title} <span className="text-[#3B7469]">{t.hero.highlight}</span>
         </h1>
-        <p>{t.hero.subtitle}</p>
+        <p className="!text-sm md:!text-base lg:!text-xl !text-[#7C8B87] !font-light tracking-normal max-w-2xl mx-auto block">
+          {t.hero.subtitle}
+        </p>
       </header>
 
-      {/* CONTACT SECTION */}
-      <section className="contact-section">
-        <div className="info-card-contact">
-          <h2>
-            <FaMapMarkerAlt className="icon" /> {t.info.addressTitle}
-          </h2>
-          <p>{t.info.address}</p>
+      {/* ========================================= */}
+      {/* 3. DISPOSITIVOS MOCKUPS INTERACTIVOS      */}
+      {/* ========================================= */}
+      <section className="relative w-full max-w-6xl mx-auto px-4 flex flex-col items-center justify-center mb-16 box-border z-10">
+        
+        {/* REDES SOCIALES LATERALES FLOTANTES (Desktop) */}
+        <div className="hidden lg:flex flex-col absolute left-2 top-1/2 -translate-y-1/2 gap-3 text-xs font-bold uppercase tracking-widest text-[#93A39F] z-30">
+          <a href="https://www.facebook.com/profile.php?id=61578851184996" target="_blank" rel="noreferrer" className="hover:text-[#1877F2] transition-colors inline-block w-auto text-left py-1 px-2">Facebook</a>
+          <a href="https://wa.me/525646160018" target="_blank" rel="noreferrer" className="hover:text-[#25D366] transition-colors inline-block w-auto text-left py-1 px-2">WhatsApp</a>
+          <a href="https://www.tiktok.com/@ommagroup" target="_blank" rel="noreferrer" className="hover:text-black transition-colors inline-block w-auto text-left py-1 px-2">TikTok</a>
+          <a href="https://www.instagram.com/ommagroup/" target="_blank" rel="noreferrer" className="hover:text-[#DD2A7B] transition-colors inline-block w-auto text-left py-1 px-2">Instagram</a>
+        </div>
 
-          <h2>
-            <FaPhoneAlt className="icon" /> {t.info.phoneTitle}
-          </h2>
-          <p>{t.info.phone}</p>
+        {/* --- MOCKUP DESKTOP: LAPTOP --- */}
+        <div className="relative w-full max-w-4xl hidden md:block select-none box-border">
+          <img 
+            src="/images/laptop_frame.png" 
+            alt="Laptop View" 
+            className="w-full h-auto drop-shadow-[0_20px_40px_rgba(0,0,0,0.08)]" 
+          />
+          
+          <div className="absolute top-[8.2%] left-[11.8%] w-[76.4%] h-[75.6%] bg-white flex p-4 shadow-inner box-border rounded-sm">
+            
+            {/* LADO IZQUIERDO: Tarjeta Gris del Formulario */}
+            <div className="w-[48%] h-full flex items-center justify-center pr-3 box-border">
+              <div className="w-full h-full bg-[#EAEFEB] border border-gray-200 rounded-lg p-5 flex flex-col items-center justify-between box-border shadow-sm">
+                
+                <img 
+                  src="/images/omma_logo_hero.png" 
+                  alt="OMMA" 
+                  className="h-8 object-contain filter invert opacity-80" 
+                />
+                
+                <form ref={form} onSubmit={sendEmail} className="w-full flex flex-col gap-3 box-border mt-2">
+                  <input 
+                    type="text" 
+                    name="name" 
+                    placeholder={t.form.namePlaceholder} 
+                    required 
+                    className="w-full bg-white border border-gray-300 p-2.5 text-xs text-gray-700 font-normal placeholder-gray-400 focus:outline-none focus:border-[#356658] transition-colors rounded box-border shadow-sm" 
+                  />
+                  <input 
+                    type="text" 
+                    name="email" 
+                    placeholder={t.form.emailPlaceholder} 
+                    required 
+                    className="w-full bg-white border border-gray-300 p-2.5 text-xs text-gray-700 font-normal placeholder-gray-400 focus:outline-none focus:border-[#356658] transition-colors rounded box-border shadow-sm" 
+                  />
+                  <input 
+                    type="text" 
+                    name="subject" 
+                    placeholder={t.form.subjectPlaceholder} 
+                    className="w-full bg-white border border-gray-300 p-2.5 text-xs text-gray-700 font-normal placeholder-gray-400 focus:outline-none focus:border-[#356658] transition-colors rounded box-border shadow-sm" 
+                  />
+                  <textarea 
+                    name="message" 
+                    placeholder={t.form.messagePlaceholder} 
+                    rows="3" 
+                    required 
+                    className="w-full bg-white border border-gray-300 p-2.5 text-xs text-gray-700 font-normal placeholder-gray-400 focus:outline-none focus:border-[#356658] transition-colors resize-none rounded box-border shadow-sm"
+                  ></textarea>
+                  
+                  <button 
+                    type="submit" 
+                    className="w-full bg-[#32453F] text-white font-bold text-xs py-3 uppercase tracking-widest rounded shadow-md hover:bg-[#202E29] transition-colors mt-2"
+                  >
+                    {t.form.button}
+                  </button>
+                </form>
+                
+                {status ? (
+                  <p className="text-[10px] font-medium text-center text-emerald-600 m-0 mt-2">{status}</p>
+                ) : (
+                  <div className="h-4"></div>
+                )}
+              </div>
+            </div>
 
-          <h2>{t.info.socialTitle}</h2>
-          <div className="social-icons-contact">
-            <a href="https://www.facebook.com/OltechMexico" target="_blank" rel="noreferrer" className="facebook">
-              <FaFacebook /> Facebook
-            </a>
-            <a href="https://wa.me/5215646160018" target="_blank" rel="noreferrer" className="whatsapp">
-              <FaWhatsapp /> WhatsApp
-            </a>
-            <a href="https://www.tiktok.com/@ommagroup" target="_blank" rel="noreferrer" className="tiktok">
-              <FaTiktok /> TikTok
-            </a>
-            <a href="https://www.instagram.com/grupooltech/#" target="_blank" rel="noreferrer" className="instagram">
-              <FaInstagram /> Instagram
-            </a>
+            {/* LADO DERECHO: Mapa de Google */}
+            <div className="w-[52%] h-full pl-2 box-border">
+              <iframe
+                title="Mapa ubicación"
+                src="https://maps.google.com/maps?q=Av.%20Homero%20527,%20Polanco&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                className="w-full h-full border border-gray-200 rounded-lg shadow-sm"
+                allowFullScreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
           </div>
         </div>
 
-        {/* FORM */}
-        <div className="form-card-contact" id="formulario">
-          <h2>{t.form.title}</h2>
-          <form ref={form} onSubmit={sendEmail} className="contact-form">
-            <label>{t.form.name}</label>
-            <input type="text" name="name" placeholder={t.form.namePlaceholder} required />
+        {/* --- MOCKUP RESPONSIVO: SMARTPHONE --- */}
+        <div className="relative w-full max-w-[320px] md:hidden select-none mt-4 mb-8 box-border mx-auto flex flex-col items-center">
+          <div className="relative w-[400px] h-[570px] flex justify-center">
+            {/* TRUCO: La imagen del celular va POR ENCIMA */}
+            <img 
+              src="/images/phone_frame.png" 
+              alt="Phone View" 
+              className="absolute inset-0 w-full h-full object-fill z-20 pointer-events-none drop-shadow-xl" 
+            />
+            
+            {/* Contenido de la pantalla */}
+            <div className="absolute top-[6%] left-[20.5%] w-[60%] h-[94%] bg-white rounded-[2.5rem] overflow-y-auto flex flex-col p-3 shadow-inner z-10 box-border no-scrollbar pt-8">
+              
+              <div className="bg-[#EAEFEB] border border-gray-200 rounded-xl p-4 flex flex-col items-center gap-3 box-border w-full mb-4">
+                <img 
+                  src="/images/omma_logo_hero.png" 
+                  alt="OMMA" 
+                  className="h-6 object-contain filter invert opacity-80 mb-2" 
+                />
+                
+                <form ref={form} onSubmit={sendEmail} className="w-full flex flex-col gap-2.5 box-border">
+                  <input type="text" name="name" placeholder={t.form.namePlaceholder} required className="w-full bg-white border border-gray-300 shadow-sm p-2.5 text-[11px] font-normal rounded text-gray-700 box-border focus:outline-none" />
+                  <input type="text" name="email" placeholder={t.form.emailPlaceholder} required className="w-full bg-white border border-gray-300 shadow-sm p-2.5 text-[11px] font-normal rounded text-gray-700 box-border focus:outline-none" />
+                  <textarea name="message" placeholder={t.form.messagePlaceholder} rows="2" required className="w-full bg-white border border-gray-300 shadow-sm p-2.5 text-[11px] font-normal rounded text-gray-700 resize-none box-border focus:outline-none"></textarea>
+                  <button type="submit" className="w-full bg-[#32453F] text-white font-bold text-[11px] py-2.5 uppercase tracking-wider rounded shadow-md mt-1 box-border">
+                    {t.form.button}
+                  </button>
+                </form>
+                {status && <p className="text-[10px] text-center font-medium text-emerald-600 m-0">{status}</p>}
+              </div>
 
-            <label>{t.form.email}</label>
-            <input type="text" name="email" placeholder={t.form.emailPlaceholder} required />
+              {/* Mapa Ajustado a la Vista Móvil */}
+              <div className="w-full h-40 flex-shrink-0 box-border pb-4">
+                <iframe 
+                  title="Mapa móvil" 
+                  src="https://maps.google.com/maps?q=Av.%20Homero%20527,%20Polanco&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                  className="w-full h-full border border-gray-300 rounded-xl shadow-sm" 
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </div>
 
-            <label>{t.form.subject}</label>
-            <input type="text" name="subject" placeholder={t.form.subjectPlaceholder} />
-
-            <label>{t.form.message}</label>
-            <textarea name="message" placeholder={t.form.messagePlaceholder} rows="4" required />
-
-            <button type="submit">{t.form.button}</button>
-          </form>
-          {status && <p className="status-message">{status}</p>}
+          {/* BOTONES SOCIALES MÓVIL */}
+          <div className="flex justify-center gap-6 mt-8 z-30">
+            <a href="https://www.facebook.com/profile.php?id=61578851184996" target="_blank" rel="noreferrer" className="text-[#1877F2] text-2xl hover:scale-110 transition-transform"><FaFacebook /></a>
+            <a href="https://www.instagram.com/ommagroup/" target="_blank" rel="noreferrer" className="text-[#DD2A7B] text-2xl hover:scale-110 transition-transform"><FaInstagram /></a>
+            <a href="https://wa.me/525646160018" target="_blank" rel="noreferrer" className="text-[#25D366] text-2xl hover:scale-110 transition-transform"><FaWhatsapp /></a>
+            <a href="https://www.tiktok.com/@ommagroup" target="_blank" rel="noreferrer" className="text-black text-2xl hover:scale-110 transition-transform"><FaTiktok /></a>
+          </div>
         </div>
       </section>
 
-      {/* MAP */}
-      <div className="contact-map">
-        <iframe
-          title="Mapa ubicación"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.6619395624573!2d-99.19252342392444!3d19.435844545909763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20200a8e1fe23%3A0x3a5da133184022ad!2sAv.%20Homero%20527-Depto.%20701%20Piso%207%2C%20Polanco%20V%20Secc%2C%20Miguel%20Hidalgo%2C%2011560%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses-419!2smx!4v1695492332321!5m2!1ses-419!2smx"
-          width="100%"
-          height="100%"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
+      {/* ========================================= */}
+      {/* 4. DIRECCIÓN Y TEXTO DE CONTACTO INFERIOR */}
+      {/* ========================================= */}
+      <div className="text-center text-gray-400 font-light text-sm md:text-base px-6 max-w-3xl mx-auto mb-16 leading-relaxed block select-all">
+        <p className="mb-1 text-[#7C8B87] font-normal">{t.info.address}</p>
+        <p className="tracking-wide font-bold text-[#32453F]">{t.info.phone}</p>
       </div>
 
-      {/* FOOTER */}
-      <footer className="footer-contact">
-        <div className="footer-grid-contact">
+      {/* ========================================= */}
+      {/* 5. FOOTER GLOBAL ACTUALIZADO              */}
+      {/* ========================================= */}
+      <footer className="w-full bg-[#203C46] text-white py-16 px-6 md:px-12 mt-auto box-border block">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          
           <div>
-            <h3>{t.footer.aboutTitle}</h3>
-            <p>{t.footer.aboutText}</p>
+            <h3 className="font-bold text-lg mb-6">Acerca de nosotros</h3>
+            <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none">
+              <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">Conócenos</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contáctanos</Link></li>
+            </ul>
           </div>
+
           <div>
-            <h3>{t.footer.linksTitle}</h3>
-            <div className="footer-links-contact">
-              <a href="/">{t.nav.home}</a>
-              <a href="/about">{t.nav.about}</a>
-              <a href="/services">{t.nav.services}</a>
+            <h3 className="font-bold text-lg mb-6">Información de Contacto</h3>
+            <div className="flex flex-col space-y-3 text-sm text-gray-300 font-light">
+              <p>(+52) 56 4616 0018</p>
+              <p>info@ommagr.com</p>
             </div>
           </div>
+
           <div>
-            <h3>{t.footer.contactTitle}</h3>
-            <p>{t.info.phone}</p>
-            <p>Email: info@ommagr.com</p>
+            <h3 className="font-bold text-lg mb-6">Catálogo de Productos</h3>
+            <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none">
+              <li><Link to="/sports-medicine" className="hover:text-white transition-colors">Medicina Deportiva</Link></li>
+              <li><Link to="/shoulder" className="hover:text-white transition-colors">Hombro</Link></li>
+              <li><Link to="/knee" className="hover:text-white transition-colors">Rodilla</Link></li>
+              <li><Link to="/elbow" className="hover:text-white transition-colors">Codo</Link></li>
+              <li><Link to="/hip" className="hover:text-white transition-colors">Cadera</Link></li>
+            </ul>
           </div>
         </div>
 
-        <div className="footer-bottom-contact">
-          <div className="footer-socials-contact">
-            <a href="https://wa.me/5215517442428" target="_blank" rel="noreferrer"><FaWhatsapp /></a>
-            <a href="https://www.tiktok.com/@ommagroup" target="_blank" rel="noreferrer"><FaTiktok /></a>
-            <a href="https://www.facebook.com/OltechMexico" target="_blank" rel="noreferrer"><FaFacebook /></a>
-            <a href="https://www.instagram.com/grupooltech/#" target="_blank" rel="noreferrer"><FaInstagram /></a>
-          </div>
-          <div className="footer-logo-contact">
-            <img src="/images/omma_white.png" alt="Logo OMMA" />
+        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between opacity-70 text-sm">
+          <p>© {new Date().getFullYear()} OMMA Group LLC. Todos los derechos reservados.</p>
+          <div className="flex items-center space-x-6 mt-4 md:mt-0 text-xl">
+            <a href="https://www.facebook.com/profile.php?id=61578851184996" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><FaFacebook /></a>
+            <a href="https://www.instagram.com/ommagroup/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><FaInstagram /></a>
           </div>
         </div>
       </footer>
+
     </div>
   );
 }

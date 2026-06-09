@@ -6,7 +6,7 @@ export default {
     contact: "Contact",
   },
   hero: {
-    title: "Innovation without \nborders.\n",
+    title: "Innovation \nwithout borders.\n",
     description:
       "We are the choice that combines world-class engineering, efficient costs, and reliable local service, offering physicians and hospitals the security of a strategic partner that understands their clinical and financial challenges.",
     button: "Get Started",

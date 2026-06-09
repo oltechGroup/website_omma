@@ -25,7 +25,7 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar />  ⬅️ COMENTAMOS ESTA LÍNEA TEMPORALMENTE */}
         <div>
           <Routes>
             <Route path="/" element={<HomePage />} />
