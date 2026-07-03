@@ -1,6 +1,13 @@
+//src/locales/pageservices/sports/en.js
 export default {
+  nav: { 
+    home: "Home", 
+    catalog: "Catalog", 
+    meetUs: "About Us" 
+  },
   hero: {
-    title: "Sports Medicine",
+    titleSmall: "Specialty in",
+    titleLarge: "Sports Medicine",
     subtitle: "Innovative arthroscopy solutions for athletes and patients with high-performance injuries."
   },
   products: {
@@ -47,21 +54,25 @@ export default {
   },
   back: "Back to Services",
   footer: {
-    about: {
-      title: "About us",
-      desc: "We are a group dedicated to providing exceptional service with quality and trust."
-    },
-    links: {
-      title: "About",
+    aboutTitle: "About Us",
+    aboutText: "We are a group dedicated to offering exceptional service with quality and trust solutions.",
+    linksTitle: "About",
+    contactTitle: "Contact Information",
+    phone: "Phone: +52 1 56 4616 0018",
+    email: "Email: info@ommagr.com",
+    rights: "All rights reserved.",
+    productsTitle: "Product Catalog",
+    navigation: {
       home: "Home",
       about: "About Us",
-      services: "Services"
+      contact: "Contact Us"
     },
-    contact: {
-      title: "Contact Information",
-      phone: "Tel: +52 1 56 4616 0018",
-      email: "Email: info@ommagr.com"
-    },
-    bottom: "© 2025 OMMA Group. All rights reserved."
+    products: {
+      sportsMedicine: "Sports Medicine",
+      shoulder: "Shoulder",
+      knee: "Knee",
+      elbow: "Elbow",
+      hip: "Hip"
+    }
   }
 };

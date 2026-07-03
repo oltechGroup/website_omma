@@ -1,4 +1,4 @@
-
+//src/locales/es.js
 export default {
   navbar: {
     home: "Inicio",
@@ -7,9 +7,8 @@ export default {
     contact: "Contáctanos",
   },
   hero: {
-    
     title: "Innovación \nsin fronteras.\n",
-    description:"Somos la opción que combina ingeniería de clase mundial, costos eficientes y servicio local \nconfiable, ofreciendo a los médicos y hospitales la seguridad de un aliado estratégico que entiende sus retos \nclínicos y financieros.",
+    description: "Somos la opción que combina ingeniería de clase mundial, costos eficientes y servicio local \nconfiable, ofreciendo a los médicos y hospitales la seguridad de un aliado estratégico que entiende sus retos \nclínicos y financieros.",
     button: "Empezar ahora",
   },
 
@@ -44,18 +43,42 @@ export default {
       { title: "Dedicación:", text: "Estamos comprometidos con la calidad en cada servicio, desde la administración hasta la construcción y el equipamiento.", icon: "❤️" },
       { title: "Responsabilidad:", text: "Nuestros servicios están respaldados por la experiencia de trabajar con clientes como el Hospital Infantil de México y el ISSSTE.", icon: "☝️" },
       { title: "Valores internos:", text: "Talento y experiencia a tu servicio. Nuestro equipo profesional garantiza la provisión y prestación de servicios de la más alta calidad.", icon: "💡" }
+    ],
+    // NUEVAS LLAVES: Para la sección de Redes Sociales e Instagram
+    socialTitle: "Nuestras Redes \n Sociales",
+    socialDescription: "En un campo donde la precisión es crucial, elegir al proveedor adecuado puede marcar la diferencia entre el éxito y la conformidad. Mantente al día con nuestras innovaciones.",
+    reviewsTitle: "Lo que dicen de nosotros",
+    // Textos traducibles para el carrusel infinito de reseñas de Google
+    reviewsList: [
+      { name: "Albertov Farmex", details: "Local Guide · 17 opiniones", time: "Hace un año", text: "Excelentes instalaciones para hacer los mejores talleres Wet lab en México." },
+      { name: "Dr. Carlos Mendoza", details: "Traumatólogo · 4 opiniones", time: "Hace 3 meses", text: "La atención y precisión de los implantes OMMA ha mejorado significativamente la recuperación de mis pacientes." },
+      { name: "Hospital General Regional", details: "Institución Médica", time: "Hace 6 meses", text: "Proveedores altamente confiables. El servicio local y la calidad de la ingeniería son de primer nivel." },
+      { name: "María Fernanda L.", details: "Paciente · 2 opiniones", time: "Hace 1 mes", text: "Gracias a su prótesis de rodilla he podido recuperar mi movilidad y mi vida diaria. Excelente calidad." },
+      { name: "ISSSTE Oficial", details: "Institución · 120 opiniones", time: "Hace 8 meses", text: "Cumplimiento estricto de normativas y trazabilidad impecable en todos los equipos proporcionados." },
+      { name: "Javier R.", details: "Local Guide · 34 opiniones", time: "Hace 5 meses", text: "El trato humano de su personal administrativo y de soporte es exceptional. Resuelven dudas rápido." }
     ]
   },
-   offer: {
+  
+  offer: {
     title: "¡Lo más nuevo para ti!",
     description: "Descubre nuestros últimos productos diseñados para ofrecerte innovación, calidad y estilo.",
     button: "Ver producto",
   },
+  
   sectionchoose: {
     title: "Donde la ciencia se convierte en movilidad",
     description: "Somos una empresa creada el 19 de marzo de 2024, dedicada a la provisión y prestación de servicios profesionales para terceros. Brindamos soluciones integrales para eventos masivos, combinando inteligencia tecnológica y talento humano.",
     button: "Ver productos",
   },
+
+  // NUEVA SECCIÓN: Para el formulario de contacto rediseñado
+  contactForm: {
+    title: "Contáctanos",
+    placeholderContact: "Correo Electrónico o Teléfono",
+    placeholderMessage: "Mensaje",
+    buttonSubmit: "Enviar",
+  },
+
   footerhome: {
     about: "Acerca de nosotros",
     description: "Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.",
@@ -64,13 +87,18 @@ export default {
     about3: "Nosotros",
     services: "Servicios",
     info: "Información de Contacto",
-    phone: "Tel: +52 1 56 56 4616 0018",
-    email: "Email: info@ommagr.com",
-
+    phone: "(+52) 56 4616 0018",
+    email: "info@ommagr.com",
+    // NUEVAS LLAVES: Ajustadas al diseño premium del footer
+    knowUs: "Conócenos",
+    catalogTitle: "Catálogo de Productos",
+    catalogItems: {
+      sportsMedicine: "Medicina Deportiva",
+      shoulder: "Hombro",
+      knee: "Rodilla",
+      elbow: "Codo",
+      hip: "Cadera"
+    },
+    rights: "Todos los derechos reservados."
   },
-
-
-
-
-  
 };

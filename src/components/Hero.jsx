@@ -81,9 +81,9 @@ const Hero = () => {
             {/* ENLACES */}
             <div className={`w-full max-w-6xl mx-auto flex justify-center border-y ${borderColorClass} py-3 transition-colors duration-300`}>
               <nav className={`flex items-center space-x-8 md:space-x-12 font-medium text-sm md:text-base ${textColorClass} transition-colors duration-300`}>
-                <Link to="/" className={`${hoverTextClass} transition-colors`}>Inicio</Link>
-                <Link to="/services" className={`${hoverTextClass} transition-colors`}>Catálogo</Link>
-                <Link to="/about" className={`${hoverTextClass} transition-colors`}>Conócenos</Link>
+                <Link to="/" className={`${hoverTextClass} transition-colors`}>{t.navbar.home}</Link>
+                <Link to="/services" className={`${hoverTextClass} transition-colors`}>{t.navbar.services}</Link>
+                <Link to="/about" className={`${hoverTextClass} transition-colors`}>{t.navbar.about}</Link>
                 
                 {/* SELECTOR DE IDIOMA */}
                 <div className={`flex items-center space-x-2 border-l ${dividerColorClass} pl-6 ml-2 transition-colors duration-300`}>
@@ -117,7 +117,7 @@ const Hero = () => {
                 to="/contact" 
                 className="bg-transparent border border-white text-white px-10 py-2.5 rounded text-sm font-bold hover:bg-white hover:text-[#18392F] transition-colors"
               >
-                Contáctanos
+                {t.navbar.contact}
               </Link>
             </div>
           </div>

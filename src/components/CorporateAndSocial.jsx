@@ -4,63 +4,29 @@ import { useLanguage } from "../context/LanguageContext";
 import translations from "/src/locales";
 import { FaFacebook, FaInstagram, FaWhatsapp, FaStar, FaRegHeart, FaShareAlt } from "react-icons/fa";
 
-// ==========================================
-// DATA PARA EL CARRUSEL DE RESEÑAS (6 Diferentes)
-// ==========================================
-const reviewsData = [
-  {
-    initial: "A",
-    name: "Albertov Farmex",
-    details: "Local Guide · 17 opiniones",
-    time: "Hace un año",
-    text: "Excelentes instalaciones para hacer los mejores talleres Wet lab en México.",
-    color: "bg-blue-100 text-blue-500",
-  },
-  {
-    initial: "D",
-    name: "Dr. Carlos Mendoza",
-    details: "Traumatólogo · 4 opiniones",
-    time: "Hace 3 meses",
-    text: "La atención y precisión de los implantes OMMA ha mejorado significativamente la recuperación de mis pacientes.",
-    color: "bg-emerald-100 text-emerald-500",
-  },
-  {
-    initial: "H",
-    name: "Hospital General Regional",
-    details: "Institución Médica",
-    time: "Hace 6 meses",
-    text: "Proveedores altamente confiables. El servicio local y la calidad de la ingeniería son de primer nivel.",
-    color: "bg-purple-100 text-purple-500",
-  },
-  {
-    initial: "M",
-    name: "María Fernanda L.",
-    details: "Paciente · 2 opiniones",
-    time: "Hace 1 mes",
-    text: "Gracias a su prótesis de rodilla he podido recuperar mi movilidad y mi vida diaria. Excelente calidad.",
-    color: "bg-rose-100 text-rose-500",
-  },
-  {
-    initial: "I",
-    name: "ISSSTE Oficial",
-    details: "Institución · 120 opiniones",
-    time: "Hace 8 meses",
-    text: "Cumplimiento estricto de normativas y trazabilidad impecable en todos los equipos proporcionados.",
-    color: "bg-amber-100 text-amber-500",
-  },
-  {
-    initial: "J",
-    name: "Javier R.",
-    details: "Local Guide · 34 opiniones",
-    time: "Hace 5 meses",
-    text: "El trato humano de su personal administrativo y de soporte es excepcional. Resuelven dudas rápido.",
-    color: "bg-cyan-100 text-cyan-500",
-  }
-];
-
 const CorporateAndSocial = () => {
   const { language } = useLanguage();
   const t = translations[language];
+
+  // ==========================================
+  // DATA VISUAL PARA EL CARRUSEL
+  // Extraemos solo los colores, el texto vendrá del archivo de idiomas.
+  // ==========================================
+  const reviewColors = [
+    "bg-blue-100 text-blue-500",
+    "bg-emerald-100 text-emerald-500",
+    "bg-purple-100 text-purple-500",
+    "bg-rose-100 text-rose-500",
+    "bg-amber-100 text-amber-500",
+    "bg-cyan-100 text-cyan-500"
+  ];
+
+  // Combinamos la data traducida con los estilos visuales
+  const translatedReviews = (t.corporate.reviewsList || []).map((review, index) => ({
+    ...review,
+    initial: review.name.charAt(0), // Toma automáticamente la primera letra del nombre
+    color: reviewColors[index % reviewColors.length]
+  }));
 
   return (
     <section className="w-full bg-[#FAFAFA] py-20 px-4 flex flex-col items-center overflow-hidden">
@@ -89,15 +55,13 @@ const CorporateAndSocial = () => {
         {/* ========================================= */}
         <div className="w-full">
           <h2 className="text-4xl md:text-5xl font-bold text-[#4A4A4A] mb-12">
-            Valores <br /> corporativos
+            {t.corporate.title}
           </h2>
           
           <div className="flex flex-col gap-8 max-w-4xl">
             {t.corporate.values.map((item, index) => (
               <div key={index} className="flex items-start gap-4">
-                {/* MODIFICACIÓN 1: El Cuadrito Azul ahora es una imagen.
-                  Usamos object-contain para que no se deforme y drop-shadow para un toque premium.
-                */}
+                {/* Cuadrito Azul como imagen */}
                 <img 
                   src="/images/cuadrito_azul.png" 
                   alt="Icono OMMA" 
@@ -131,29 +95,27 @@ const CorporateAndSocial = () => {
             ></iframe>
           </div>
 
-          {/* MODIFICACIÓN 2: Rediseño de la Tarjeta "Síguenos"
-            Fondo oscuro premium, textos en blanco/gris claro y botones glassmorphism.
-          */}
+          {/* Tarjeta "Síguenos" */}
           <div className="bg-[#245466] rounded-3xl shadow-[0_15px_40px_rgba(16,42,34,0.3)] p-10 md:p-14 flex flex-col justify-center h-[600px] relative overflow-hidden">
             
             {/* Un pequeño toque decorativo de fondo (onda sutil) */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
 
             <h4 className="text-teal-400 font-bold text-lg mb-4 tracking-wide uppercase text-sm"></h4>
-            <h2 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-8">
-              Nuestras Redes <br /> Sociales
+            
+            <h2 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-8 whitespace-pre-line">
+              {t.corporate.socialTitle}
             </h2>
             <p className="text-gray-300 font-light text-sm md:text-xl leading-relaxed mb-12 max-w-md">
-              En un campo donde la precisión es crucial, elegir al proveedor adecuado puede marcar la diferencia entre el éxito y la conformidad. Mantente al día con nuestras innovaciones.
+              {t.corporate.socialDescription}
             </p>
             
-            {/* Botones de Redes Sociales (Rediseñados) */}
+            {/* Botones de Redes Sociales */}
             <div className="flex gap-6 relative z-10">
               <a 
                 href="https://www.facebook.com/profile.php?id=61578851184996" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                // Fondo translúcido que cambia a azul Facebook al hacer hover
                 className="w-14 h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white text-2xl hover:bg-[#1877F2] hover:border-[#1877F2] hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg"
                 aria-label="Facebook OMMA Group"
               >
@@ -163,7 +125,6 @@ const CorporateAndSocial = () => {
                 href="https://www.instagram.com/ommagroup/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                // Fondo translúcido que cambia a gradiente Instagram al hacer hover
                 className="w-14 h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white text-2xl hover:bg-gradient-to-tr hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF] hover:border-transparent hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg"
                 aria-label="Instagram OMMA Group"
               >
@@ -173,7 +134,6 @@ const CorporateAndSocial = () => {
                 href="https://wa.me/525646160018" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                // Fondo translúcido que cambia a verde WhatsApp al hacer hover
                 className="w-14 h-14 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center text-white text-2xl hover:bg-[#25D366] hover:border-[#25D366] hover:scale-110 hover:-translate-y-1 transition-all duration-300 shadow-lg"
                 aria-label="WhatsApp OMMA Group"
               >
@@ -188,12 +148,8 @@ const CorporateAndSocial = () => {
         {/* SECCIÓN 3: Carrusel de Reseñas de Google  */}
         {/* ========================================= */}
         <div className="w-full mt-10">
-          <h3 className="text-xl font-bold text-gray-400 mb-6 pl-2">Lo que dicen de nosotros</h3>
+          <h3 className="text-xl font-bold text-gray-400 mb-6 pl-2">{t.corporate.reviewsTitle}</h3>
           
-          {/* MODIFICACIÓN 3: Carrusel Infinito
-            El contenedor 'marquee-container' oculta lo que desborda (overflow-hidden).
-            Adentro, la clase 'animate-marquee' mueve las tarjetas solas.
-          */}
           <div className="w-full overflow-hidden marquee-container relative py-4">
             
             {/* Difuminado en los bordes para que parezca que entran y salen suavemente */}
@@ -201,11 +157,10 @@ const CorporateAndSocial = () => {
             <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-[#FAFAFA] to-transparent z-10 pointer-events-none"></div>
 
             <div className="animate-marquee gap-6 pl-6">
-              {/* Mapeamos la lista duplicada para que el efecto visual sea infinito sin cortes */}
-              {[...reviewsData, ...reviewsData].map((review, index) => (
+              {/* Mapeamos la lista duplicada (y traducida) para que el efecto visual sea infinito sin cortes */}
+              {[...translatedReviews, ...translatedReviews].map((review, index) => (
                 <div 
                   key={index} 
-                  // Ancho fijo para las tarjetas dentro del carrusel
                   className="bg-white rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-6 w-[350px] md:w-[400px] flex-shrink-0 border border-gray-50 hover:shadow-lg transition-shadow duration-300"
                 >
                   <div className="flex items-center gap-4 mb-4">

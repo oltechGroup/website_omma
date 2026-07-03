@@ -10,18 +10,17 @@ import {
 } from "react-icons/fa";
 
 import { useLanguage } from "../context/LanguageContext";
-import translations from "../locales"; 
+
+// Importaciones directas y exclusivas para la sección "Contacto"
+import es from "../locales/contact/es";
+import en from "../locales/contact/en";
+import pt from "../locales/contact/pt";
 
 export default function ContactPage() {
   const { language, changeLanguage } = useLanguage();
   
-  const t = translations[language]?.contact || {
-    hero: { title: "Conectando", highlight: "contigo", subtitle: "Atención personalizada y asesoría en la elección de productos." },
-    form: { title: "Escríbenos", namePlaceholder: "Nombre", emailPlaceholder: "Correo Electrónico o Teléfono", subjectPlaceholder: "Asunto", messagePlaceholder: "Mensaje", button: "Enviar" },
-    info: { address: "Av. Homero 527, Depto. 701 Piso 7, Polanco V Secc, Miguel Hidalgo, 11560 Ciudad de México, CDMX", phone: "+52 1 56 4616 0018" },
-    successMessage: "✅ Identificación de envío exitosa.",
-    errorMessage: "❌ Error al enviar: "
-  };
+  // Asignación dinámica del diccionario según el idioma seleccionado
+  const t = { es, en, pt }[language];
 
   const form = useRef();
   const [status, setStatus] = useState("");
@@ -87,9 +86,9 @@ export default function ContactPage() {
           
           {/* ENLACES CENTRALES */}
           <nav className={`flex items-center space-x-8 md:space-x-12 font-medium text-sm md:text-base ${textColorClass} transition-colors duration-300`}>
-            <Link to="/" className={`${hoverTextClass} transition-colors`}>Inicio</Link>
-            <Link to="/services" className={`${hoverTextClass} transition-colors`}>Catálogo</Link>
-            <Link to="/about" className={`${hoverTextClass} transition-colors`}>Conócenos</Link>
+            <Link to="/" className={`${hoverTextClass} transition-colors`}>{t.nav.home}</Link>
+            <Link to="/services" className={`${hoverTextClass} transition-colors`}>{t.nav.catalog}</Link>
+            <Link to="/about" className={`${hoverTextClass} transition-colors`}>{t.nav.meetUs}</Link>
             
             {/* SELECTOR DE IDIOMA */}
             <div className={`flex items-center space-x-2 border-l ${dividerColorClass} pl-6 ml-2 transition-colors duration-300 hidden md:flex`}>
@@ -274,36 +273,36 @@ export default function ContactPage() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
           
           <div>
-            <h3 className="font-bold text-lg mb-6">Acerca de nosotros</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footer.aboutTitle}</h3>
             <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none">
-              <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">Conócenos</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contáctanos</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">{t.footer.navigation.home}</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">{t.footer.navigation.about}</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">{t.footer.navigation.contact}</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6">Información de Contacto</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footer.contactTitle}</h3>
             <div className="flex flex-col space-y-3 text-sm text-gray-300 font-light">
-              <p>(+52) 56 4616 0018</p>
-              <p>info@ommagr.com</p>
+              <p>{t.footer.phone}</p>
+              <p>{t.footer.email}</p>
             </div>
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6">Catálogo de Productos</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footer.productsTitle}</h3>
             <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none">
-              <li><Link to="/sports-medicine" className="hover:text-white transition-colors">Medicina Deportiva</Link></li>
-              <li><Link to="/shoulder" className="hover:text-white transition-colors">Hombro</Link></li>
-              <li><Link to="/knee" className="hover:text-white transition-colors">Rodilla</Link></li>
-              <li><Link to="/elbow" className="hover:text-white transition-colors">Codo</Link></li>
-              <li><Link to="/hip" className="hover:text-white transition-colors">Cadera</Link></li>
+              <li><Link to="/sports-medicine" className="hover:text-white transition-colors">{t.footer.products.sportsMedicine}</Link></li>
+              <li><Link to="/shoulder" className="hover:text-white transition-colors">{t.footer.products.shoulder}</Link></li>
+              <li><Link to="/knee" className="hover:text-white transition-colors">{t.footer.products.knee}</Link></li>
+              <li><Link to="/elbow" className="hover:text-white transition-colors">{t.footer.products.elbow}</Link></li>
+              <li><Link to="/hip" className="hover:text-white transition-colors">{t.footer.products.hip}</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between opacity-70 text-sm">
-          <p>© {new Date().getFullYear()} OMMA Group LLC. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} OMMA Group LLC. {t.footer.rights}</p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0 text-xl">
             <a href="https://www.facebook.com/profile.php?id=61578851184996" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><FaFacebook /></a>
             <a href="https://www.instagram.com/ommagroup/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><FaInstagram /></a>

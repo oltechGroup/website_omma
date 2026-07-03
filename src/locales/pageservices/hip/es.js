@@ -1,11 +1,18 @@
+//src/locales/pageservices/hip/es.js
 export default {
+  nav: { 
+    home: "Inicio", 
+    catalog: "Catálogo", 
+    meetUs: "Conócenos" 
+  },
   hero: {
-    title: "Sistema de Cadera",
-    subtitle: "Soluciones ortopédicas de alta precisión para reemplazos primarios y de revisión.",
+    titleSmall: "Implantes de",
+    titleLarge: "Cadera",
+    subtitle: "Soluciones ortopédicas de alta precisión para reemplazos primarios y de revisión."
   },
   portfolio: {
     title: "Portafolio de Cadera",
-    subtitle: "Explora nuestra línea completa de vástagos, copas, cabezas y accesorios diseñados para ofrecer estabilidad, biocompatibilidad y desempeño superior.",
+    subtitle: "Explora nuestra línea completa de vástagos, copas, cabezas y accesorios diseñados para ofrecer estabilidad, biocompatibilidad y desempeño superior."
   },
   sections: [
     {
@@ -45,21 +52,25 @@ export default {
   },
   back: "Volver a Servicios",
   footer: {
-    about: {
-      title: "Sobre OMMA",
-      desc: "Expertos en innovación ortopédica, ofreciendo productos de alta calidad y precisión.",
-    },
-    links: {
-      title: "Enlaces",
+    aboutTitle: "Acerca de nosotros",
+    aboutText: "Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.",
+    linksTitle: "Acerca de",
+    contactTitle: "Información de Contacto",
+    phone: "Tel: +52 1 56 4616 0018",
+    email: "Email: info@ommagr.com",
+    rights: "Todos los derechos reservados.",
+    productsTitle: "Catálogo de Productos",
+    navigation: {
       home: "Inicio",
-      about: "Nosotros",
-      services: "Servicios",
+      about: "Conócenos",
+      contact: "Contáctanos"
     },
-    contact: {
-      title: "Contacto",
-      phone: "+52 1 56 4616 0018",
-      email: "info@ommagr.com",
-    },
-    bottom: "© 2025 OMMA. Todos los derechos reservados.",
-  },
+    products: {
+      sportsMedicine: "Medicina Deportiva",
+      shoulder: "Hombro",
+      knee: "Rodilla",
+      elbow: "Codo",
+      hip: "Cadera"
+    }
+  }
 };

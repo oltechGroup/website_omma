@@ -124,9 +124,9 @@ export default function SportsMedicinePage() {
           
           {/* ENLACES CENTRALES */}
           <nav className={`flex items-center space-x-8 md:space-x-12 font-medium text-sm md:text-base ${textColorClass} transition-colors duration-300`}>
-            <Link to="/" className={`${hoverTextClass} transition-colors`}>Inicio</Link>
-            <Link to="/services" className={`${hoverTextClass} transition-colors`}>Catálogo</Link>
-            <Link to="/about" className={`${hoverTextClass} transition-colors`}>Conócenos</Link>
+            <Link to="/" className={`${hoverTextClass} transition-colors`}>{t.nav.home}</Link>
+            <Link to="/services" className={`${hoverTextClass} transition-colors`}>{t.nav.catalog}</Link>
+            <Link to="/about" className={`${hoverTextClass} transition-colors`}>{t.nav.meetUs}</Link>
             
             {/* SELECTOR DE IDIOMA */}
             <div className={`flex items-center space-x-2 border-l ${dividerColorClass} pl-6 ml-2 transition-colors duration-300 hidden md:flex`}>
@@ -143,9 +143,9 @@ export default function SportsMedicinePage() {
       {/* 2. HERO */}
       <div className="max-w-7xl mx-auto w-full px-6 py-16 md:py-24 flex flex-col md:flex-row items-center md:items-start justify-between gap-8 md:gap-12 box-border">
         <div className="w-full md:w-1/2 flex flex-col text-left">
-           <span className="text-xl md:text-3xl text-gray-400 font-light tracking-wide mb-1 md:mb-2">Especialidad en</span>
+           <span className="text-xl md:text-3xl text-gray-400 font-light tracking-wide mb-1 md:mb-2">{t.hero.titleSmall}</span>
            <h1 className="text-5xl md:text-6xl lg:text-[5.5rem] font-black text-[#193833] tracking-tighter leading-none uppercase">
-             {t.hero.title}
+             {t.hero.titleLarge}
            </h1>
         </div>
         <div className="w-full md:w-1/2 flex items-center md:pt-8 lg:pt-12">
@@ -297,39 +297,39 @@ export default function SportsMedicinePage() {
           
           {/* Columna 1: Acerca de nosotros */}
           <div>
-            <h3 className="font-bold text-lg mb-6">Acerca de nosotros</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footer.aboutTitle}</h3>
             <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none">
-              <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">Conócenos</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contáctanos</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">{t.footer.navigation.home}</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">{t.footer.navigation.about}</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">{t.footer.navigation.contact}</Link></li>
             </ul>
           </div>
 
           {/* Columna 2: Información de Contacto */}
           <div>
-            <h3 className="font-bold text-lg mb-6">Información de Contacto</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footer.contactTitle}</h3>
             <div className="flex flex-col space-y-3 text-sm text-gray-300 font-light">
-              <p>(+52) 56 4616 0018</p>
-              <p>info@ommagr.com</p>
+              <p>{t.footer.phone}</p>
+              <p>{t.footer.email}</p>
             </div>
           </div>
 
           {/* Columna 3: Catálogo de Productos */}
           <div>
-            <h3 className="font-bold text-lg mb-6">Catálogo de Productos</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footer.productsTitle}</h3>
             <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none">
-              <li><Link to="/sports-medicine" className="hover:text-white transition-colors">Medicina Deportiva</Link></li>
-              <li><Link to="/shoulder" className="hover:text-white transition-colors">Hombro</Link></li>
-              <li><Link to="/knee" className="hover:text-white transition-colors">Rodilla</Link></li>
-              <li><Link to="/elbow" className="hover:text-white transition-colors">Codo</Link></li>
-              <li><Link to="/hip" className="hover:text-white transition-colors">Cadera</Link></li>
+              <li><Link to="/sports-medicine" className="hover:text-white transition-colors">{t.footer.products.sportsMedicine}</Link></li>
+              <li><Link to="/shoulder" className="hover:text-white transition-colors">{t.footer.products.shoulder}</Link></li>
+              <li><Link to="/knee" className="hover:text-white transition-colors">{t.footer.products.knee}</Link></li>
+              <li><Link to="/elbow" className="hover:text-white transition-colors">{t.footer.products.elbow}</Link></li>
+              <li><Link to="/hip" className="hover:text-white transition-colors">{t.footer.products.hip}</Link></li>
             </ul>
           </div>
 
         </div>
 
         <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between opacity-70 text-sm">
-          <p>© {new Date().getFullYear()} OMMA Group LLC. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} OMMA Group LLC. {t.footer.rights}</p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0 text-xl">
             <a href="https://www.facebook.com/profile.php?id=61578851184996" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><FaFacebook /></a>
             <a href="https://www.instagram.com/ommagroup/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><FaInstagram /></a>

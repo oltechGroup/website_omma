@@ -1,6 +1,13 @@
+//src/locales/pageservices/hip/pt.js
 export default {
+  nav: { 
+    home: "Início", 
+    catalog: "Catálogo", 
+    meetUs: "Conheça-nos" 
+  },
   hero: {
-    title: "Sistema de Quadril",
+    titleSmall: "Implantes de",
+    titleLarge: "Quadril",
     subtitle: "Soluções ortopédicas de alta precisão para substituições primárias e de revisão de quadril.",
   },
   portfolio: {
@@ -45,21 +52,25 @@ export default {
   },
   back: "Voltar para Serviços",
   footer: {
-    about: {
-      title: "Sobre a OMMA",
-      desc: "Especialistas em inovação ortopédica, oferecendo produtos de alta qualidade e precisão.",
-    },
-    links: {
-      title: "Links",
+    aboutTitle: "Sobre nós",
+    aboutText: "Somos um grupo dedicado a oferecer um serviço excepcional com soluções de qualidade e confiança.",
+    linksTitle: "Sobre",
+    contactTitle: "Informações de Contato",
+    phone: "Tel: +52 1 56 4616 0018",
+    email: "Email: info@ommagr.com",
+    rights: "Todos os direitos reservados.",
+    productsTitle: "Catálogo de Produtos",
+    navigation: {
       home: "Início",
-      about: "Sobre Nós",
-      services: "Serviços",
+      about: "Conheça-nos",
+      contact: "Contate-nos"
     },
-    contact: {
-      title: "Contato",
-      phone: "+52 1 56 4616 0018",
-      email: "info@ommagr.com",
-    },
-    bottom: "© 2025 OMMA. Todos os direitos reservados.",
-  },
+    products: {
+      sportsMedicine: "Medicina Esportiva",
+      shoulder: "Ombro",
+      knee: "Joelho",
+      elbow: "Cotovelo",
+      hip: "Quadril"
+    }
+  }
 };

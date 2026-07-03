@@ -1,6 +1,13 @@
+//src/locales/pageservices/hip/en.js
 export default {
+  nav: { 
+    home: "Home", 
+    catalog: "Catalog", 
+    meetUs: "About Us" 
+  },
   hero: {
-    title: "Hip System",
+    titleSmall: "Implants for",
+    titleLarge: "Hip",
     subtitle: "High-precision orthopedic solutions for primary and revision hip replacements.",
   },
   portfolio: {
@@ -45,21 +52,25 @@ export default {
   },
   back: "Back to Services",
   footer: {
-    about: {
-      title: "About OMMA",
-      desc: "Experts in orthopedic innovation, providing high-quality and precision products.",
-    },
-    links: {
-      title: "Links",
+    aboutTitle: "About Us",
+    aboutText: "We are a group dedicated to offering exceptional service with quality and trust solutions.",
+    linksTitle: "About",
+    contactTitle: "Contact Information",
+    phone: "Phone: +52 1 56 4616 0018",
+    email: "Email: info@ommagr.com",
+    rights: "All rights reserved.",
+    productsTitle: "Product Catalog",
+    navigation: {
       home: "Home",
       about: "About Us",
-      services: "Services",
+      contact: "Contact Us"
     },
-    contact: {
-      title: "Contact",
-      phone: "+52 1 56 4616 0018",
-      email: "info@ommagr.com",
-    },
-    bottom: "© 2025 OMMA. All rights reserved.",
-  },
+    products: {
+      sportsMedicine: "Sports Medicine",
+      shoulder: "Shoulder",
+      knee: "Knee",
+      elbow: "Elbow",
+      hip: "Hip"
+    }
+  }
 };

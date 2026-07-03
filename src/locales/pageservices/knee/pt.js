@@ -1,6 +1,13 @@
+//src/locales/pageservices/knee/pt.js
 export default {
+  nav: { 
+    home: "Início", 
+    catalog: "Catálogo", 
+    meetUs: "Conheça-nos" 
+  },
   hero: {
-    title: "Implantes de Joelho",
+    titleSmall: "Implantes de",
+    titleLarge: "Joelho",
     subtitle: "Sistemas primários e de revisão projetados com tecnologia avançada para garantir resultados clínicos superiores."
   },
   portfolio: {
@@ -47,21 +54,25 @@ export default {
   },
   back: "Voltar para Serviços",
   footer: {
-    about: {
-      title: "Sobre nós",
-      desc: "Somos um grupo dedicado a oferecer um serviço excepcional com soluções de qualidade e confiança."
-    },
-    links: {
-      title: "Sobre",
+    aboutTitle: "Sobre nós",
+    aboutText: "Somos um grupo dedicado a oferecer um serviço excepcional com soluções de qualidade e confiança.",
+    linksTitle: "Sobre",
+    contactTitle: "Informações de Contato",
+    phone: "Tel: +52 1 56 4616 0018",
+    email: "Email: info@ommagr.com",
+    rights: "Todos os direitos reservados.",
+    productsTitle: "Catálogo de Produtos",
+    navigation: {
       home: "Início",
-      about: "Sobre nós",
-      services: "Serviços"
+      about: "Conheça-nos",
+      contact: "Contate-nos"
     },
-    contact: {
-      title: "Informações de Contato",
-      phone: "Tel: +52 1 56 4616 0018",
-      email: "Email: info@ommagr.com"
-    },
-    bottom: "© 2025 OMMA Group. Todos os direitos reservados."
+    products: {
+      sportsMedicine: "Medicina Esportiva",
+      shoulder: "Ombro",
+      knee: "Joelho",
+      elbow: "Cotovelo",
+      hip: "Quadril"
+    }
   }
 };

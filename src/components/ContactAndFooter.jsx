@@ -42,7 +42,7 @@ const ContactAndFooter = () => {
 
           {/* Título más grande y espaciado */}
           <h2 className="text-6xl md:text-[5.5rem] font-medium text-white mb-16 tracking-wide">
-            Contáctanos
+            {t.contactForm.title}
           </h2>
 
           {/* Formulario (Inputs más anchos y líneas limpias) */}
@@ -51,14 +51,14 @@ const ContactAndFooter = () => {
             {/* Input Correo / Teléfono */}
             <input 
               type="text" 
-              placeholder="Correo Electrónico o Teléfono" 
+              placeholder={t.contactForm.placeholderContact} 
               className="w-full bg-transparent border-b-2 border-white/80 text-center text-white placeholder-white text-xl py-3 mb-12 focus:outline-none focus:border-teal-300 focus:placeholder-transparent transition-all"
             />
 
             {/* Input Mensaje */}
             <input 
               type="text" 
-              placeholder="Mensaje" 
+              placeholder={t.contactForm.placeholderMessage} 
               className="w-full bg-transparent border-b-2 border-white/80 text-center text-white placeholder-white text-xl py-3 mb-16 focus:outline-none focus:border-teal-300 focus:placeholder-transparent transition-all"
             />
 
@@ -67,7 +67,7 @@ const ContactAndFooter = () => {
               type="submit"
               className="bg-white text-[#38858A] font-bold text-sm uppercase tracking-widest py-3.5 px-20 hover:bg-gray-100 transition-colors shadow-md"
             >
-              Enviar
+              {t.contactForm.buttonSubmit}
             </button>
           </form>
         </div>
@@ -81,32 +81,32 @@ const ContactAndFooter = () => {
           
           {/* Columna 1: Acerca de nosotros (NUEVOS ENLACES) */}
           <div>
-            <h3 className="font-bold text-lg mb-6">Acerca de nosotros</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footerhome.about}</h3>
             <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light">
-              <li><Link to="/" className="hover:text-white transition-colors">Inicio</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">Conócenos</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Contáctanos</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">{t.footerhome.start}</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">{t.footerhome.knowUs}</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">{t.navbar.contact}</Link></li>
             </ul>
           </div>
 
           {/* Columna 2: Información de Contacto (SE QUEDA IGUAL) */}
           <div>
-            <h3 className="font-bold text-lg mb-6">Información de Contacto</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footerhome.info}</h3>
             <div className="flex flex-col space-y-3 text-sm text-gray-300 font-light">
-              <p>(+52) 56 4616 0018</p>
-              <p>info@ommagr.com</p>
+              <p>{t.footerhome.phone}</p>
+              <p>{t.footerhome.email}</p>
             </div>
           </div>
 
           {/* Columna 3: Catálogo de Productos (ENLACES A RUTAS DEFINIDAS EN APP.JSX) */}
           <div>
-            <h3 className="font-bold text-lg mb-6">Catálogo de Productos</h3>
+            <h3 className="font-bold text-lg mb-6">{t.footerhome.catalogTitle}</h3>
             <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light">
-              <li><Link to="/sports-medicine" className="hover:text-white transition-colors">Medicina Deportiva</Link></li>
-              <li><Link to="/shoulder" className="hover:text-white transition-colors">Hombro</Link></li>
-              <li><Link to="/knee" className="hover:text-white transition-colors">Rodilla</Link></li>
-              <li><Link to="/elbow" className="hover:text-white transition-colors">Codo</Link></li>
-              <li><Link to="/hip" className="hover:text-white transition-colors">Cadera</Link></li>
+              <li><Link to="/sports-medicine" className="hover:text-white transition-colors">{t.footerhome.catalogItems.sportsMedicine}</Link></li>
+              <li><Link to="/shoulder" className="hover:text-white transition-colors">{t.footerhome.catalogItems.shoulder}</Link></li>
+              <li><Link to="/knee" className="hover:text-white transition-colors">{t.footerhome.catalogItems.knee}</Link></li>
+              <li><Link to="/elbow" className="hover:text-white transition-colors">{t.footerhome.catalogItems.elbow}</Link></li>
+              <li><Link to="/hip" className="hover:text-white transition-colors">{t.footerhome.catalogItems.hip}</Link></li>
             </ul>
           </div>
 
@@ -114,7 +114,7 @@ const ContactAndFooter = () => {
 
         {/* Redes Sociales al fondo (Reemplazado por íconos de react-icons para mejor compatibilidad) */}
         <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between opacity-70 text-sm">
-          <p>© {new Date().getFullYear()} OMMA Group LLC. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} OMMA Group LLC. {t.footerhome.rights}</p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
             <a href="https://www.facebook.com/profile.php?id=61578851184996" target="_blank" rel="noreferrer" className="text-xl hover:text-white transition-colors">
               <FaFacebook />

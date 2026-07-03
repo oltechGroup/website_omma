@@ -1,4 +1,10 @@
+//src/locales/pageservices/services/es.js
 export default {
+  nav: { 
+    home: "Inicio", 
+    catalog: "Catálogo", 
+    meetUs: "Conócenos" 
+  },
   hero: {
     title: "Nuestros",
     highlight: "Servicios",
@@ -28,21 +34,25 @@ export default {
     }
   },
   footer: {
-    about: {
-      title: "Acerca de nosotros",
-      desc: "Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza."
-    },
-    links: {
-      title: "Acerca de",
+    aboutTitle: "Acerca de nosotros",
+    aboutText: "Somos un grupo dedicado a ofrecer un servicio excepcional con soluciones de calidad y confianza.",
+    linksTitle: "Acerca de",
+    contactTitle: "Información de Contacto",
+    phone: "Tel: +52 1 56 4616 0018",
+    email: "Email: info@ommagr.com",
+    rights: "Todos los derechos reservados.",
+    productsTitle: "Catálogo de Productos",
+    navigation: {
       home: "Inicio",
-      about: "Nosotros",
+      about: "Conócenos",
       contact: "Contáctanos"
     },
-    contact: {
-      title: "Información de Contacto",
-      phone: "Tel:+52 1 56 4616 0018",
-      email: "Email: info@ommagr.com"
-    },
-    bottom: "© 2025 OMMA Group. Todos los derechos reservados."
+    products: {
+      sportsMedicine: "Medicina Deportiva",
+      shoulder: "Hombro",
+      knee: "Rodilla",
+      elbow: "Codo",
+      hip: "Cadera"
+    }
   }
 };

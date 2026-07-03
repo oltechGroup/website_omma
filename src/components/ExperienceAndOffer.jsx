@@ -112,17 +112,17 @@ const ExperienceAndOffer = () => {
         <div className="w-full md:w-1/2 relative">
             <img 
               src="/images/doctor_experiencia.jpg" 
-              alt="Personal con experiencia" 
+              alt={t.services.item2.title} 
               className="w-full h-auto object-cover rounded-xl shadow-lg"
             />
         </div>
 
         <div className="w-full md:w-1/2 flex flex-col justify-center">
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[#4A4A4A] leading-[1.1] mb-6">
-            Personal con <br /> experiencia
+          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[#4A4A4A] leading-[1.1] mb-6 whitespace-pre-line">
+            {t.services.item2.title}
           </h2>
           <p className="text-sm md:text-xs text-gray-500 leading-relaxed max-w-sm">
-            Contáctenos hoy mismo para discutir cómo podemos satisfacer sus necesidades específicas.
+            {t.services.item2.text}
           </p>
         </div>
       </div>
@@ -160,8 +160,8 @@ const ExperienceAndOffer = () => {
         </div>
 
         {/* TÍTULO CENTRAL */}
-        <h2 className="relative z-10 text-4xl md:text-6xl lg:text-[5rem] font-bold text-[#4A4A4A] text-center leading-[1.1] bg-white/60 backdrop-blur-sm p-8 rounded-full md:bg-transparent md:backdrop-blur-none">
-          ¡Lo más <br /> nuevo para ti!
+        <h2 className="relative z-10 text-4xl md:text-6xl lg:text-[5rem] font-bold text-[#4A4A4A] text-center leading-[1.1] bg-white/60 backdrop-blur-sm p-8 rounded-full md:bg-transparent md:backdrop-blur-none whitespace-pre-line">
+          {t.offer.title}
         </h2>
 
         {/* PRÓTESIS ORBITALES (Con sus espacios respetados) */}

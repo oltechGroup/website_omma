@@ -1,6 +1,13 @@
+//src/locales/pageservices/knee/en.js
 export default {
+  nav: { 
+    home: "Home", 
+    catalog: "Catalog", 
+    meetUs: "About Us" 
+  },
   hero: {
-    title: "Knee Implants",
+    titleSmall: "Implants for",
+    titleLarge: "Knee",
     subtitle: "Primary and revision systems designed with advanced technology to ensure superior clinical outcomes."
   },
   portfolio: {
@@ -47,21 +54,25 @@ export default {
   },
   back: "Back to Services",
   footer: {
-    about: {
-      title: "About us",
-      desc: "We are a group dedicated to providing exceptional service with quality and trust."
-    },
-    links: {
-      title: "About",
+    aboutTitle: "About Us",
+    aboutText: "We are a group dedicated to offering exceptional service with quality and trust solutions.",
+    linksTitle: "About",
+    contactTitle: "Contact Information",
+    phone: "Phone: +52 1 56 4616 0018",
+    email: "Email: info@ommagr.com",
+    rights: "All rights reserved.",
+    productsTitle: "Product Catalog",
+    navigation: {
       home: "Home",
-      about: "About us",
-      services: "Services"
+      about: "About Us",
+      contact: "Contact Us"
     },
-    contact: {
-      title: "Contact Information",
-      phone: "Tel: +52 1 56 4616 0018",
-      email: "Email: info@ommagr.com"
-    },
-    bottom: "© 2025 OMMA Group. All rights reserved."
+    products: {
+      sportsMedicine: "Sports Medicine",
+      shoulder: "Shoulder",
+      knee: "Knee",
+      elbow: "Elbow",
+      hip: "Hip"
+    }
   }
 };
