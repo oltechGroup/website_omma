@@ -67,25 +67,26 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col font-sans relative box-border pt-24">
+    <div className="w-full min-h-screen bg-white flex flex-col font-sans relative box-border pt-20 md:pt-24">
       
       {/* ========================================= */}
       {/* NAVBAR PREMIUM GLOBAL INTEGRADO           */}
       {/* ========================================= */}
-      <div className={`w-full transition-all duration-300 z-[999] fixed top-0 left-0 right-0 py-4 ${navBgClass}`}>
-        <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-6 border-b border-gray-100 pb-3">
+      <div className={`w-full transition-all duration-300 z-[999] fixed top-0 left-0 right-0 py-3 md:py-4 ${navBgClass}`}>
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between px-4 md:px-6 border-b border-gray-100 pb-2 md:pb-3">
           
           {/* Logo */}
-          <Link to="/" className="h-10 flex items-center">
+          <Link to="/" className="h-8 md:h-10 flex items-center">
             <img 
               src="/images/omma_logo_hero.png" 
               alt="OMMA Group" 
-              className="h-8 md:h-10 object-contain filter invert opacity-90" // Invertido para que se vea oscuro sobre blanco
+              className="h-6 sm:h-8 md:h-10 object-contain filter invert opacity-90" 
             />
           </Link>
           
           {/* ENLACES CENTRALES */}
-          <nav className={`flex items-center space-x-8 md:space-x-12 font-medium text-sm md:text-base ${textColorClass} transition-colors duration-300`}>
+          {/* Ajuste de tipografía y espaciado para móviles */}
+          <nav className={`flex items-center space-x-4 sm:space-x-8 md:space-x-12 font-medium text-[13px] sm:text-sm md:text-base ${textColorClass} transition-colors duration-300`}>
             <Link to="/" className={`${hoverTextClass} transition-colors`}>{t.nav.home}</Link>
             <Link to="/services" className={`${hoverTextClass} transition-colors`}>{t.nav.catalog}</Link>
             <Link to="/about" className={`${hoverTextClass} transition-colors`}>{t.nav.meetUs}</Link>
@@ -105,8 +106,9 @@ export default function ContactPage() {
       {/* ========================================= */}
       {/* 2. ENCABEZADO "CONECTANDO CONTIGO"        */}
       {/* ========================================= */}
-      <header className="text-center px-4 pt-10 mb-8 select-none">
-        <h1 className="!text-5xl md:!text-6xl lg:!text-7xl !font-extrabold !text-[#32453F] mb-2 tracking-tighter block">
+      <header className="text-center px-4 pt-6 md:pt-10 mb-8 select-none">
+        {/* Tamaños escalados para no desbordar en móvil */}
+        <h1 className="!text-4xl sm:!text-5xl md:!text-6xl lg:!text-7xl !font-extrabold !text-[#32453F] mb-2 tracking-tighter block">
           {t.hero.title} <span className="text-[#3B7469]">{t.hero.highlight}</span>
         </h1>
         <p className="!text-sm md:!text-base lg:!text-xl !text-[#7C8B87] !font-light tracking-normal max-w-2xl mx-auto block">
@@ -127,7 +129,7 @@ export default function ContactPage() {
           <a href="https://www.instagram.com/ommagroup/" target="_blank" rel="noreferrer" className="hover:text-[#DD2A7B] transition-colors inline-block w-auto text-left py-1 px-2">Instagram</a>
         </div>
 
-        {/* --- MOCKUP DESKTOP: LAPTOP --- */}
+        {/* --- MOCKUP DESKTOP: LAPTOP (SE MANTIENE INTACTO) --- */}
         <div className="relative w-full max-w-4xl hidden md:block select-none box-border">
           <img 
             src="/images/laptop_frame.png" 
@@ -206,8 +208,9 @@ export default function ContactPage() {
         </div>
 
         {/* --- MOCKUP RESPONSIVO: SMARTPHONE --- */}
-        <div className="relative w-full max-w-[320px] md:hidden select-none mt-4 mb-8 box-border mx-auto flex flex-col items-center">
-          <div className="relative w-[400px] h-[570px] flex justify-center">
+        <div className="relative w-full max-w-[360px] md:hidden select-none mt-2 mb-8 box-border mx-auto flex flex-col items-center">
+          {/* Ajustado el ancho fijo de 400px a dimensiones fluidas basadas en Tailwind para evitar overflow horizontal */}
+          <div className="relative w-[300px] h-[427px] sm:w-[350px] sm:h-[498px] flex justify-center">
             {/* TRUCO: La imagen del celular va POR ENCIMA */}
             <img 
               src="/images/phone_frame.png" 
@@ -216,32 +219,32 @@ export default function ContactPage() {
             />
             
             {/* Contenido de la pantalla */}
-            <div className="absolute top-[6%] left-[20.5%] w-[60%] h-[94%] bg-white rounded-[2.5rem] overflow-y-auto flex flex-col p-3 shadow-inner z-10 box-border no-scrollbar pt-8">
+            <div className="absolute top-[6%] left-[20.5%] w-[60%] h-[94%] bg-white rounded-[2rem] sm:rounded-[2.5rem] overflow-y-auto flex flex-col p-2 sm:p-3 shadow-inner z-10 box-border no-scrollbar pt-6 sm:pt-8">
               
-              <div className="bg-[#EAEFEB] border border-gray-200 rounded-xl p-4 flex flex-col items-center gap-3 box-border w-full mb-4">
+              <div className="bg-[#EAEFEB] border border-gray-200 rounded-lg sm:rounded-xl p-3 sm:p-4 flex flex-col items-center gap-2 sm:gap-3 box-border w-full mb-3 sm:mb-4">
                 <img 
                   src="/images/omma_logo_hero.png" 
                   alt="OMMA" 
-                  className="h-6 object-contain filter invert opacity-80 mb-2" 
+                  className="h-4 sm:h-6 object-contain filter invert opacity-80 mb-1 sm:mb-2" 
                 />
                 
-                <form ref={form} onSubmit={sendEmail} className="w-full flex flex-col gap-2.5 box-border">
-                  <input type="text" name="name" placeholder={t.form.namePlaceholder} required className="w-full bg-white border border-gray-300 shadow-sm p-2.5 text-[11px] font-normal rounded text-gray-700 box-border focus:outline-none" />
-                  <input type="text" name="email" placeholder={t.form.emailPlaceholder} required className="w-full bg-white border border-gray-300 shadow-sm p-2.5 text-[11px] font-normal rounded text-gray-700 box-border focus:outline-none" />
-                  <textarea name="message" placeholder={t.form.messagePlaceholder} rows="2" required className="w-full bg-white border border-gray-300 shadow-sm p-2.5 text-[11px] font-normal rounded text-gray-700 resize-none box-border focus:outline-none"></textarea>
-                  <button type="submit" className="w-full bg-[#32453F] text-white font-bold text-[11px] py-2.5 uppercase tracking-wider rounded shadow-md mt-1 box-border">
+                <form ref={form} onSubmit={sendEmail} className="w-full flex flex-col gap-2 box-border">
+                  <input type="text" name="name" placeholder={t.form.namePlaceholder} required className="w-full bg-white border border-gray-300 shadow-sm p-2 text-[10px] sm:text-[11px] font-normal rounded text-gray-700 box-border focus:outline-none" />
+                  <input type="text" name="email" placeholder={t.form.emailPlaceholder} required className="w-full bg-white border border-gray-300 shadow-sm p-2 text-[10px] sm:text-[11px] font-normal rounded text-gray-700 box-border focus:outline-none" />
+                  <textarea name="message" placeholder={t.form.messagePlaceholder} rows="2" required className="w-full bg-white border border-gray-300 shadow-sm p-2 text-[10px] sm:text-[11px] font-normal rounded text-gray-700 resize-none box-border focus:outline-none"></textarea>
+                  <button type="submit" className="w-full bg-[#32453F] text-white font-bold text-[10px] sm:text-[11px] py-2 sm:py-2.5 uppercase tracking-wider rounded shadow-md mt-1 box-border">
                     {t.form.button}
                   </button>
                 </form>
-                {status && <p className="text-[10px] text-center font-medium text-emerald-600 m-0">{status}</p>}
+                {status && <p className="text-[9px] sm:text-[10px] text-center font-medium text-emerald-600 m-0">{status}</p>}
               </div>
 
               {/* Mapa Ajustado a la Vista Móvil */}
-              <div className="w-full h-40 flex-shrink-0 box-border pb-4">
+              <div className="w-full h-28 sm:h-36 flex-shrink-0 box-border pb-4">
                 <iframe 
                   title="Mapa móvil" 
                   src="https://maps.google.com/maps?q=Av.%20Homero%20527,%20Polanco&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                  className="w-full h-full border border-gray-300 rounded-xl shadow-sm" 
+                  className="w-full h-full border border-gray-300 rounded-lg sm:rounded-xl shadow-sm" 
                   loading="lazy"
                 ></iframe>
               </div>
@@ -249,7 +252,7 @@ export default function ContactPage() {
           </div>
 
           {/* BOTONES SOCIALES MÓVIL */}
-          <div className="flex justify-center gap-6 mt-8 z-30">
+          <div className="flex justify-center gap-6 mt-6 sm:mt-8 z-30">
             <a href="https://www.facebook.com/profile.php?id=61578851184996" target="_blank" rel="noreferrer" className="text-[#1877F2] text-2xl hover:scale-110 transition-transform"><FaFacebook /></a>
             <a href="https://www.instagram.com/ommagroup/" target="_blank" rel="noreferrer" className="text-[#DD2A7B] text-2xl hover:scale-110 transition-transform"><FaInstagram /></a>
             <a href="https://wa.me/525646160018" target="_blank" rel="noreferrer" className="text-[#25D366] text-2xl hover:scale-110 transition-transform"><FaWhatsapp /></a>
@@ -261,7 +264,7 @@ export default function ContactPage() {
       {/* ========================================= */}
       {/* 4. DIRECCIÓN Y TEXTO DE CONTACTO INFERIOR */}
       {/* ========================================= */}
-      <div className="text-center text-gray-400 font-light text-sm md:text-base px-6 max-w-3xl mx-auto mb-16 leading-relaxed block select-all">
+      <div className="text-center text-gray-400 font-light text-sm md:text-base px-6 max-w-3xl mx-auto mb-12 md:mb-16 leading-relaxed block select-all">
         <p className="mb-1 text-[#7C8B87] font-normal">{t.info.address}</p>
         <p className="tracking-wide font-bold text-[#32453F]">{t.info.phone}</p>
       </div>
@@ -269,12 +272,13 @@ export default function ContactPage() {
       {/* ========================================= */}
       {/* 5. FOOTER GLOBAL ACTUALIZADO              */}
       {/* ========================================= */}
-      <footer className="w-full bg-[#203C46] text-white py-16 px-6 md:px-12 mt-auto box-border block">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+      <footer className="w-full bg-[#203C46] text-white py-12 md:py-16 px-6 md:px-12 mt-auto box-border block">
+        {/* Centrado en móvil, alineado a la izquierda en PC */}
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 text-center md:text-left">
           
           <div>
-            <h3 className="font-bold text-lg mb-6">{t.footer.aboutTitle}</h3>
-            <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none">
+            <h3 className="font-bold text-lg mb-4 md:mb-6">{t.footer.aboutTitle}</h3>
+            <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none items-center md:items-start">
               <li><Link to="/" className="hover:text-white transition-colors">{t.footer.navigation.home}</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">{t.footer.navigation.about}</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">{t.footer.navigation.contact}</Link></li>
@@ -282,7 +286,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6">{t.footer.contactTitle}</h3>
+            <h3 className="font-bold text-lg mb-4 md:mb-6">{t.footer.contactTitle}</h3>
             <div className="flex flex-col space-y-3 text-sm text-gray-300 font-light">
               <p>{t.footer.phone}</p>
               <p>{t.footer.email}</p>
@@ -290,8 +294,8 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <h3 className="font-bold text-lg mb-6">{t.footer.productsTitle}</h3>
-            <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none">
+            <h3 className="font-bold text-lg mb-4 md:mb-6">{t.footer.productsTitle}</h3>
+            <ul className="flex flex-col space-y-3 text-sm text-gray-300 font-light p-0 m-0 list-none items-center md:items-start">
               <li><Link to="/sports-medicine" className="hover:text-white transition-colors">{t.footer.products.sportsMedicine}</Link></li>
               <li><Link to="/shoulder" className="hover:text-white transition-colors">{t.footer.products.shoulder}</Link></li>
               <li><Link to="/knee" className="hover:text-white transition-colors">{t.footer.products.knee}</Link></li>
@@ -301,9 +305,9 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between opacity-70 text-sm">
-          <p>© {new Date().getFullYear()} OMMA Group LLC. {t.footer.rights}</p>
-          <div className="flex items-center space-x-6 mt-4 md:mt-0 text-xl">
+        <div className="max-w-6xl mx-auto mt-12 md:mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between opacity-70 text-sm gap-4 md:gap-0">
+          <p className="text-center md:text-left">© {new Date().getFullYear()} OMMA Group LLC. {t.footer.rights}</p>
+          <div className="flex items-center space-x-6 text-xl">
             <a href="https://www.facebook.com/profile.php?id=61578851184996" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><FaFacebook /></a>
             <a href="https://www.instagram.com/ommagroup/" target="_blank" rel="noreferrer" className="hover:text-white transition-colors"><FaInstagram /></a>
           </div>

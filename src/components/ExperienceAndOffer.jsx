@@ -11,9 +11,7 @@ const generarPathCurvado = (radioBase, amplitud, picos) => {
   let d = "";
   for (let i = 0; i <= 360; i += 2) {
     const angulo = (i * Math.PI) / 180;
-    // Fórmula: El radio se altera según la amplitud para crear la "ola"
     const r = radioBase + amplitud * Math.sin(picos * angulo);
-    // Convertir a X, Y (Centro en 500,500)
     const x = 500 + r * Math.cos(angulo);
     const y = 500 + r * Math.sin(angulo);
     
@@ -29,54 +27,62 @@ const ExperienceAndOffer = () => {
 
   // Generamos 20 líneas concéntricas
   const lineasSVG = Array.from({ length: 20 }).map((_, index) => {
-    const progreso = index / 19; // Va de 0 (exterior) a 1 (interior)
-    const radioBase = 460 - (progreso * 280); // El círculo se va haciendo pequeño
-    
-    // LA MAGIA ESTÁ AQUÍ:
-    // Si es la línea exterior (progreso = 0), la amplitud es 0 (círculo perfecto).
-    // Conforme entra, la ola crece hasta 60px de profundidad.
+    const progreso = index / 19;
+    const radioBase = 460 - (progreso * 280);
     const amplitud = progreso * 60; 
-    const picos = 5; // Número de crestas de la ola
+    const picos = 5;
     
     return generarPathCurvado(radioBase, amplitud, picos);
   });
 
   return (
-    <section className="w-full bg-white pb-24 px-4 flex flex-col items-center overflow-hidden">
+    <section className="w-full bg-white pb-16 md:pb-24 px-4 flex flex-col items-center overflow-hidden">
       
       {/* ========================================= */}
       {/* ESTILOS ANIMADOS (Órbitas y Rotación de Ondas) */}
       {/* ========================================= */}
       <style>{`
-        /* Rotación fluida para las ondas SVG. Al girar una onda senoidal, 
-           crea la ilusión óptica de ondulación in situ. */
         @keyframes spin-wave {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
         }
 
         .wave-path {
-          transform-origin: 500px 500px; /* Eje central del SVG */
+          transform-origin: 500px 500px;
           animation: spin-wave 25s linear infinite;
         }
 
-        /* Animación Orbital original conservada
-          El translateX define qué tan lejos del centro viaja la imagen.
-          La doble rotación (positiva y luego negativa) mantiene la imagen siempre derecha.
-        */
+        /* TAMAÑO MÓVIL (Pantallas muy pequeñas < 640px) */
         @keyframes orbit-1 {
-          from { transform: rotate(0deg) translateX(11rem) rotate(0deg); }
-          to { transform: rotate(360deg) translateX(11rem) rotate(-360deg); }
+          from { transform: rotate(0deg) translateX(6rem) rotate(0deg); }
+          to { transform: rotate(360deg) translateX(6rem) rotate(-360deg); }
         }
         @keyframes orbit-2 {
-          from { transform: rotate(120deg) translateX(11rem) rotate(-120deg); }
-          to { transform: rotate(480deg) translateX(11rem) rotate(-480deg); }
+          from { transform: rotate(120deg) translateX(6rem) rotate(-120deg); }
+          to { transform: rotate(480deg) translateX(6rem) rotate(-480deg); }
         }
         @keyframes orbit-3 {
-          from { transform: rotate(240deg) translateX(11rem) rotate(-240deg); }
-          to { transform: rotate(600deg) translateX(11rem) rotate(-600deg); }
+          from { transform: rotate(240deg) translateX(6rem) rotate(-240deg); }
+          to { transform: rotate(600deg) translateX(6rem) rotate(-600deg); }
         }
 
+        /* TAMAÑO TABLET PEQUEÑA (sm: >= 640px) */
+        @media (min-width: 640px) {
+          @keyframes orbit-1 {
+            from { transform: rotate(0deg) translateX(9rem) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(9rem) rotate(-360deg); }
+          }
+          @keyframes orbit-2 {
+            from { transform: rotate(120deg) translateX(9rem) rotate(-120deg); }
+            to { transform: rotate(480deg) translateX(9rem) rotate(-480deg); }
+          }
+          @keyframes orbit-3 {
+            from { transform: rotate(240deg) translateX(9rem) rotate(-240deg); }
+            to { transform: rotate(600deg) translateX(9rem) rotate(-600deg); }
+          }
+        }
+
+        /* TAMAÑO ESCRITORIO (md: >= 768px) - SE MANTIENE EL ORIGINAL INTACTO */
         @media (min-width: 768px) {
           @keyframes orbit-1 {
             from { transform: rotate(0deg) translateX(19rem) rotate(0deg); }
@@ -96,7 +102,6 @@ const ExperienceAndOffer = () => {
         .orbit-track-2 { animation: orbit-2 35s linear infinite; }
         .orbit-track-3 { animation: orbit-3 35s linear infinite; }
 
-        /* Pausar todo el sistema (ondas y órbitas) al hacer hover */
         .orbit-system:hover .wave-path,
         .orbit-system:hover .orbit-track-1,
         .orbit-system:hover .orbit-track-2,
@@ -108,8 +113,9 @@ const ExperienceAndOffer = () => {
       {/* ========================================= */}
       {/* SECCIÓN 1: Personal con experiencia       */}
       {/* ========================================= */}
-      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between py-16 md:py-24 gap-12">
-        <div className="w-full md:w-1/2 relative">
+      {/* Ajustes: En móvil el gap es menor (gap-8) y se centra todo (text-center, items-center) */}
+      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between py-12 md:py-24 gap-8 md:gap-12">
+        <div className="w-full md:w-1/2 relative px-2 md:px-0">
             <img 
               src="/images/doctor_experiencia.jpg" 
               alt={t.services.item2.title} 
@@ -117,8 +123,8 @@ const ExperienceAndOffer = () => {
             />
         </div>
 
-        <div className="w-full md:w-1/2 flex flex-col justify-center">
-          <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[#4A4A4A] leading-[1.1] mb-6 whitespace-pre-line">
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left px-2 md:px-0">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-[#4A4A4A] leading-[1.1] mb-4 md:mb-6 whitespace-pre-line">
             {t.services.item2.title}
           </h2>
           <p className="text-sm md:text-xs text-gray-500 leading-relaxed max-w-sm">
@@ -130,14 +136,15 @@ const ExperienceAndOffer = () => {
       {/* ========================================= */}
       {/* SECCIÓN 2: ¡Lo más nuevo para ti!         */}
       {/* ========================================= */}
-      <div className="relative max-w-6xl w-full min-h-[500px] md:min-h-[800px] flex items-center justify-center mt-10 orbit-system">
+      {/* Ajustes de altura: En móvil min-h-[400px], en pc min-h-[800px] */}
+      <div className="relative max-w-6xl w-full min-h-[400px] sm:min-h-[500px] md:min-h-[800px] flex items-center justify-center mt-6 md:mt-10 orbit-system">
         
         {/* FONDO: SVG Dinámico con coordenadas polares */}
+        {/* Ajuste de tamaño contenedor SVG para que no rebase la pantalla móvil */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-          <div className="relative w-[350px] h-[350px] md:w-[750px] md:h-[750px] flex items-center justify-center">
+          <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[750px] md:h-[750px] flex items-center justify-center">
             <svg viewBox="0 0 1000 1000" className="w-full h-full">
               {lineasSVG.map((pathData, index) => {
-                // Alternamos ligeramente la dirección o aplicamos retraso visual para la ilusión óptica de agua
                 const isOuter = index === 0;
                 return (
                   <path
@@ -148,7 +155,6 @@ const ExperienceAndOffer = () => {
                     strokeWidth={isOuter ? "2" : "1"}
                     className={isOuter ? "opacity-40" : "opacity-30 wave-path"}
                     style={{
-                      // Las ondas interiores giran con ligero retraso para crear interferencia orgánica
                       animationDirection: index % 2 === 0 ? "normal" : "reverse",
                       animationDuration: `${25 + (index * 2)}s`
                     }}
@@ -160,7 +166,8 @@ const ExperienceAndOffer = () => {
         </div>
 
         {/* TÍTULO CENTRAL */}
-        <h2 className="relative z-10 text-4xl md:text-6xl lg:text-[5rem] font-bold text-[#4A4A4A] text-center leading-[1.1] bg-white/60 backdrop-blur-sm p-8 rounded-full md:bg-transparent md:backdrop-blur-none whitespace-pre-line">
+        {/* Ajustado tamaño de texto y padding para móvil */}
+        <h2 className="relative z-10 text-3xl sm:text-4xl md:text-6xl lg:text-[5rem] font-bold text-[#4A4A4A] text-center leading-[1.1] bg-white/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded-full md:bg-transparent md:backdrop-blur-none whitespace-pre-line">
           {t.offer.title}
         </h2>
 
@@ -171,7 +178,7 @@ const ExperienceAndOffer = () => {
           <img 
             src="/images/protesis_top.png" 
             alt="Prótesis" 
-            className="w-28 md:w-48 lg:w-80 object-contain pointer-events-auto transition-transform duration-300 hover:scale-125 cursor-pointer drop-shadow-2xl"
+            className="w-16 sm:w-24 md:w-48 lg:w-80 object-contain pointer-events-auto transition-transform duration-300 hover:scale-125 cursor-pointer drop-shadow-2xl"
           />
         </div>
         
@@ -180,16 +187,17 @@ const ExperienceAndOffer = () => {
           <img 
             src="/images/protesis_izq.png" 
             alt="Prótesis" 
-            className="w-28 md:w-48 lg:w-25 object-contain pointer-events-auto transition-transform duration-300 hover:scale-125 cursor-pointer drop-shadow-2xl"
+            className="w-16 sm:w-24 md:w-48 lg:w-52 object-contain pointer-events-auto transition-transform duration-300 hover:scale-125 cursor-pointer drop-shadow-2xl"
           />
         </div>
 
         {/* Prótesis 3 */}
+        {/* Nota: Se corrigió el error de clase lg:w-525bject-contain a lg:w-52 object-contain */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20 orbit-track-3">
           <img 
             src="/images/protesis_der.png" 
             alt="Prótesis" 
-            className="w-28 md:w-48 lg:w-525bject-contain pointer-events-auto transition-transform duration-300 hover:scale-125 cursor-pointer drop-shadow-2xl"
+            className="w-16 sm:w-24 md:w-48 lg:w-52 object-contain pointer-events-auto transition-transform duration-300 hover:scale-125 cursor-pointer drop-shadow-2xl"
           />
         </div>
 
